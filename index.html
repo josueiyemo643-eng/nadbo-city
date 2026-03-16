@@ -76,3 +76,45 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:30p
 
 </body>
 </html>
+<div class="product">
+<img src="image.jpg">
+<h3>T-shirt</h3>
+<p>20 $</p>
+<button>Acheter</button>
+</div>
+<h2>🛒 Panier</h2>
+<div id="cart"></div>
+<p>Total : <span id="total">0</span> $</p>
+
+<script>
+let panier = [];
+let total = 0;
+
+function ajouterPanier(nom, prix) {
+    panier.push({nom: nom, prix: prix});
+    total += prix;
+    afficherPanier();
+}
+
+function afficherPanier() {
+    let cart = document.getElementById("cart");
+    cart.innerHTML = "";
+
+    panier.forEach((produit, index) => {
+        cart.innerHTML += `
+        <p>
+        ${produit.nom} - ${produit.prix}$ 
+        <button onclick="supprimerProduit(${index})">❌</button>
+        </p>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function supprimerProduit(index) {
+    total -= panier[index].prix;
+    panier.splice(index,1);
+    afficherPanier();
+}
+</script>
