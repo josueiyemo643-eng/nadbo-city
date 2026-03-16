@@ -6,17 +6,95 @@
 <title>NADBO CITY</title>
 
 <style>
-body{font-family:Arial;margin:0;background:#f5f5f5}
-header{background:#111;color:white;padding:20px;text-align:center}
-header h1{color:#ff6600;margin:0}
-nav{background:#ff6600;padding:10px;text-align:center}
-nav a{color:white;margin:10px;text-decoration:none;font-weight:bold}
-.hero{background:#333;color:white;padding:60px;text-align:center}
-.products{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:20px}
-.product{background:white;padding:15px;width:220px;border-radius:10px;text-align:center;box-shadow:0 0 10px rgba(0,0,0,0.1)}
-.product img{width:100%;border-radius:8px}
-button{background:#ff6600;color:white;border:none;padding:10px;margin-top:10px;border-radius:5px}
-footer{background:#111;color:white;text-align:center;padding:20px;margin-top:30px}
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5
+}
+
+header{
+background:#111;
+color:white;
+padding:20px;
+text-align:center
+}
+
+header h1{
+color:#ff6600;
+margin:0
+}
+
+nav{
+background:#ff6600;
+padding:10px;
+text-align:center
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold
+}
+
+.hero{
+background:#333;
+color:white;
+padding:60px;
+text-align:center
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+padding:20px
+}
+
+.product{
+background:white;
+padding:15px;
+width:220px;
+border-radius:10px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,0.1)
+}
+
+.product img{
+width:100%;
+border-radius:8px
+}
+
+button{
+background:#ff6600;
+color:white;
+border:none;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+cursor:pointer
+}
+
+button:hover{
+background:#e65c00
+}
+
+.cart{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1)
+}
+
+footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px
+}
 </style>
 </head>
 
@@ -24,7 +102,7 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:30p
 
 <header>
 <h1>NADBO CITY 🛒</h1>
-<p>La boutique de tout — Mode • Tech • Accessoires</p>
+<p>Mode • Tech • Accessoires</p>
 </header>
 
 <nav>
@@ -44,29 +122,43 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:30p
 <img src="https://picsum.photos/200?1">
 <h3>T-shirt</h3>
 <p>20 $</p>
-<button>Acheter</button>
+<button onclick="ajouterPanier('T-shirt',20)">Ajouter au panier</button>
 </div>
 
 <div class="product">
 <img src="https://picsum.photos/200?2">
 <h3>Baskets</h3>
 <p>50 $</p>
-<button>Acheter</button>
+<button onclick="ajouterPanier('Baskets',50)">Ajouter au panier</button>
 </div>
 
 <div class="product">
 <img src="https://picsum.photos/200?3">
 <h3>Smartphone</h3>
 <p>300 $</p>
-<button>Acheter</button>
+<button onclick="ajouterPanier('Smartphone',300)">Ajouter au panier</button>
 </div>
 
 <div class="product">
 <img src="https://picsum.photos/200?4">
 <h3>Montre</h3>
 <p>70 $</p>
-<button>Acheter</button>
+<button onclick="ajouterPanier('Montre',70)">Ajouter au panier</button>
 </div>
+
+</div>
+
+<div class="cart">
+
+<h2>🛒 Panier</h2>
+
+<div id="cart"></div>
+
+<p><strong>Total : <span id="total">0</span> $</strong></p>
+
+<a href="https://buy.stripe.com/test">
+<button>Payer maintenant</button>
+</a>
 
 </div>
 
@@ -74,47 +166,55 @@ footer{background:#111;color:white;text-align:center;padding:20px;margin-top:30p
 <p>© 2026 NADBO CITY</p>
 </footer>
 
+<script>
+
+let panier=[]
+let total=0
+
+function ajouterPanier(nom,prix){
+
+panier.push({nom,prix})
+
+total+=prix
+
+afficherPanier()
+
+}
+
+function afficherPanier(){
+
+let cart=document.getElementById("cart")
+
+cart.innerHTML=""
+
+panier.forEach((produit,index)=>{
+
+cart.innerHTML+=`
+
+<p>
+${produit.nom} - ${produit.prix}$ 
+<button onclick="supprimerProduit(${index})">❌</button>
+</p>
+
+`
+
+})
+
+document.getElementById("total").innerText=total
+
+}
+
+function supprimerProduit(index){
+
+total-=panier[index].prix
+
+panier.splice(index,1)
+
+afficherPanier()
+
+}
+
+</script>
+
 </body>
 </html>
-<div class="product">
-<img src="image.jpg">
-<h3>T-shirt</h3>
-<p>20 $</p>
-<button>Acheter</button>
-</div>
-<h2>🛒 Panier</h2>
-<div id="cart"></div>
-<p>Total : <span id="total">0</span> $</p>
-
-<script>
-let panier = [];
-let total = 0;
-
-function ajouterPanier(nom, prix) {
-    panier.push({nom: nom, prix: prix});
-    total += prix;
-    afficherPanier();
-}
-
-function afficherPanier() {
-    let cart = document.getElementById("cart");
-    cart.innerHTML = "";
-
-    panier.forEach((produit, index) => {
-        cart.innerHTML += `
-        <p>
-        ${produit.nom} - ${produit.prix}$ 
-        <button onclick="supprimerProduit(${index})">❌</button>
-        </p>
-        `;
-    });
-
-    document.getElementById("total").innerText = total;
-}
-
-function supprimerProduit(index) {
-    total -= panier[index].prix;
-    panier.splice(index,1);
-    afficherPanier();
-}
-</script>
