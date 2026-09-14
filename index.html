@@ -1,1 +1,1307 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>NADBO CITY | Accueil</title><link rel="stylesheet" href="style.css"></head><body><div class="topbar"><span>📞 438 336 0224</span><span>✉️ josueiyemo643@gmail.com</span><span>JiL likanga</span></div><header><div class="nav"><a class="logo" href="index.html"><img src="logo-nadbo-city.jpeg" alt="NADBO CITY"><b>NADBO <span>CITY</span></b></a><button class="menu">☰</button><nav><a href="index.html">Accueil</a><a href="boutique.html">Boutique</a><a href="services.html">Services</a><a href="actualites.html">Actualités</a><a href="visa.html">Visa</a><a href="contact.html">Contact</a></nav></div></header><main><section class="hero"><h1>NADBO CITY</h1><p>Vente, services, actualités et accompagnement — tout au même endroit.</p><a class="btn" href="boutique.html">Découvrir la boutique</a></section><section class="container"><div class="section-title"><h2>Bienvenue chez NADBO CITY</h2><p>Une plateforme moderne pensée pour simplifier vos achats et vos services.</p></div><div class="grid"><div class="card"><div class="icon">🛍️</div><h3>Boutique</h3><p>Découvrez nos produits tech, accessoires et nouveautés.</p><a class="btn" href="boutique.html">Voir la boutique</a></div><div class="card"><div class="icon">🧹</div><h3>Services</h3><p>Nettoyage, assistance et autres services.</p><a class="btn" href="services.html">Nos services</a></div><div class="card"><div class="icon">📰</div><h3>Actualités</h3><p>Informations et nouveautés NADBO CITY.</p><a class="btn" href="actualites.html">Actualités</a></div></div></section></main><footer><strong>NADBO CITY</strong><div class="footer-links"><a href="boutique.html">Boutique</a><a href="services.html">Services</a><a href="actualites.html">Actualités</a><a href="visa.html">Visa</a><a href="contact.html">Contact</a></div><p>Instagram · Facebook · TikTok · YouTube</p><p>© 2026 Nadbo City — Tous droits réservés.</p></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NADBO CITY | Vente & Services</title>
+
+  <meta name="description"
+        content="Bienvenue sur NADBO CITY — produits, services, actualités et accompagnement à prix accessibles.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #071a3d;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      background: #071a3d;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+    }
+
+    .header-container {
+      max-width: 1400px;
+      margin: auto;
+      min-height: 82px;
+      padding: 12px 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+    }
+
+    .logo img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .logo-text strong {
+      font-size: 25px;
+      letter-spacing: 1px;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 13px;
+      color: #f7a900;
+      margin-top: 3px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      font-weight: bold;
+      font-size: 15px;
+      padding: 8px 0;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f7a900;
+    }
+
+    .language {
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 25px;
+      padding: 10px 15px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 720px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7,26,61,0.98) 0%,
+          rgba(7,26,61,0.92) 43%,
+          rgba(7,26,61,0.25) 100%
+        ),
+        linear-gradient(
+          135deg,
+          #071a3d,
+          #123c70
+        );
+
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-container {
+      max-width: 1400px;
+      min-height: 720px;
+      margin: auto;
+      padding: 70px 45px;
+
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .welcome {
+      max-width: 700px;
+      z-index: 2;
+    }
+
+    .welcome-small {
+      color: #f7a900;
+      font-size: 25px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .welcome h1 {
+      font-size: clamp(55px, 7vw, 100px);
+      line-height: 0.95;
+      font-weight: 900;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .welcome h1 span {
+      color: #f7a900;
+    }
+
+    .welcome h2 {
+      font-size: 29px;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .welcome p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #e7edf7;
+      max-width: 650px;
+    }
+
+    .slogan {
+      margin-top: 25px;
+      color: #f7a900;
+      font-size: 25px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 27px;
+      border-radius: 35px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #f7a900;
+      color: #071a3d;
+    }
+
+    .btn-primary:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: #071a3d;
+    }
+
+    /* =========================
+       PRESIDENT
+    ========================= */
+
+    .president {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      position: relative;
+      height: 100%;
+    }
+
+    .president-card {
+      position: relative;
+      width: min(480px, 100%);
+      text-align: center;
+    }
+
+    .president-card::before {
+      content: "";
+      position: absolute;
+      width: 390px;
+      height: 390px;
+      background: #f7a900;
+      border-radius: 50%;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.18;
+    }
+
+    .president-photo {
+      width: 390px;
+      height: 520px;
+      object-fit: cover;
+      object-position: center top;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+      border-radius: 25px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+      border: 4px solid rgba(247,169,0,0.7);
+    }
+
+    .president-info {
+      position: relative;
+      z-index: 3;
+      background: rgba(7,26,61,0.95);
+      border: 1px solid rgba(247,169,0,0.6);
+      border-radius: 15px;
+      padding: 18px;
+      margin: -40px 20px 0;
+    }
+
+    .president-info h3 {
+      color: white;
+      font-size: 22px;
+    }
+
+    .president-info p {
+      color: #f7a900;
+      font-weight: bold;
+      margin-top: 7px;
+    }
+
+    /* =========================
+       SERVICES RAPIDES
+    ========================= */
+
+    .quick-services {
+      background: #071a3d;
+      color: white;
+      padding: 30px 25px;
+    }
+
+    .quick-container {
+      max-width: 1400px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .quick-card {
+      padding: 18px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .quick-card:last-child {
+      border-right: none;
+    }
+
+    .quick-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .quick-card h3 {
+      color: #f7a900;
+      margin-bottom: 7px;
+    }
+
+    .quick-card p {
+      font-size: 14px;
+      color: #dce5f2;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    .section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 75px 30px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #657083;
+      font-size: 17px;
+    }
+
+    /* =========================
+       CARTES
+    ========================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(7,26,61,0.08);
+      border: 1px solid #e8edf3;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(7,26,61,0.15);
+    }
+
+    .card-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #fff3d5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #687386;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .card-link {
+      color: #f0a000;
+      font-weight: bold;
+    }
+
+    /* =========================
+       À PROPOS DU PDG
+    ========================= */
+
+    .about {
+      background: #071a3d;
+      color: white;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 75px 30px;
+
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-photo img {
+      width: 100%;
+      max-width: 430px;
+      height: 500px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 20px;
+      border: 4px solid #f7a900;
+      margin: auto;
+    }
+
+    .about-text h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 span {
+      color: #f7a900;
+    }
+
+    .about-text p {
+      line-height: 1.8;
+      color: #dce5f2;
+      font-size: 17px;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      color: #f7a900;
+      font-size: 27px;
+      font-style: italic;
+      font-weight: bold;
+      margin-top: 25px;
+    }
+
+    /* =========================
+       CONTACT RAPIDE
+    ========================= */
+
+    .contact-box {
+      background: #f7a900;
+      color: #071a3d;
+      border-radius: 20px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background: #071a3d;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #041127;
+      color: white;
+      padding: 50px 25px 25px;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      color: #f7a900;
+      margin-bottom: 18px;
+    }
+
+    footer p {
+      color: #c8d2e2;
+      line-height: 1.7;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 11px;
+      color: #c8d2e2;
+    }
+
+    footer li a:hover {
+      color: #f7a900;
+    }
+
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social a {
+      width: 42px;
+      height: 42px;
+      background: #f7a900;
+      color: #071a3d;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .copyright {
+      max-width: 1400px;
+      margin: 40px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      color: #9ba8bb;
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .welcome {
+        margin: auto;
+      }
+
+      .welcome p {
+        margin: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .quick-container,
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .header-container {
+        padding: 12px 15px;
+      }
+
+      .logo-text strong {
+        font-size: 20px;
+      }
+
+      .logo img {
+        width: 50px;
+        height: 50px;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-container {
+        min-height: auto;
+        padding: 55px 20px;
+      }
+
+      .welcome h1 {
+        font-size: 55px;
+      }
+
+      .welcome h2 {
+        font-size: 22px;
+      }
+
+      .welcome p {
+        font-size: 17px;
+      }
+
+      .president-photo {
+        width: 100%;
+        max-width: 330px;
+        height: 440px;
+      }
+
+      .quick-container,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-card {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+      }
+
+      .quick-card:last-child {
+        border-bottom: none;
+      }
+
+      .section {
+        padding: 55px 20px;
+      }
+
+      .section-title h2 {
+        font-size: 31px;
+      }
+
+      .about-container {
+        padding: 55px 20px;
+      }
+
+      .about-text h2 {
+        font-size: 31px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="header-container">
+
+      <a href="index.html" class="logo">
+
+        <img
+          src="logo-nadbo-city.jpeg"
+          alt="Logo NADBO CITY"
+        >
+
+        <div class="logo-text">
+          <strong>NADBO CITY</strong>
+          <span>Vente et services à moins prix</span>
+        </div>
+
+      </a>
+
+      <nav>
+
+        <a href="index.html" class="active">
+          Accueil
+        </a>
+
+        <a href="boutique.html">
+          Boutique
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="actualites.html">
+          Actualités
+        </a>
+
+        <a href="visa.html">
+          Visa
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+        <span class="language">
+          🇫🇷 FR
+        </span>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       HERO / BIENVENUE
+  ========================= -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-container">
+
+        <div class="welcome">
+
+          <div class="welcome-small">
+            ✦ Bienvenue sur le site de
+          </div>
+
+          <h1>
+            NADBO <span>CITY</span>
+          </h1>
+
+          <h2>
+            Votre destination pour les produits,
+            services et informations de qualité.
+          </h2>
+
+          <p>
+            Découvrez NADBO CITY, une plateforme pensée
+            pour vous offrir des produits, des services
+            et des solutions accessibles, pratiques et
+            fiables.
+          </p>
+
+          <div class="slogan">
+            Ensemble, plus loin !
+          </div>
+
+          <div class="hero-buttons">
+
+            <a
+              href="boutique.html"
+              class="btn btn-primary"
+            >
+              Découvrir la boutique →
+            </a>
+
+            <a
+              href="services.html"
+              class="btn btn-secondary"
+            >
+              Nos services
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRESIDENT / PDG -->
+
+        <div class="president">
+
+          <div class="president-card">
+
+            <img
+              src="photo-president.jpeg"
+              alt="Président et PDG de NADBO CITY"
+              class="president-photo"
+            >
+
+            <div class="president-info">
+
+              <h3>
+                Josue Iyemo Likanga
+              </h3>
+
+              <p>
+                PRÉSIDENT & PDG — NADBO CITY
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SERVICES RAPIDES
+    ========================= -->
+
+    <section class="quick-services">
+
+      <div class="quick-container">
+
+        <div class="quick-card">
+
+          <div class="quick-icon">🛒</div>
+
+          <h3>
+            Vente en ligne
+          </h3>
+
+          <p>
+            Électroniques, accessoires et produits variés.
+          </p>
+
+        </div>
+
+
+        <div class="quick-card">
+
+          <div class="quick-icon">🏠</div>
+
+          <h3>
+            Services
+          </h3>
+
+          <p>
+            Nettoyage résidentiel et commercial.
+          </p>
+
+        </div>
+
+
+        <div class="quick-card">
+
+          <div class="quick-icon">🌍</div>
+
+          <h3>
+            Visa & accompagnement
+          </h3>
+
+          <p>
+            Informations et accompagnement selon votre projet.
+          </p>
+
+        </div>
+
+
+        <div class="quick-card">
+
+          <div class="quick-icon">📰</div>
+
+          <h3>
+            Actualités
+          </h3>
+
+          <p>
+            Restez informé des dernières nouvelles.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NOS SERVICES
+    ========================= -->
+
+    <section class="section">
+
+      <div class="section-title">
+
+        <h2>
+          Découvrez NADBO CITY
+        </h2>
+
+        <p>
+          Une plateforme, plusieurs solutions.
+        </p>
+
+      </div>
+
+
+      <div class="cards">
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            🛍️
+          </div>
+
+          <h3>
+            Boutique
+          </h3>
+
+          <p>
+            Découvrez nos produits électroniques,
+            accessoires et nouveautés.
+          </p>
+
+          <a
+            href="boutique.html"
+            class="card-link"
+          >
+            Voir la boutique →
+          </a>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            🧹
+          </div>
+
+          <h3>
+            Services
+          </h3>
+
+          <p>
+            Des services de nettoyage adaptés
+            aux maisons, bureaux et appartements.
+          </p>
+
+          <a
+            href="services.html"
+            class="card-link"
+          >
+            Découvrir →
+          </a>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            🌍
+          </div>
+
+          <h3>
+            Visa
+          </h3>
+
+          <p>
+            Informations et accompagnement pour
+            vos projets de voyage et d'immigration.
+          </p>
+
+          <a
+            href="visa.html"
+            class="card-link"
+          >
+            En savoir plus →
+          </a>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="card-icon">
+            📰
+          </div>
+
+          <h3>
+            Actualités
+          </h3>
+
+          <p>
+            Retrouvez les informations et nouvelles
+            importantes sur notre plateforme.
+          </p>
+
+          <a
+            href="actualites.html"
+            class="card-link"
+          >
+            Lire les actualités →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PRÉSIDENT / PDG
+    ========================= -->
+
+    <section class="about">
+
+      <div class="about-container">
+
+        <div class="about-photo">
+
+          <img
+            src="photo-president.jpeg"
+            alt="Josue Iyemo Likanga — Président et PDG de NADBO CITY"
+          >
+
+        </div>
+
+
+        <div class="about-text">
+
+          <h2>
+            Le mot du <span>Président & PDG</span>
+          </h2>
+
+          <p>
+            Bienvenue chez NADBO CITY.
+          </p>
+
+          <p>
+            Notre ambition est de construire une plateforme
+            accessible à tous, proposant des produits,
+            des services et des informations utiles au
+            quotidien.
+          </p>
+
+          <p>
+            NADBO CITY repose sur une vision simple :
+            offrir davantage de solutions, au meilleur
+            rapport qualité-prix, tout en plaçant nos
+            clients au centre de nos priorités.
+          </p>
+
+          <p>
+            Merci de votre confiance et bienvenue dans
+            l'univers NADBO CITY.
+          </p>
+
+          <div class="signature">
+            Josue Iyemo Likanga
+          </div>
+
+          <p>
+            Président & PDG — NADBO CITY
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
+    <section class="section">
+
+      <div class="contact-box">
+
+        <h2>
+          Une question ?
+        </h2>
+
+        <p>
+          L'équipe NADBO CITY est à votre écoute.
+        </p>
+
+        <a
+          href="contact.html"
+          class="contact-button"
+        >
+          Nous contacter →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+
+      <div>
+
+        <h3>
+          NADBO CITY
+        </h3>
+
+        <p>
+          Vente et services à moins prix.
+          Produits, services, actualités et
+          solutions accessibles.
+        </p>
+
+        <div class="social">
+
+          <a href="#" aria-label="Instagram">
+            IG
+          </a>
+
+          <a href="#" aria-label="Facebook">
+            FB
+          </a>
+
+          <a href="#" aria-label="TikTok">
+            TT
+          </a>
+
+          <a href="#" aria-label="YouTube">
+            YT
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Navigation
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="index.html">
+              Accueil
+            </a>
+          </li>
+
+          <li>
+            <a href="boutique.html">
+              Boutique
+            </a>
+          </li>
+
+          <li>
+            <a href="services.html">
+              Services
+            </a>
+          </li>
+
+          <li>
+            <a href="actualites.html">
+              Actualités
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Solutions
+        </h3>
+
+        <ul>
+
+          <li>
+            <a href="visa.html">
+              Visa & accompagnement
+            </a>
+          </li>
+
+          <li>
+            <a href="services.html">
+              Nettoyage
+            </a>
+          </li>
+
+          <li>
+            <a href="boutique.html">
+              Produits
+            </a>
+          </li>
+
+          <li>
+            <a href="contact.html">
+              Contact
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Contact
+        </h3>
+
+        <ul>
+
+          <li>
+            📱 438 336 0224
+          </li>
+
+          <li>
+            📧 josueiyemo643@gmail.com
+          </li>
+
+          <li>
+            📍 Canada
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 Nadbo City — Tous droits réservés.
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
