@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>NADBO CITY | Vente & Services</title>
 
-  <meta name="description"
-        content="Bienvenue sur NADBO CITY — produits, services, actualités et accompagnement à prix accessibles.">
+  <meta
+    name="description"
+    id="pageDescription"
+    content="Bienvenue sur NADBO CITY — produits, services, actualités et accompagnement à prix accessibles."
+  >
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -105,11 +113,27 @@
       color: #f7a900;
     }
 
+    /* =========================
+       BOUTON LANGUE
+    ========================= */
+
     .language {
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.45);
+      background: transparent;
+      color: white;
       border-radius: 25px;
-      padding: 10px 15px;
+      padding: 10px 16px;
       font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .language:hover {
+      background: #f7a900;
+      color: #071a3d;
+      border-color: #f7a900;
+      transform: translateY(-2px);
     }
 
     /* =========================
@@ -118,6 +142,7 @@
 
     .hero {
       min-height: 720px;
+
       background:
         linear-gradient(
           90deg,
@@ -394,9 +419,11 @@
       margin: 0 auto 18px;
       border-radius: 50%;
       background: #fff3d5;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 32px;
     }
 
@@ -556,9 +583,11 @@
       background: #f7a900;
       color: #071a3d;
       border-radius: 50%;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-weight: bold;
     }
 
@@ -620,6 +649,7 @@
       .footer-container {
         grid-template-columns: repeat(2, 1fr);
       }
+
     }
 
     @media (max-width: 650px) {
@@ -705,11 +735,16 @@
       .footer-container {
         grid-template-columns: 1fr;
       }
+
     }
+
   </style>
+
 </head>
 
+
 <body>
+
 
   <!-- =========================
        HEADER
@@ -721,47 +756,90 @@
 
       <a href="index.html" class="logo">
 
+        <!-- LOGO CORRIGÉ -->
         <img
-          src="logo-nadbo-city.jpeg"
+          src="Logo nadbo.PNG"
           alt="Logo NADBO CITY"
         >
 
         <div class="logo-text">
+
           <strong>NADBO CITY</strong>
-          <span>Vente et services à moins prix</span>
+
+          <span
+            data-fr="Vente et services à moins prix"
+            data-en="Affordable sales and services"
+          >
+            Vente et services à moins prix
+          </span>
+
         </div>
 
       </a>
 
+
       <nav>
 
-        <a href="index.html" class="active">
+        <a
+          href="index.html"
+          class="active"
+          data-fr="Accueil"
+          data-en="Home"
+        >
           Accueil
         </a>
 
-        <a href="boutique.html">
+        <a
+          href="boutique.html"
+          data-fr="Boutique"
+          data-en="Shop"
+        >
           Boutique
         </a>
 
-        <a href="services.html">
+        <a
+          href="services.html"
+          data-fr="Services"
+          data-en="Services"
+        >
           Services
         </a>
 
-        <a href="actualites.html">
+        <a
+          href="actualites.html"
+          data-fr="Actualités"
+          data-en="News"
+        >
           Actualités
         </a>
 
-        <a href="visa.html">
+        <a
+          href="visa.html"
+          data-fr="Visa"
+          data-en="Visa"
+        >
           Visa
         </a>
 
-        <a href="contact.html">
+        <a
+          href="contact.html"
+          data-fr="Contact"
+          data-en="Contact"
+        >
           Contact
         </a>
 
-        <span class="language">
+
+        <!-- VRAI BOUTON DE LANGUE -->
+
+        <button
+          class="language"
+          id="languageBtn"
+          onclick="toggleLanguage()"
+          aria-label="Changer de langue"
+        >
           🇫🇷 FR
-        </span>
+        </button>
 
       </nav>
 
@@ -770,8 +848,9 @@
   </header>
 
 
+
   <!-- =========================
-       HERO / BIENVENUE
+       HERO
   ========================= -->
 
   <main>
@@ -780,44 +859,70 @@
 
       <div class="hero-container">
 
+
         <div class="welcome">
 
-          <div class="welcome-small">
+
+          <div
+            class="welcome-small"
+            data-fr="✦ Bienvenue sur le site de"
+            data-en="✦ Welcome to"
+          >
             ✦ Bienvenue sur le site de
           </div>
+
 
           <h1>
             NADBO <span>CITY</span>
           </h1>
 
-          <h2>
+
+          <h2
+            data-fr="Votre destination pour les produits, services et informations de qualité."
+            data-en="Your destination for quality products, services and information."
+          >
             Votre destination pour les produits,
             services et informations de qualité.
           </h2>
 
-          <p>
+
+          <p
+            data-fr="Découvrez NADBO CITY, une plateforme pensée pour vous offrir des produits, des services et des solutions accessibles, pratiques et fiables."
+            data-en="Discover NADBO CITY, a platform designed to offer accessible, practical and reliable products, services and solutions."
+          >
             Découvrez NADBO CITY, une plateforme pensée
             pour vous offrir des produits, des services
             et des solutions accessibles, pratiques et
             fiables.
           </p>
 
-          <div class="slogan">
+
+          <div
+            class="slogan"
+            data-fr="Ensemble, plus loin !"
+            data-en="Together, further!"
+          >
             Ensemble, plus loin !
           </div>
+
 
           <div class="hero-buttons">
 
             <a
               href="boutique.html"
               class="btn btn-primary"
+              data-fr="Découvrir la boutique →"
+              data-en="Discover the shop →"
             >
               Découvrir la boutique →
             </a>
 
+
             <a
               href="services.html"
               class="btn btn-secondary"
+              data-fr="Nos services"
+              data-en="Our services"
             >
               Nos services
             </a>
@@ -827,17 +932,24 @@
         </div>
 
 
-        <!-- PRESIDENT / PDG -->
+
+        <!-- =========================
+             PHOTO PRESIDENT
+        ========================= -->
 
         <div class="president">
 
           <div class="president-card">
 
+
+            <!-- PHOTO CORRIGÉE -->
+
             <img
-              src="photo-president.jpeg"
+              src="President nadbo.JPG"
               alt="Président et PDG de NADBO CITY"
               class="president-photo"
             >
+
 
             <div class="president-info">
 
@@ -845,7 +957,10 @@
                 Josue Iyemo Likanga
               </h3>
 
-              <p>
+              <p
+                data-fr="PRÉSIDENT & PDG — NADBO CITY"
+                data-en="PRESIDENT & CEO — NADBO CITY"
+              >
                 PRÉSIDENT & PDG — NADBO CITY
               </p>
 
@@ -860,6 +975,7 @@
     </section>
 
 
+
     <!-- =========================
          SERVICES RAPIDES
     ========================= -->
@@ -868,91 +984,138 @@
 
       <div class="quick-container">
 
+
         <div class="quick-card">
 
-          <div class="quick-icon">🛒</div>
+          <div class="quick-icon">
+            🛒
+          </div>
 
-          <h3>
+          <h3
+            data-fr="Vente en ligne"
+            data-en="Online Shopping"
+          >
             Vente en ligne
           </h3>
 
-          <p>
+          <p
+            data-fr="Électroniques, accessoires et produits variés."
+            data-en="Electronics, accessories and various products."
+          >
             Électroniques, accessoires et produits variés.
           </p>
 
         </div>
 
 
+
         <div class="quick-card">
 
-          <div class="quick-icon">🏠</div>
+          <div class="quick-icon">
+            🏠
+          </div>
 
-          <h3>
+          <h3
+            data-fr="Services"
+            data-en="Services"
+          >
             Services
           </h3>
 
-          <p>
+          <p
+            data-fr="Nettoyage résidentiel et commercial."
+            data-en="Residential and commercial cleaning."
+          >
             Nettoyage résidentiel et commercial.
           </p>
 
         </div>
 
 
+
         <div class="quick-card">
 
-          <div class="quick-icon">🌍</div>
+          <div class="quick-icon">
+            🌍
+          </div>
 
-          <h3>
+          <h3
+            data-fr="Visa & accompagnement"
+            data-en="Visa & Support"
+          >
             Visa & accompagnement
           </h3>
 
-          <p>
+          <p
+            data-fr="Informations et accompagnement selon votre projet."
+            data-en="Information and support according to your project."
+          >
             Informations et accompagnement selon votre projet.
           </p>
 
         </div>
 
 
+
         <div class="quick-card">
 
-          <div class="quick-icon">📰</div>
+          <div class="quick-icon">
+            📰
+          </div>
 
-          <h3>
+          <h3
+            data-fr="Actualités"
+            data-en="News"
+          >
             Actualités
           </h3>
 
-          <p>
+          <p
+            data-fr="Restez informé des dernières nouvelles."
+            data-en="Stay informed about the latest news."
+          >
             Restez informé des dernières nouvelles.
           </p>
 
         </div>
+
 
       </div>
 
     </section>
 
 
+
     <!-- =========================
-         NOS SERVICES
+         DÉCOUVREZ NADBO CITY
     ========================= -->
 
     <section class="section">
 
       <div class="section-title">
 
-        <h2>
+        <h2
+          data-fr="Découvrez NADBO CITY"
+          data-en="Discover NADBO CITY"
+        >
           Découvrez NADBO CITY
         </h2>
 
-        <p>
+        <p
+          data-fr="Une plateforme, plusieurs solutions."
+          data-en="One platform, multiple solutions."
+        >
           Une plateforme, plusieurs solutions.
         </p>
 
       </div>
 
 
+
       <div class="cards">
 
+
+        <!-- BOUTIQUE -->
 
         <div class="card">
 
@@ -960,11 +1123,17 @@
             🛍️
           </div>
 
-          <h3>
+          <h3
+            data-fr="Boutique"
+            data-en="Shop"
+          >
             Boutique
           </h3>
 
-          <p>
+          <p
+            data-fr="Découvrez nos produits électroniques, accessoires et nouveautés."
+            data-en="Discover our electronics, accessories and latest products."
+          >
             Découvrez nos produits électroniques,
             accessoires et nouveautés.
           </p>
@@ -972,6 +1141,8 @@
           <a
             href="boutique.html"
             class="card-link"
+            data-fr="Voir la boutique →"
+            data-en="View the shop →"
           >
             Voir la boutique →
           </a>
@@ -979,17 +1150,26 @@
         </div>
 
 
+
+        <!-- SERVICES -->
+
         <div class="card">
 
           <div class="card-icon">
             🧹
           </div>
 
-          <h3>
+          <h3
+            data-fr="Services"
+            data-en="Services"
+          >
             Services
           </h3>
 
-          <p>
+          <p
+            data-fr="Des services de nettoyage adaptés aux maisons, bureaux et appartements."
+            data-en="Cleaning services adapted to homes, offices and apartments."
+          >
             Des services de nettoyage adaptés
             aux maisons, bureaux et appartements.
           </p>
@@ -997,6 +1177,8 @@
           <a
             href="services.html"
             class="card-link"
+            data-fr="Découvrir →"
+            data-en="Discover →"
           >
             Découvrir →
           </a>
@@ -1004,17 +1186,26 @@
         </div>
 
 
+
+        <!-- VISA -->
+
         <div class="card">
 
           <div class="card-icon">
             🌍
           </div>
 
-          <h3>
+          <h3
+            data-fr="Visa"
+            data-en="Visa"
+          >
             Visa
           </h3>
 
-          <p>
+          <p
+            data-fr="Informations et accompagnement pour vos projets de voyage et d'immigration."
+            data-en="Information and support for your travel and immigration projects."
+          >
             Informations et accompagnement pour
             vos projets de voyage et d'immigration.
           </p>
@@ -1022,6 +1213,8 @@
           <a
             href="visa.html"
             class="card-link"
+            data-fr="En savoir plus →"
+            data-en="Learn more →"
           >
             En savoir plus →
           </a>
@@ -1029,17 +1222,26 @@
         </div>
 
 
+
+        <!-- ACTUALITÉS -->
+
         <div class="card">
 
           <div class="card-icon">
             📰
           </div>
 
-          <h3>
+          <h3
+            data-fr="Actualités"
+            data-en="News"
+          >
             Actualités
           </h3>
 
-          <p>
+          <p
+            data-fr="Retrouvez les informations et nouvelles importantes sur notre plateforme."
+            data-en="Find important information and news on our platform."
+          >
             Retrouvez les informations et nouvelles
             importantes sur notre plateforme.
           </p>
@@ -1047,15 +1249,19 @@
           <a
             href="actualites.html"
             class="card-link"
+            data-fr="Lire les actualités →"
+            data-en="Read the news →"
           >
             Lire les actualités →
           </a>
 
         </div>
 
+
       </div>
 
     </section>
+
 
 
     <!-- =========================
@@ -1066,58 +1272,100 @@
 
       <div class="about-container">
 
+
         <div class="about-photo">
 
+          <!-- PHOTO CORRIGÉE -->
+
           <img
-            src="photo-president.jpeg"
+            src="President nadbo.JPG"
             alt="Josue Iyemo Likanga — Président et PDG de NADBO CITY"
           >
 
         </div>
 
 
+
         <div class="about-text">
 
+
           <h2>
-            Le mot du <span>Président & PDG</span>
+
+            <span
+              data-fr="Le mot du"
+              data-en="A message from the"
+            >
+              Le mot du
+            </span>
+
+            <span
+              data-fr="Président & PDG"
+              data-en="President & CEO"
+            >
+              Président & PDG
+            </span>
+
           </h2>
 
-          <p>
+
+          <p
+            data-fr="Bienvenue chez NADBO CITY."
+            data-en="Welcome to NADBO CITY."
+          >
             Bienvenue chez NADBO CITY.
           </p>
 
-          <p>
+
+          <p
+            data-fr="Notre ambition est de construire une plateforme accessible à tous, proposant des produits, des services et des informations utiles au quotidien."
+            data-en="Our ambition is to build a platform accessible to everyone, offering products, services and useful information for everyday life."
+          >
             Notre ambition est de construire une plateforme
             accessible à tous, proposant des produits,
             des services et des informations utiles au
             quotidien.
           </p>
 
-          <p>
+
+          <p
+            data-fr="NADBO CITY repose sur une vision simple : offrir davantage de solutions, au meilleur rapport qualité-prix, tout en plaçant nos clients au centre de nos priorités."
+            data-en="NADBO CITY is built on a simple vision: to offer more solutions at the best value while putting our customers at the heart of our priorities."
+          >
             NADBO CITY repose sur une vision simple :
             offrir davantage de solutions, au meilleur
             rapport qualité-prix, tout en plaçant nos
             clients au centre de nos priorités.
           </p>
 
-          <p>
+
+          <p
+            data-fr="Merci de votre confiance et bienvenue dans l'univers NADBO CITY."
+            data-en="Thank you for your trust and welcome to the NADBO CITY world."
+          >
             Merci de votre confiance et bienvenue dans
             l'univers NADBO CITY.
           </p>
+
 
           <div class="signature">
             Josue Iyemo Likanga
           </div>
 
-          <p>
+
+          <p
+            data-fr="Président & PDG — NADBO CITY"
+            data-en="President & CEO — NADBO CITY"
+          >
             Président & PDG — NADBO CITY
           </p>
+
 
         </div>
 
       </div>
 
     </section>
+
 
 
     <!-- =========================
@@ -1128,17 +1376,27 @@
 
       <div class="contact-box">
 
-        <h2>
+        <h2
+          data-fr="Une question ?"
+          data-en="Have a question?"
+        >
           Une question ?
         </h2>
 
-        <p>
+
+        <p
+          data-fr="L'équipe NADBO CITY est à votre écoute."
+          data-en="The NADBO CITY team is here to help."
+        >
           L'équipe NADBO CITY est à votre écoute.
         </p>
+
 
         <a
           href="contact.html"
           class="contact-button"
+          data-fr="Nous contacter →"
+          data-en="Contact us →"
         >
           Nous contacter →
         </a>
@@ -1150,6 +1408,7 @@
   </main>
 
 
+
   <!-- =========================
        FOOTER
   ========================= -->
@@ -1159,17 +1418,23 @@
     <div class="footer-container">
 
 
+      <!-- NADBO CITY -->
+
       <div>
 
         <h3>
           NADBO CITY
         </h3>
 
-        <p>
+        <p
+          data-fr="Vente et services à moins prix. Produits, services, actualités et solutions accessibles."
+          data-en="Affordable sales and services. Products, services, news and accessible solutions."
+        >
           Vente et services à moins prix.
           Produits, services, actualités et
           solutions accessibles.
         </p>
+
 
         <div class="social">
 
@@ -1194,34 +1459,56 @@
       </div>
 
 
+
+      <!-- NAVIGATION -->
+
       <div>
 
-        <h3>
+        <h3
+          data-fr="Navigation"
+          data-en="Navigation"
+        >
           Navigation
         </h3>
 
         <ul>
 
           <li>
-            <a href="index.html">
+            <a
+              href="index.html"
+              data-fr="Accueil"
+              data-en="Home"
+            >
               Accueil
             </a>
           </li>
 
           <li>
-            <a href="boutique.html">
+            <a
+              href="boutique.html"
+              data-fr="Boutique"
+              data-en="Shop"
+            >
               Boutique
             </a>
           </li>
 
           <li>
-            <a href="services.html">
+            <a
+              href="services.html"
+              data-fr="Services"
+              data-en="Services"
+            >
               Services
             </a>
           </li>
 
           <li>
-            <a href="actualites.html">
+            <a
+              href="actualites.html"
+              data-fr="Actualités"
+              data-en="News"
+            >
               Actualités
             </a>
           </li>
@@ -1231,34 +1518,56 @@
       </div>
 
 
+
+      <!-- SOLUTIONS -->
+
       <div>
 
-        <h3>
+        <h3
+          data-fr="Solutions"
+          data-en="Solutions"
+        >
           Solutions
         </h3>
 
         <ul>
 
           <li>
-            <a href="visa.html">
+            <a
+              href="visa.html"
+              data-fr="Visa & accompagnement"
+              data-en="Visa & Support"
+            >
               Visa & accompagnement
             </a>
           </li>
 
           <li>
-            <a href="services.html">
+            <a
+              href="services.html"
+              data-fr="Nettoyage"
+              data-en="Cleaning"
+            >
               Nettoyage
             </a>
           </li>
 
           <li>
-            <a href="boutique.html">
+            <a
+              href="boutique.html"
+              data-fr="Produits"
+              data-en="Products"
+            >
               Produits
             </a>
           </li>
 
           <li>
-            <a href="contact.html">
+            <a
+              href="contact.html"
+              data-fr="Contact"
+              data-en="Contact"
+            >
               Contact
             </a>
           </li>
@@ -1268,9 +1577,15 @@
       </div>
 
 
+
+      <!-- CONTACT -->
+
       <div>
 
-        <h3>
+        <h3
+          data-fr="Contact"
+          data-en="Contact"
+        >
           Contact
         </h3>
 
@@ -1292,16 +1607,182 @@
 
       </div>
 
+
     </div>
+
 
 
     <div class="copyright">
 
-      © 2026 Nadbo City — Tous droits réservés.
+      © 2026 NADBO CITY —
+
+      <span
+        data-fr="Tous droits réservés."
+        data-en="All rights reserved."
+      >
+        Tous droits réservés.
+      </span>
 
     </div>
 
+
   </footer>
 
+
+
+  <!-- =========================
+       SYSTÈME FRANÇAIS / ANGLAIS
+  ========================= -->
+
+  <script>
+
+    let currentLanguage = "fr";
+
+
+    function setLanguage(language) {
+
+      currentLanguage = language;
+
+
+      /*
+       * Change tous les textes possédant
+       * data-fr et data-en
+       */
+
+      const elements =
+        document.querySelectorAll("[data-fr][data-en]");
+
+
+      elements.forEach(function(element) {
+
+        element.textContent =
+          element.getAttribute("data-" + language);
+
+      });
+
+
+      /*
+       * Change le bouton
+       */
+
+      const languageBtn =
+        document.getElementById("languageBtn");
+
+
+      if (language === "en") {
+
+        languageBtn.textContent = "🇬🇧 EN";
+
+      } else {
+
+        languageBtn.textContent = "🇫🇷 FR";
+
+      }
+
+
+      /*
+       * Change la langue HTML
+       */
+
+      document.documentElement.lang = language;
+
+
+      /*
+       * Change le titre de la page
+       */
+
+      if (language === "en") {
+
+        document.title =
+          "NADBO CITY | Sales & Services";
+
+        document
+          .getElementById("pageDescription")
+          .setAttribute(
+            "content",
+            "Welcome to NADBO CITY — products, services, news and support at affordable prices."
+          );
+
+      } else {
+
+        document.title =
+          "NADBO CITY | Vente & Services";
+
+        document
+          .getElementById("pageDescription")
+          .setAttribute(
+            "content",
+            "Bienvenue sur NADBO CITY — produits, services, actualités et accompagnement à prix accessibles."
+          );
+
+      }
+
+
+      /*
+       * Sauvegarde la langue choisie.
+       * Si le visiteur revient sur le site,
+       * la langue sera conservée.
+       */
+
+      localStorage.setItem(
+        "nadboLanguage",
+        language
+      );
+
+    }
+
+
+    /*
+     * Bouton FR / EN
+     */
+
+    function toggleLanguage() {
+
+      if (currentLanguage === "fr") {
+
+        setLanguage("en");
+
+      } else {
+
+        setLanguage("fr");
+
+      }
+
+    }
+
+
+    /*
+     * Au chargement du site,
+     * récupérer la langue précédemment choisie.
+     */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const savedLanguage =
+          localStorage.getItem("nadboLanguage");
+
+
+        if (
+          savedLanguage === "en" ||
+          savedLanguage === "fr"
+        ) {
+
+          setLanguage(savedLanguage);
+
+        } else {
+
+          setLanguage("fr");
+
+        }
+
+      }
+    );
+
+  </script>
+
+
 </body>
+
 </html>
