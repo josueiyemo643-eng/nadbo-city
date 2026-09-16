@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NADBO CITY | À propos</title>
+  <meta name="description" content="Découvrez NADBO CITY, sa vision, sa mission, ses valeurs et son fondateur.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #071a3d;
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #071a3d;
+      color: white;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .logo h2 {
+      color: #f7a900;
+      font-size: 22px;
+      letter-spacing: .5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f7a900;
+    }
+
+    .language {
+      border: 2px solid #f7a900;
+      background: transparent;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .language:hover {
+      background: #f7a900;
+      color: #071a3d;
+    }
+
+    /* ===== HERO ===== */
+    .page-hero {
+      min-height: 390px;
+      background:
+        linear-gradient(rgba(7,26,61,.93), rgba(7,26,61,.93));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-content .eyebrow {
+      color: #f7a900;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(38px, 6vw, 58px);
+      margin-bottom: 18px;
+    }
+
+    .hero-content p {
+      font-size: 19px;
+      max-width: 760px;
+      margin: auto;
+      color: #eef2f8;
+    }
+
+    /* ===== GENERAL SECTIONS ===== */
+    section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      color: #071a3d;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      max-width: 720px;
+      margin: auto;
+      color: #666;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 4px;
+      background: #f7a900;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+
+    /* ===== ABOUT INTRO ===== */
+    .intro-box {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 42px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(7,26,61,.08);
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .intro-box p + p {
+      margin-top: 18px;
+    }
+
+    /* ===== FOUNDER ===== */
+    .founder-section {
+      background: white;
+    }
+
+    .founder-container {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .founder-photo-wrap {
+      text-align: center;
+    }
+
+    .founder-photo-wrap img {
+      width: 100%;
+      max-width: 360px;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(7,26,61,.18);
+    }
+
+    .founder-info h3 {
+      font-size: 34px;
+      color: #071a3d;
+      margin-bottom: 4px;
+    }
+
+    .founder-role {
+      color: #f7a900;
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      letter-spacing: .5px;
+    }
+
+    .founder-info p {
+      color: #444;
+      font-size: 17px;
+      margin-bottom: 17px;
+    }
+
+    .quote {
+      border-left: 5px solid #f7a900;
+      padding: 13px 20px;
+      margin-top: 25px;
+      color: #071a3d;
+      font-size: 21px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    /* ===== CARDS ===== */
+    .cards {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 34px 25px;
+      border-radius: 14px;
+      box-shadow: 0 7px 25px rgba(7,26,61,.08);
+      text-align: center;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(7,26,61,.13);
+    }
+
+    .card-icon {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: #fff4d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 31px;
+    }
+
+    .card h3 {
+      color: #071a3d;
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #666;
+    }
+
+    /* ===== COMMITMENT ===== */
+    .commitment {
+      background: #071a3d;
+      color: white;
+      text-align: center;
+    }
+
+    .commitment .section-title h2 {
+      color: white;
+    }
+
+    .commitment .section-title p {
+      color: #dce4f0;
+    }
+
+    .commitment-content {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .commitment-content p {
+      font-size: 18px;
+      color: #eef2f8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 27px;
+      background: #f7a900;
+      color: #071a3d;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #041126;
+      color: white;
+      padding: 48px 7% 20px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 45px;
+    }
+
+    footer h3 {
+      color: #f7a900;
+      margin-bottom: 15px;
+    }
+
+    footer p,
+    footer a {
+      color: #d8dde6;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    footer a:hover {
+      color: #f7a900;
+    }
+
+    .copyright {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #263452;
+      text-align: center;
+      color: #9ea8b8;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        padding: 15px 5%;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .founder-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .founder-photo-wrap img {
+        max-width: 310px;
+        height: 370px;
+      }
+
+      .quote {
+        text-align: left;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav a {
+        font-size: 13px;
+      }
+
+      .intro-box {
+        padding: 28px 20px;
+      }
+
+      section {
+        padding: 55px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="Logo nadbo.PNG" alt="Logo NADBO CITY">
+      <h2>NADBO CITY</h2>
+    </div>
+
+    <nav>
+      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="boutique.html" data-fr="Boutique" data-en="Shop">Boutique</a>
+      <a href="services.html" data-fr="Services" data-en="Services">Services</a>
+      <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a>
+      <a href="visa.html" data-fr="Visa" data-en="Visa">Visa</a>
+      <a href="a-propos.html" class="active" data-fr="À propos" data-en="About Us">À propos</a>
+      <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+
+      <button class="language" id="languageBtn" onclick="toggleLanguage()">
+        🇫🇷 FR
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="page-hero">
+    <div class="hero-content">
+      <div class="eyebrow" data-fr="NADBO CITY" data-en="NADBO CITY">NADBO CITY</div>
+
+      <h1 data-fr="À propos de nous" data-en="About Us">
+        À propos de nous
+      </h1>
+
+      <p
+        data-fr="Découvrez NADBO CITY, notre vision, notre mission, nos valeurs et le fondateur à l'origine du projet."
+        data-en="Discover NADBO CITY, our vision, our mission, our values and the founder behind the project.">
+        Découvrez NADBO CITY, notre vision, notre mission, nos valeurs et le fondateur à l'origine du projet.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== QUI SOMMES-NOUS ===== -->
+  <section>
+    <div class="section-title">
+      <h2 data-fr="Qui sommes-nous ?" data-en="Who Are We?">
+        Qui sommes-nous ?
+      </h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="intro-box">
+      <p
+        data-fr="NADBO CITY est une entreprise en développement qui a pour ambition de réunir plusieurs produits, services et solutions au sein d'un même espace afin de répondre à différents besoins du quotidien."
+        data-en="NADBO CITY is a growing business whose ambition is to bring together different products, services and solutions in one place to meet a variety of everyday needs.">
+        NADBO CITY est une entreprise en développement qui a pour ambition de réunir plusieurs produits, services et solutions au sein d'un même espace afin de répondre à différents besoins du quotidien.
+      </p>
+
+      <p
+        data-fr="Nous souhaitons offrir à nos clients une expérience simple, accessible, professionnelle et fiable, tout en développant progressivement de nouvelles solutions adaptées à leurs besoins."
+        data-en="We aim to provide our customers with a simple, accessible, professional and reliable experience while gradually developing new solutions adapted to their needs.">
+        Nous souhaitons offrir à nos clients une expérience simple, accessible, professionnelle et fiable, tout en développant progressivement de nouvelles solutions adaptées à leurs besoins.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FONDATEUR ===== -->
+  <section class="founder-section">
+    <div class="section-title">
+      <h2 data-fr="Le fondateur" data-en="The Founder">
+        Le fondateur
+      </h2>
+      <p
+        data-fr="À la découverte de la personne à l'origine de NADBO CITY."
+        data-en="Meet the person behind NADBO CITY.">
+        À la découverte de la personne à l'origine de NADBO CITY.
+      </p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="founder-container">
+      <div class="founder-photo-wrap">
+        <img
+          src="President nadbo.JPG"
+          alt="Josue Iyemo Likanga - Fondateur de NADBO CITY">
+      </div>
+
+      <div class="founder-info">
+        <h3>Josue Iyemo Likanga</h3>
+
+        <div
+          class="founder-role"
+          data-fr="FONDATEUR — NADBO CITY"
+          data-en="FOUNDER — NADBO CITY">
+          FONDATEUR — NADBO CITY
+        </div>
+
+        <p
+          data-fr="À l'origine de NADBO CITY, Josue Iyemo Likanga porte une vision entrepreneuriale fondée sur l'accessibilité, l'innovation et la création de solutions utiles au quotidien."
+          data-en="As the founder of NADBO CITY, Josue Iyemo Likanga brings an entrepreneurial vision focused on accessibility, innovation and creating practical solutions for everyday needs.">
+          À l'origine de NADBO CITY, Josue Iyemo Likanga porte une vision entrepreneuriale fondée sur l'accessibilité, l'innovation et la création de solutions utiles au quotidien.
+        </p>
+
+        <p
+          data-fr="À travers NADBO CITY, il souhaite développer une plateforme polyvalente réunissant produits, services et informations afin de répondre à différents besoins au sein d'un même espace."
+          data-en="Through NADBO CITY, he aims to develop a versatile platform bringing together products, services and information to meet a variety of needs in one convenient place.">
+          À travers NADBO CITY, il souhaite développer une plateforme polyvalente réunissant produits, services et informations afin de répondre à différents besoins au sein d'un même espace.
+        </p>
+
+        <p
+          data-fr="Son ambition est de faire évoluer NADBO CITY en une entreprise moderne, fiable et proche de sa communauté, tout en accordant une importance particulière à la qualité du service, à la confiance et à la satisfaction des clients."
+          data-en="His ambition is to grow NADBO CITY into a modern, reliable and community-focused business, while placing strong emphasis on quality service, trust and customer satisfaction.">
+          Son ambition est de faire évoluer NADBO CITY en une entreprise moderne, fiable et proche de sa communauté, tout en accordant une importance particulière à la qualité du service, à la confiance et à la satisfaction des clients.
+        </p>
+
+        <div
+          class="quote"
+          data-fr="« Ensemble, plus loin ! »"
+          data-en="“Together, further!”">
+          « Ensemble, plus loin ! »
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION / MISSION / VALEURS ===== -->
+  <section>
+    <div class="section-title">
+      <h2
+        data-fr="Notre vision, notre mission et nos valeurs"
+        data-en="Our Vision, Mission and Values">
+        Notre vision, notre mission et nos valeurs
+      </h2>
+
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">🌍</div>
+
+        <h3 data-fr="Notre vision" data-en="Our Vision">
+          Notre vision
+        </h3>
+
+        <p
+          data-fr="Construire une entreprise moderne, polyvalente et durable, capable d'évoluer avec les besoins de ses clients et de sa communauté."
+          data-en="To build a modern, versatile and sustainable business capable of evolving with the needs of its customers and community.">
+          Construire une entreprise moderne, polyvalente et durable, capable d'évoluer avec les besoins de ses clients et de sa communauté.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎯</div>
+
+        <h3 data-fr="Notre mission" data-en="Our Mission">
+          Notre mission
+        </h3>
+
+        <p
+          data-fr="Proposer des produits, services et solutions accessibles tout en offrant une expérience claire, pratique, fiable et professionnelle."
+          data-en="To provide accessible products, services and solutions while offering a clear, practical, reliable and professional experience.">
+          Proposer des produits, services et solutions accessibles tout en offrant une expérience claire, pratique, fiable et professionnelle.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🤝</div>
+
+        <h3 data-fr="Nos valeurs" data-en="Our Values">
+          Nos valeurs
+        </h3>
+
+        <p
+          data-fr="Confiance, respect, transparence, accessibilité, qualité et engagement envers nos clients et notre communauté."
+          data-en="Trust, respect, transparency, accessibility, quality and commitment to our customers and community.">
+          Confiance, respect, transparence, accessibilité, qualité et engagement envers nos clients et notre communauté.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== ENGAGEMENT ===== -->
+  <section class="commitment">
+    <div class="section-title">
+      <h2 data-fr="Notre engagement" data-en="Our Commitment">
+        Notre engagement
+      </h2>
+
+      <p
+        data-fr="Grandir avec nos clients et notre communauté."
+        data-en="Growing with our customers and our community.">
+        Grandir avec nos clients et notre communauté.
+      </p>
+
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="commitment-content">
+      <p
+        data-fr="Chez NADBO CITY, chaque client compte. Nous voulons bâtir des relations basées sur l'écoute, le respect et la confiance. Notre engagement est de continuer à développer des solutions utiles et à améliorer constamment nos services."
+        data-en="At NADBO CITY, every customer matters. We want to build relationships based on listening, respect and trust. Our commitment is to continue developing useful solutions and constantly improving our services.">
+        Chez NADBO CITY, chaque client compte. Nous voulons bâtir des relations basées sur l'écoute, le respect et la confiance. Notre engagement est de continuer à développer des solutions utiles et à améliorer constamment nos services.
+      </p>
+
+      <a
+        href="contact.html"
+        class="btn"
+        data-fr="Nous contacter"
+        data-en="Contact Us">
+        Nous contacter
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-content">
+
+      <div>
+        <h3>NADBO CITY</h3>
+
+        <p
+          data-fr="Une plateforme polyvalente proposant des produits, services et solutions."
+          data-en="A versatile platform offering products, services and solutions.">
+          Une plateforme polyvalente proposant des produits, services et solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 data-fr="Navigation" data-en="Navigation">
+          Navigation
+        </h3>
+
+        <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="boutique.html" data-fr="Boutique" data-en="Shop">Boutique</a>
+        <a href="services.html" data-fr="Services" data-en="Services">Services</a>
+        <a href="a-propos.html" data-fr="À propos" data-en="About Us">À propos</a>
+        <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+      </div>
+
+      <div>
+        <h3 data-fr="Nous joindre" data-en="Contact Us">
+          Nous joindre
+        </h3>
+
+        <p>📞 438 336 0224</p>
+        <p>✉️ josueiyemo643@gmail.com</p>
+        <p>📍 Canada</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      <p>
+        © 2026 NADBO CITY —
+        <span
+          data-fr="Tous droits réservés."
+          data-en="All rights reserved.">
+          Tous droits réservés.
+        </span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== FR / EN ===== -->
+  <script>
+    let currentLanguage =
+      localStorage.getItem("nadboLanguage") || "fr";
+
+    function setLanguage(language) {
+      currentLanguage = language;
+
+      document.documentElement.lang = language;
+
+      document
+        .querySelectorAll("[data-fr][data-en]")
+        .forEach(element => {
+          element.textContent =
+            element.getAttribute("data-" + language);
+        });
+
+      const button =
+        document.getElementById("languageBtn");
+
+      if (language === "fr") {
+        button.textContent = "🇫🇷 FR";
+        document.title = "NADBO CITY | À propos";
+      } else {
+        button.textContent = "🇬🇧 EN";
+        document.title = "NADBO CITY | About Us";
+      }
+
+      localStorage.setItem(
+        "nadboLanguage",
+        language
+      );
+    }
+
+    function toggleLanguage() {
+      setLanguage(
+        currentLanguage === "fr" ? "en" : "fr"
+      );
+    }
+
+    setLanguage(currentLanguage);
+  </script>
+
+</body>
+</html>
