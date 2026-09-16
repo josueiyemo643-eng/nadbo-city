@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NADBO CITY | Visa & Accompagnement</title>
+  <meta name="description" content="Informations et procédures de visa proposées par NADBO CITY. Accès privé par code.">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #071a3d;
+      line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: #071a3d;
+      color: white;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 3px 15px rgba(0,0,0,.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .logo h2 {
+      color: #f7a900;
+      font-size: 22px;
+      letter-spacing: .5px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    nav a:hover, nav a.active { color: #f7a900; }
+
+    .language {
+      border: 2px solid #f7a900;
+      background: transparent;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 22px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .language:hover {
+      background: #f7a900;
+      color: #071a3d;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 390px;
+      background: linear-gradient(rgba(7,26,61,.94), rgba(7,26,61,.94));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero-content { max-width: 900px; }
+
+    .hero .eyebrow {
+      color: #f7a900;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 58px);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: auto;
+      font-size: 19px;
+      color: #eef2f8;
+    }
+
+    /* ===== ACCESS ===== */
+    .access-section {
+      padding: 70px 6%;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .access-box {
+      width: 100%;
+      max-width: 560px;
+      background: white;
+      border-radius: 18px;
+      padding: 45px 35px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(7,26,61,.12);
+    }
+
+    .lock-icon {
+      width: 75px;
+      height: 75px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: #fff4d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+    }
+
+    .access-box h2 {
+      color: #071a3d;
+      margin-bottom: 12px;
+      font-size: 30px;
+    }
+
+    .access-box p {
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .code-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #d9dee7;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .code-input:focus { border-color: #f7a900; }
+
+    .access-btn {
+      width: 100%;
+      margin-top: 15px;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #f7a900;
+      color: #071a3d;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .access-btn:hover { background: #e39a00; }
+
+    .access-message {
+      margin-top: 15px;
+      min-height: 25px;
+      font-weight: bold;
+    }
+
+    .warning {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* ===== PRIVATE CONTENT ===== */
+    #privateContent { display: none; }
+
+    section.content-section {
+      padding: 75px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(28px, 4vw, 36px);
+      margin-bottom: 12px;
+      color: #071a3d;
+    }
+
+    .gold-line {
+      width: 70px;
+      height: 4px;
+      background: #f7a900;
+      margin: auto;
+      border-radius: 5px;
+    }
+
+    .notice {
+      max-width: 1000px;
+      margin: 0 auto 35px;
+      padding: 18px 22px;
+      border-left: 5px solid #f7a900;
+      background: #fff;
+      border-radius: 8px;
+      color: #555;
+    }
+
+    /* ===== VISA CARDS ===== */
+    .visa-grid {
+      max-width: 1150px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .visa-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 7px 25px rgba(7,26,61,.08);
+      border-top: 4px solid #f7a900;
+    }
+
+    .visa-card h3 {
+      font-size: 24px;
+      color: #071a3d;
+      margin-bottom: 5px;
+    }
+
+    .visa-type {
+      color: #f7a900;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
+    .visa-card h4 {
+      margin: 18px 0 8px;
+      color: #071a3d;
+    }
+
+    .visa-card ul {
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .visa-card li { margin-bottom: 7px; }
+
+    .official-link {
+      display: inline-block;
+      margin-top: 18px;
+      color: #071a3d;
+      font-weight: bold;
+      text-decoration: none;
+      border-bottom: 2px solid #f7a900;
+    }
+
+    .official-link:hover { color: #f7a900; }
+
+    /* ===== PROCEDURE ===== */
+    .procedure {
+      background: white;
+    }
+
+    .steps {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      background: #f5f7fa;
+      padding: 25px 15px;
+      text-align: center;
+      border-radius: 12px;
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      margin: 0 auto 12px;
+      background: #f7a900;
+      color: #071a3d;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .step h3 { font-size: 17px; margin-bottom: 7px; }
+    .step p { font-size: 14px; color: #666; }
+
+    /* ===== CHECKLIST ===== */
+    .checklist {
+      max-width: 950px;
+      margin: auto;
+      background: white;
+      border-radius: 15px;
+      padding: 35px;
+      box-shadow: 0 7px 25px rgba(7,26,61,.08);
+    }
+
+    .checklist ul {
+      columns: 2;
+      padding-left: 25px;
+    }
+
+    .checklist li {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    /* ===== DISCLAIMER ===== */
+    .disclaimer {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff8e8;
+      border: 1px solid #f7a900;
+      border-radius: 12px;
+      padding: 25px;
+      color: #555;
+    }
+
+    .disclaimer h3 {
+      color: #071a3d;
+      margin-bottom: 10px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #041126;
+      color: white;
+      padding: 48px 7% 20px;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 45px;
+    }
+
+    footer h3 { color: #f7a900; margin-bottom: 15px; }
+
+    footer p, footer a {
+      color: #d8dde6;
+      text-decoration: none;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    footer a:hover { color: #f7a900; }
+
+    .copyright {
+      max-width: 1100px;
+      margin: 35px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #263452;
+      text-align: center;
+      color: #9ea8b8;
+    }
+
+    @media (max-width: 950px) {
+      header { flex-direction: column; padding: 15px 5%; }
+      nav { justify-content: center; gap: 12px; }
+      .visa-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .visa-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .checklist { padding: 25px 20px; }
+      .checklist ul { columns: 1; }
+      .access-box { padding: 35px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="Logo nadbo.PNG" alt="Logo NADBO CITY">
+      <h2>NADBO CITY</h2>
+    </div>
+
+    <nav>
+      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="boutique.html" data-fr="Boutique" data-en="Shop">Boutique</a>
+      <a href="services.html" data-fr="Services" data-en="Services">Services</a>
+      <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a>
+      <a href="visa.html" class="active" data-fr="Visa" data-en="Visa">Visa</a>
+      <a href="a-propos.html" data-fr="À propos" data-en="About Us">À propos</a>
+      <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+
+      <button class="language" id="languageBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">NADBO CITY</div>
+
+      <h1 data-fr="Visa & accompagnement" data-en="Visa & Assistance">
+        Visa & accompagnement
+      </h1>
+
+      <p
+        data-fr="Informations, listes de documents et étapes générales pour préparer différents projets de voyage."
+        data-en="Information, document checklists and general steps to help prepare different travel plans.">
+        Informations, listes de documents et étapes générales pour préparer différents projets de voyage.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CODE ACCESS ===== -->
+  <section class="access-section">
+    <div class="access-box">
+      <div class="lock-icon">🔐</div>
+
+      <h2 data-fr="Accès privé" data-en="Private Access">
+        Accès privé
+      </h2>
+
+      <p
+        data-fr="Cette section contient les informations détaillées de préparation des dossiers. Entrez le code d'accès qui vous a été communiqué par NADBO CITY."
+        data-en="This section contains detailed application-preparation information. Enter the access code provided to you by NADBO CITY.">
+        Cette section contient les informations détaillées de préparation des dossiers. Entrez le code d'accès qui vous a été communiqué par NADBO CITY.
+      </p>
+
+      <input
+        type="password"
+        id="accessCode"
+        class="code-input"
+        placeholder="Code d'accès"
+        data-placeholder-fr="Code d'accès"
+        data-placeholder-en="Access code"
+        autocomplete="off"
+        onkeydown="if(event.key==='Enter') checkAccess()">
+
+      <button class="access-btn" onclick="checkAccess()"
+              data-fr="Accéder aux informations"
+              data-en="Access Information">
+        Accéder aux informations
+      </button>
+
+      <div id="accessMessage" class="access-message"></div>
+
+      <div class="warning"
+           data-fr="Important : ce verrouillage est adapté à une page GitHub Pages statique. Pour une protection réellement confidentielle, il faudra connecter un système d'authentification côté serveur."
+           data-en="Important: this lock is suitable for a static GitHub Pages page. For truly confidential protection, a server-side authentication system is required.">
+        Important : ce verrouillage est adapté à une page GitHub Pages statique. Pour une protection réellement confidentielle, il faudra connecter un système d'authentification côté serveur.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRIVATE CONTENT ===== -->
+  <main id="privateContent">
+
+    <section class="content-section">
+      <div class="section-title">
+        <h2 data-fr="Guide des visas" data-en="Visa Guide">Guide des visas</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="notice"
+           data-fr="Les exigences dépendent notamment de la nationalité, du pays de résidence, du motif du voyage, de la durée du séjour et du type de visa. Les listes ci-dessous sont des guides de préparation et doivent être vérifiées sur le site officiel avant tout dépôt."
+           data-en="Requirements depend on nationality, country of residence, travel purpose, length of stay and visa type. The lists below are preparation guides and must be checked on the official website before submission.">
+        Les exigences dépendent notamment de la nationalité, du pays de résidence, du motif du voyage, de la durée du séjour et du type de visa. Les listes ci-dessous sont des guides de préparation et doivent être vérifiées sur le site officiel avant tout dépôt.
+      </div>
+
+      <div class="visa-grid">
+
+        <!-- FRANCE -->
+        <article class="visa-card">
+          <h3>🇫🇷 France</h3>
+          <div class="visa-type">Visa Schengen / court séjour</div>
+
+          <h4 data-fr="Documents à préparer" data-en="Documents to prepare">Documents à préparer</h4>
+          <ul>
+            <li data-fr="Passeport ou document de voyage valide" data-en="Valid passport or travel document">Passeport ou document de voyage valide</li>
+            <li data-fr="Formulaire de demande de visa" data-en="Visa application form">Formulaire de demande de visa</li>
+            <li data-fr="Photo conforme aux normes requises" data-en="Photo meeting required standards">Photo conforme aux normes requises</li>
+            <li data-fr="Justificatifs du motif du voyage" data-en="Proof of the purpose of travel">Justificatifs du motif du voyage</li>
+            <li data-fr="Hébergement et itinéraire" data-en="Accommodation and itinerary">Hébergement et itinéraire</li>
+            <li data-fr="Justificatifs de ressources" data-en="Proof of financial means">Justificatifs de ressources</li>
+            <li data-fr="Assurance voyage, lorsque requise" data-en="Travel insurance, when required">Assurance voyage, lorsque requise</li>
+            <li data-fr="Justificatifs de situation personnelle/professionnelle" data-en="Proof of personal/professional circumstances">Justificatifs de situation personnelle/professionnelle</li>
+          </ul>
+
+          <h4 data-fr="Procédure générale" data-en="General procedure">Procédure générale</h4>
+          <p data-fr="Vérifier la situation → compléter la demande France-Visas → réunir les justificatifs → prendre rendez-vous auprès du centre/organisme compétent → déposer le dossier et les données biométriques si requises → suivre la demande."
+             data-en="Check your situation → complete the France-Visas application → gather supporting documents → book an appointment with the competent centre/authority → submit the file and biometrics when required → track the application.">
+            Vérifier la situation → compléter la demande France-Visas → réunir les justificatifs → prendre rendez-vous auprès du centre/organisme compétent → déposer le dossier et les données biométriques si requises → suivre la demande.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.france-visas.gouv.fr/">
+            France-Visas — site officiel
+          </a>
+        </article>
+
+        <!-- UK -->
+        <article class="visa-card">
+          <h3>🇬🇧 Angleterre / Royaume-Uni</h3>
+          <div class="visa-type">Standard Visitor Visa</div>
+
+          <h4 data-fr="Documents et informations" data-en="Documents and information">Documents et informations</h4>
+          <ul>
+            <li data-fr="Passeport ou document de voyage valide" data-en="Valid passport or travel document">Passeport ou document de voyage valide</li>
+            <li data-fr="Dates et motif du voyage" data-en="Travel dates and purpose">Dates et motif du voyage</li>
+            <li data-fr="Adresse d'hébergement au Royaume-Uni" data-en="UK accommodation address">Adresse d'hébergement au Royaume-Uni</li>
+            <li data-fr="Budget et preuves de moyens financiers" data-en="Trip budget and financial evidence">Budget et preuves de moyens financiers</li>
+            <li data-fr="Historique de voyages, selon la situation" data-en="Travel history, depending on circumstances">Historique de voyages, selon la situation</li>
+            <li data-fr="Informations sur l'emploi ou le sponsor, si applicable" data-en="Employment or sponsor information, if applicable">Informations sur l'emploi ou le sponsor, si applicable</li>
+            <li data-fr="Traductions certifiées lorsque requises" data-en="Certified translations when required">Traductions certifiées lorsque requises</li>
+          </ul>
+
+          <h4 data-fr="Procédure générale" data-en="General procedure">Procédure générale</h4>
+          <p data-fr="Vérifier si un visa est nécessaire → remplir la demande en ligne → payer les frais applicables → prendre rendez-vous dans un centre de demande → fournir identité, photo et biométrie → soumettre les justificatifs → attendre la décision."
+             data-en="Check whether a visa is required → complete the online application → pay applicable fees → book a visa application centre appointment → provide identity, photo and biometrics → submit supporting documents → await the decision.">
+            Vérifier si un visa est nécessaire → remplir la demande en ligne → payer les frais applicables → prendre rendez-vous dans un centre de demande → fournir identité, photo et biométrie → soumettre les justificatifs → attendre la décision.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.gov.uk/standard-visitor/apply-standard-visitor-visa">
+            GOV.UK — site officiel
+          </a>
+        </article>
+
+        <!-- CANADA -->
+        <article class="visa-card">
+          <h3>🇨🇦 Canada</h3>
+          <div class="visa-type">Visa de visiteur (TRV)</div>
+
+          <h4 data-fr="Documents à préparer" data-en="Documents to prepare">Documents à préparer</h4>
+          <ul>
+            <li data-fr="Passeport ou titre de voyage valide" data-en="Valid passport or travel document">Passeport ou titre de voyage valide</li>
+            <li data-fr="Documents générés par le portail selon la situation" data-en="Documents generated by the portal based on your situation">Documents générés par le portail selon la situation</li>
+            <li data-fr="Preuves de fonds suffisants" data-en="Proof of sufficient funds">Preuves de fonds suffisants</li>
+            <li data-fr="Itinéraire, hébergement et motif du séjour" data-en="Itinerary, accommodation and purpose of stay">Itinéraire, hébergement et motif du séjour</li>
+            <li data-fr="Preuves d'antécédents de voyage, si disponibles" data-en="Travel history evidence, if available">Preuves d'antécédents de voyage, si disponibles</li>
+            <li data-fr="Lettre d'invitation, si applicable" data-en="Invitation letter, if applicable">Lettre d'invitation, si applicable</li>
+            <li data-fr="Documents liés à l'emploi ou aux études, selon le cas" data-en="Employment or study documents, as applicable">Documents liés à l'emploi ou aux études, selon le cas</li>
+          </ul>
+
+          <h4 data-fr="Procédure générale" data-en="General procedure">Procédure générale</h4>
+          <p data-fr="Vérifier l'admissibilité → préparer les documents → présenter la demande en ligne dans la plupart des cas → payer les frais → fournir les données biométriques si requises → répondre aux demandes d'IRCC → attendre la décision."
+             data-en="Check eligibility → prepare documents → apply online in most cases → pay fees → provide biometrics if required → respond to IRCC requests → await the decision.">
+            Vérifier l'admissibilité → préparer les documents → présenter la demande en ligne dans la plupart des cas → payer les frais → fournir les données biométriques si requises → répondre aux demandes d'IRCC → attendre la décision.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada/demande-visa-visiteur.html">
+            Canada.ca — site officiel
+          </a>
+        </article>
+
+        <!-- SPAIN -->
+        <article class="visa-card">
+          <h3>🇪🇸 Espagne</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Documents courants" data-en="Common documents">Documents courants</h4>
+          <ul>
+            <li data-fr="Formulaire de demande et passeport" data-en="Application form and passport">Formulaire de demande et passeport</li>
+            <li data-fr="Photo et biométrie selon les règles applicables" data-en="Photo and biometrics according to applicable rules">Photo et biométrie selon les règles applicables</li>
+            <li data-fr="Preuve de résidence dans la juridiction compétente" data-en="Proof of residence in the competent jurisdiction">Preuve de résidence dans la juridiction compétente</li>
+            <li data-fr="Itinéraire et hébergement" data-en="Itinerary and accommodation">Itinéraire et hébergement</li>
+            <li data-fr="Preuves de moyens financiers" data-en="Proof of financial means">Preuves de moyens financiers</li>
+            <li data-fr="Assurance médicale de voyage" data-en="Travel medical insurance">Assurance médicale de voyage</li>
+            <li data-fr="Justificatifs du motif du voyage" data-en="Proof of travel purpose">Justificatifs du motif du voyage</li>
+          </ul>
+
+          <h4 data-fr="Attention" data-en="Important">Attention</h4>
+          <p data-fr="La demande doit généralement être déposée auprès du pays Schengen qui constitue la destination principale. Les modalités de dépôt varient selon le lieu de résidence."
+             data-en="The application should generally be submitted to the Schengen country that is the main destination. Submission procedures vary according to the applicant's place of residence.">
+            La demande doit généralement être déposée auprès du pays Schengen qui constitue la destination principale. Les modalités de dépôt varient selon le lieu de résidence.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.exteriores.gob.es/Embajadas/ottawa/en/ServiciosConsulares/Paginas/Consular/Visados-Schengen.aspx">
+            Espagne — site officiel
+          </a>
+        </article>
+
+        <!-- GREECE -->
+        <article class="visa-card">
+          <h3>🇬🇷 Grèce</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Documents courants" data-en="Common documents">Documents courants</h4>
+          <ul>
+            <li data-fr="Formulaire de visa complété et signé" data-en="Completed and signed visa form">Formulaire de visa complété et signé</li>
+            <li data-fr="Passeport avec pages vierges et validité requise" data-en="Passport with blank pages and required validity">Passeport avec pages vierges et validité requise</li>
+            <li data-fr="Photo conforme aux normes ICAO" data-en="ICAO-compliant photo">Photo conforme aux normes ICAO</li>
+            <li data-fr="Empreintes lorsque requises" data-en="Fingerprints when required">Empreintes lorsque requises</li>
+            <li data-fr="Assurance médicale de voyage" data-en="Travel medical insurance">Assurance médicale de voyage</li>
+            <li data-fr="Preuves du motif du voyage, de l'hébergement et des ressources" data-en="Proof of purpose, accommodation and financial means">Preuves du motif du voyage, de l'hébergement et des ressources</li>
+          </ul>
+
+          <h4 data-fr="Procédure générale" data-en="General procedure">Procédure générale</h4>
+          <p data-fr="Préparer le dossier → vérifier l'autorité compétente → prendre rendez-vous → déposer la demande et les biométries si requises → fournir tout document supplémentaire demandé → attendre la décision."
+             data-en="Prepare the file → check the competent authority → book an appointment → submit the application and biometrics when required → provide any requested additional documents → await the decision.">
+            Préparer le dossier → vérifier l'autorité compétente → prendre rendez-vous → déposer la demande et les biométries si requises → fournir tout document supplémentaire demandé → attendre la décision.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.mfa.gr/canada/en/services/visas/">
+            Grèce — site officiel
+          </a>
+        </article>
+
+        <!-- SWITZERLAND -->
+        <article class="visa-card">
+          <h3>🇨🇭 Suisse</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Documents courants" data-en="Common documents">Documents courants</h4>
+          <ul>
+            <li data-fr="Formulaire de visa et passeport valide" data-en="Visa form and valid passport">Formulaire de visa et passeport valide</li>
+            <li data-fr="Photo conforme aux normes requises" data-en="Photo meeting required standards">Photo conforme aux normes requises</li>
+            <li data-fr="Justificatifs du motif du séjour" data-en="Proof of the purpose of stay">Justificatifs du motif du séjour</li>
+            <li data-fr="Hébergement et itinéraire" data-en="Accommodation and itinerary">Hébergement et itinéraire</li>
+            <li data-fr="Preuves de moyens financiers" data-en="Proof of financial means">Preuves de moyens financiers</li>
+            <li data-fr="Assurance médicale de voyage" data-en="Travel medical insurance">Assurance médicale de voyage</li>
+            <li data-fr="Biométrie lorsque requise" data-en="Biometrics when required">Biométrie lorsque requise</li>
+          </ul>
+
+          <h4 data-fr="Dépôt" data-en="Submission">Dépôt</h4>
+          <p data-fr="Les modalités dépendent du lieu de résidence et du type de demande. En Suisse, certaines demandes sont soumises via VFS Global; vérifiez toujours la représentation compétente avant le dépôt."
+             data-en="Procedures depend on the place of residence and application type. For Switzerland, some applications are submitted through VFS Global; always check the competent representation before submission.">
+            Les modalités dépendent du lieu de résidence et du type de demande. En Suisse, certaines demandes sont soumises via VFS Global; vérifiez toujours la représentation compétente avant le dépôt.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.schweiz-kanada.eda.admin.ch/fr/demande-visa-schengen-procedure">
+            Suisse — site officiel
+          </a>
+        </article>
+
+        <!-- USA -->
+        <article class="visa-card">
+          <h3>🇺🇸 États-Unis</h3>
+          <div class="visa-type">Visa visiteur B1/B2</div>
+
+          <h4 data-fr="Documents principaux" data-en="Main documents">Documents principaux</h4>
+          <ul>
+            <li data-fr="Passeport valide" data-en="Valid passport">Passeport valide</li>
+            <li data-fr="Confirmation du formulaire DS-160" data-en="DS-160 confirmation page">Confirmation du formulaire DS-160</li>
+            <li data-fr="Preuve du paiement, lorsque requise" data-en="Fee payment receipt, when required">Preuve du paiement, lorsque requise</li>
+            <li data-fr="Photo selon les exigences" data-en="Photo according to requirements">Photo selon les exigences</li>
+            <li data-fr="Documents démontrant le motif et les circonstances du voyage" data-en="Documents showing the purpose and circumstances of the trip">Documents démontrant le motif et les circonstances du voyage</li>
+          </ul>
+
+          <h4 data-fr="Procédure générale" data-en="General procedure">Procédure générale</h4>
+          <p data-fr="Remplir le DS-160 → payer les frais applicables → prendre rendez-vous → préparer les justificatifs → se présenter à l'entretien → fournir les éléments demandés → attendre la décision."
+             data-en="Complete DS-160 → pay applicable fees → schedule an appointment → prepare supporting documents → attend the interview → provide requested items → await the decision.">
+            Remplir le DS-160 → payer les frais applicables → prendre rendez-vous → préparer les justificatifs → se présenter à l'entretien → fournir les éléments demandés → attendre la décision.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://travel.state.gov/content/travel/en/us-visas/tourism-visit/visitor.html">
+            U.S. Department of State
+          </a>
+        </article>
+
+        <!-- AUSTRALIA -->
+        <article class="visa-card">
+          <h3>🇦🇺 Australie</h3>
+          <div class="visa-type">Visiteur — selon le profil</div>
+
+          <h4 data-fr="À préparer" data-en="Prepare">À préparer</h4>
+          <ul>
+            <li data-fr="Passeport et identité" data-en="Passport and identity">Passeport et identité</li>
+            <li data-fr="Motif et projet de voyage" data-en="Purpose and travel plans">Motif et projet de voyage</li>
+            <li data-fr="Preuves financières" data-en="Financial evidence">Preuves financières</li>
+            <li data-fr="Documents professionnels ou scolaires, selon le cas" data-en="Employment or study documents, if applicable">Documents professionnels ou scolaires, selon le cas</li>
+            <li data-fr="Historique de voyage, selon les instructions" data-en="Travel history, according to instructions">Historique de voyage, selon les instructions</li>
+          </ul>
+
+          <h4 data-fr="Important" data-en="Important">Important</h4>
+          <p data-fr="Le sous-classe de visa et les pièces exigées dépendent de la situation du demandeur. Utiliser le portail officiel australien pour identifier le bon visa avant de déposer."
+             data-en="The visa subclass and required documents depend on the applicant's circumstances. Use the official Australian portal to identify the correct visa before applying.">
+            Le sous-classe de visa et les pièces exigées dépendent de la situation du demandeur. Utiliser le portail officiel australien pour identifier le bon visa avant de déposer.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing">
+            Australia — site officiel
+          </a>
+        </article>
+
+        <!-- ITALY -->
+        <article class="visa-card">
+          <h3>🇮🇹 Italie</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Dossier de base" data-en="Basic file">Dossier de base</h4>
+          <ul>
+            <li data-fr="Passeport et formulaire" data-en="Passport and application form">Passeport et formulaire</li>
+            <li data-fr="Photo et biométrie, selon les règles" data-en="Photo and biometrics, according to rules">Photo et biométrie, selon les règles</li>
+            <li data-fr="Itinéraire et hébergement" data-en="Itinerary and accommodation">Itinéraire et hébergement</li>
+            <li data-fr="Ressources financières" data-en="Financial means">Ressources financières</li>
+            <li data-fr="Assurance médicale de voyage" data-en="Travel medical insurance">Assurance médicale de voyage</li>
+            <li data-fr="Preuves du motif du voyage" data-en="Proof of travel purpose">Preuves du motif du voyage</li>
+          </ul>
+
+          <p data-fr="Les exigences précises doivent être vérifiées auprès de l'autorité italienne compétente pour le lieu de résidence du demandeur."
+             data-en="Exact requirements must be checked with the competent Italian authority for the applicant's place of residence.">
+            Les exigences précises doivent être vérifiées auprès de l'autorité italienne compétente pour le lieu de résidence du demandeur.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://vistoperitalia.esteri.it/">
+            Italie — portail officiel
+          </a>
+        </article>
+
+        <!-- GERMANY -->
+        <article class="visa-card">
+          <h3>🇩🇪 Allemagne</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Dossier de base" data-en="Basic file">Dossier de base</h4>
+          <ul>
+            <li data-fr="Passeport valide" data-en="Valid passport">Passeport valide</li>
+            <li data-fr="Formulaire et photo" data-en="Application form and photo">Formulaire et photo</li>
+            <li data-fr="Assurance médicale de voyage" data-en="Travel medical insurance">Assurance médicale de voyage</li>
+            <li data-fr="Preuve d'hébergement et itinéraire" data-en="Proof of accommodation and itinerary">Preuve d'hébergement et itinéraire</li>
+            <li data-fr="Preuves financières" data-en="Financial evidence">Preuves financières</li>
+            <li data-fr="Preuves liées au motif du voyage" data-en="Evidence related to the purpose of travel">Preuves liées au motif du voyage</li>
+          </ul>
+
+          <p data-fr="Le lieu de dépôt dépend de la résidence et des règles de compétence consulaire."
+             data-en="The place of submission depends on residence and consular jurisdiction rules.">
+            Le lieu de dépôt dépend de la résidence et des règles de compétence consulaire.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://www.auswaertiges-amt.de/en/visa-service">
+            Allemagne — site officiel
+          </a>
+        </article>
+
+        <!-- PORTUGAL -->
+        <article class="visa-card">
+          <h3>🇵🇹 Portugal</h3>
+          <div class="visa-type">Visa Schengen</div>
+
+          <h4 data-fr="Dossier de base" data-en="Basic file">Dossier de base</h4>
+          <ul>
+            <li data-fr="Passeport et formulaire de visa" data-en="Passport and visa application form">Passeport et formulaire de visa</li>
+            <li data-fr="Photo et biométrie selon les règles" data-en="Photo and biometrics according to rules">Photo et biométrie selon les règles</li>
+            <li data-fr="Itinéraire et hébergement" data-en="Itinerary and accommodation">Itinéraire et hébergement</li>
+            <li data-fr="Assurance voyage" data-en="Travel insurance">Assurance voyage</li>
+            <li data-fr="Preuves financières" data-en="Financial evidence">Preuves financières</li>
+            <li data-fr="Justificatifs du motif du séjour" data-en="Proof of the purpose of stay">Justificatifs du motif du séjour</li>
+          </ul>
+
+          <p data-fr="Vérifier l'autorité compétente et la liste exacte des documents selon le lieu de résidence."
+             data-en="Check the competent authority and exact document list according to your place of residence.">
+            Vérifier l'autorité compétente et la liste exacte des documents selon le lieu de résidence.
+          </p>
+
+          <a class="official-link" target="_blank" rel="noopener" href="https://vistos.mne.gov.pt/en/">
+            Portugal — portail officiel
+          </a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===== PROCEDURE ===== -->
+    <section class="content-section procedure">
+      <div class="section-title">
+        <h2 data-fr="Procédure générale de préparation" data-en="General Preparation Process">
+          Procédure générale de préparation
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3 data-fr="Évaluer" data-en="Assess">Évaluer</h3>
+          <p data-fr="Nationalité, résidence, motif et durée du voyage."
+             data-en="Nationality, residence, purpose and length of stay.">
+            Nationalité, résidence, motif et durée du voyage.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3 data-fr="Vérifier" data-en="Check">Vérifier</h3>
+          <p data-fr="Identifier le bon visa et l'autorité compétente."
+             data-en="Identify the correct visa and competent authority.">
+            Identifier le bon visa et l'autorité compétente.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3 data-fr="Préparer" data-en="Prepare">Préparer</h3>
+          <p data-fr="Réunir les documents et vérifier leur cohérence."
+             data-en="Gather documents and check their consistency.">
+            Réunir les documents et vérifier leur cohérence.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3 data-fr="Déposer" data-en="Submit">Déposer</h3>
+          <p data-fr="Formulaire, paiement, rendez-vous et biométrie si requise."
+             data-en="Application, payment, appointment and biometrics if required.">
+            Formulaire, paiement, rendez-vous et biométrie si requise.
+          </p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3 data-fr="Suivre" data-en="Track">Suivre</h3>
+          <p data-fr="Suivre la demande et répondre aux demandes complémentaires."
+             data-en="Track the application and respond to additional requests.">
+            Suivre la demande et répondre aux demandes complémentaires.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CHECKLIST ===== -->
+    <section class="content-section">
+      <div class="section-title">
+        <h2 data-fr="Checklist générale" data-en="General Checklist">
+          Checklist générale
+        </h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="checklist">
+        <ul>
+          <li data-fr="Passeport valide et pages disponibles" data-en="Valid passport with available pages">Passeport valide et pages disponibles</li>
+          <li data-fr="Formulaire de demande approprié" data-en="Correct application form">Formulaire de demande approprié</li>
+          <li data-fr="Photos conformes" data-en="Compliant photographs">Photos conformes</li>
+          <li data-fr="Preuve de statut/résidence dans le pays de dépôt" data-en="Proof of status/residence in the country of application">Preuve de statut/résidence dans le pays de dépôt</li>
+          <li data-fr="Preuves financières" data-en="Financial evidence">Preuves financières</li>
+          <li data-fr="Lettre d'emploi ou preuves d'études, si applicable" data-en="Employment letter or study evidence, if applicable">Lettre d'emploi ou preuves d'études, si applicable</li>
+          <li data-fr="Itinéraire de voyage" data-en="Travel itinerary">Itinéraire de voyage</li>
+          <li data-fr="Réservation d'hébergement ou justificatif approprié" data-en="Accommodation booking or appropriate proof">Réservation d'hébergement ou justificatif approprié</li>
+          <li data-fr="Assurance voyage/médicale lorsque requise" data-en="Travel/medical insurance when required">Assurance voyage/médicale lorsque requise</li>
+          <li data-fr="Lettre d'invitation, si applicable" data-en="Invitation letter, if applicable">Lettre d'invitation, si applicable</li>
+          <li data-fr="Historique de voyage, lorsque pertinent" data-en="Travel history, when relevant">Historique de voyage, lorsque pertinent</li>
+          <li data-fr="Traductions exigées par l'autorité compétente" data-en="Translations required by the competent authority">Traductions exigées par l'autorité compétente</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== DISCLAIMER ===== -->
+    <section class="content-section">
+      <div class="disclaimer">
+        <h3 data-fr="Avis important" data-en="Important Notice">
+          Avis important
+        </h3>
+
+        <p
+          data-fr="Les informations présentées par NADBO CITY servent à l'information et à la préparation générale. Elles ne garantissent pas l'obtention d'un visa. Les exigences, frais, formulaires, délais et modalités peuvent changer et peuvent varier selon le profil du demandeur. Avant tout dépôt, il faut vérifier les exigences officielles du pays concerné. NADBO CITY ne peut pas garantir une décision favorable d'une autorité consulaire ou d'immigration."
+          data-en="The information provided by NADBO CITY is for general information and preparation purposes. It does not guarantee visa approval. Requirements, fees, forms, processing times and procedures may change and may vary according to the applicant's circumstances. Before submitting an application, applicants must verify the official requirements of the country concerned. NADBO CITY cannot guarantee a favorable decision by a consular or immigration authority.">
+          Les informations présentées par NADBO CITY servent à l'information et à la préparation générale. Elles ne garantissent pas l'obtention d'un visa. Les exigences, frais, formulaires, délais et modalités peuvent changer et peuvent varier selon le profil du demandeur. Avant tout dépôt, il faut vérifier les exigences officielles du pays concerné. NADBO CITY ne peut pas garantir une décision favorable d'une autorité consulaire ou d'immigration.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-content">
+
+      <div>
+        <h3>NADBO CITY</h3>
+        <p
+          data-fr="Une plateforme polyvalente proposant des produits, services et solutions."
+          data-en="A versatile platform offering products, services and solutions.">
+          Une plateforme polyvalente proposant des produits, services et solutions.
+        </p>
+      </div>
+
+      <div>
+        <h3 data-fr="Navigation" data-en="Navigation">Navigation</h3>
+        <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+        <a href="boutique.html" data-fr="Boutique" data-en="Shop">Boutique</a>
+        <a href="services.html" data-fr="Services" data-en="Services">Services</a>
+        <a href="visa.html" data-fr="Visa" data-en="Visa">Visa</a>
+        <a href="a-propos.html" data-fr="À propos" data-en="About Us">À propos</a>
+        <a href="contact.html" data-fr="Contact" data-en="Contact">Contact</a>
+      </div>
+
+      <div>
+        <h3 data-fr="Nous joindre" data-en="Contact Us">Nous joindre</h3>
+        <p>📞 438 336 0224</p>
+        <p>✉️ josueiyemo643@gmail.com</p>
+        <p>📍 Canada</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      <p>
+        © 2026 NADBO CITY —
+        <span data-fr="Tous droits réservés." data-en="All rights reserved.">
+          Tous droits réservés.
+        </span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      ==========================================================
+      CODE D'ACCÈS NADBO CITY
+      ----------------------------------------------------------
+      CHANGEZ LA VALEUR CI-DESSOUS POUR VOTRE PROPRE CODE.
+      Exemple : const ACCESS_CODE = "NADBO2026";
+      ==========================================================
+    */
+    const ACCESS_CODE = "NADBO2026";
+
+    function checkAccess() {
+      const enteredCode =
+        document.getElementById("accessCode").value.trim();
+
+      const message =
+        document.getElementById("accessMessage");
+
+      const privateContent =
+        document.getElementById("privateContent");
+
+      if (enteredCode === ACCESS_CODE) {
+        privateContent.style.display = "block";
+        message.textContent = "✓ Accès autorisé";
+        message.style.color = "green";
+
+        document
+          .getElementById("privateContent")
+          .scrollIntoView({ behavior: "smooth" });
+
+        sessionStorage.setItem("nadboVisaAccess", "true");
+      } else {
+        privateContent.style.display = "none";
+        message.textContent =
+          currentLanguage === "fr"
+            ? "Code incorrect. Veuillez contacter NADBO CITY."
+            : "Incorrect code. Please contact NADBO CITY.";
+        message.style.color = "#c0392b";
+      }
+    }
+
+    function lockContent() {
+      document.getElementById("privateContent").style.display = "none";
+      document.getElementById("accessCode").value = "";
+      sessionStorage.removeItem("nadboVisaAccess");
+      document.getElementById("accessMessage").textContent = "";
+    }
+
+    let currentLanguage =
+      localStorage.getItem("nadboLanguage") || "fr";
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+
+      document
+        .querySelectorAll("[data-fr][data-en]")
+        .forEach(element => {
+          element.textContent =
+            element.getAttribute("data-" + language);
+        });
+
+      document
+        .querySelectorAll("[data-placeholder-fr][data-placeholder-en]")
+        .forEach(element => {
+          element.placeholder =
+            element.getAttribute("data-placeholder-" + language);
+        });
+
+      const button =
+        document.getElementById("languageBtn");
+
+      button.textContent =
+        language === "fr" ? "🇫🇷 FR" : "🇬🇧 EN";
+
+      document.title =
+        language === "fr"
+          ? "NADBO CITY | Visa & Accompagnement"
+          : "NADBO CITY | Visa & Assistance";
+
+      localStorage.setItem("nadboLanguage", language);
+    }
+
+    function toggleLanguage() {
+      setLanguage(
+        currentLanguage === "fr" ? "en" : "fr"
+      );
+    }
+
+    setLanguage(currentLanguage);
+
+    if (sessionStorage.getItem("nadboVisaAccess") === "true") {
+      document.getElementById("privateContent").style.display = "block";
+      document.getElementById("accessMessage").textContent =
+        currentLanguage === "fr"
+          ? "✓ Accès autorisé"
+          : "✓ Access granted";
+      document.getElementById("accessMessage").style.color = "green";
+    }
+  </script>
+
+</body>
+</html>
