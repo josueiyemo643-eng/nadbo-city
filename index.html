@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,21 +7,18 @@
 <title>NADBO CITY | Vente & Services</title>
 
 <meta name="description"
-content="NADBO CITY — produits, services, visa, actualités et opportunités.">
+content="NADBO CITY — Vente, services, visa, actualités et opportunités.">
 
 <style>
 
-/* =========================================
-   COULEURS GÉNÉRALES
-========================================= */
-
 :root{
-  --navy:#061a35;
-  --navy2:#09284d;
-  --gold:#f7a900;
-  --cream:#f8f5ef;
+  --navy:#031b38;
+  --navy2:#06284d;
+  --gold:#f5aa16;
+  --cream:#f7f4ee;
   --white:#ffffff;
-  --text:#10213a;
+  --text:#071c38;
+  --gray:#687386;
 }
 
 *{
@@ -42,8 +38,8 @@ body{
 }
 
 a{
-  text-decoration:none;
   color:inherit;
+  text-decoration:none;
 }
 
 img{
@@ -51,68 +47,74 @@ img{
   max-width:100%;
 }
 
-
-/* =========================================
+/* =====================================
    HEADER
-========================================= */
+===================================== */
 
 header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#061a35;
+  background:rgba(3,27,56,.97);
   color:white;
-  border-bottom:1px solid rgba(255,255,255,.12);
-  box-shadow:0 5px 20px rgba(0,0,0,.18);
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .header{
-  max-width:1450px;
+  max-width:1500px;
   margin:auto;
-  padding:13px 35px;
+  min-height:95px;
+  padding:12px 45px;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:25px;
+  gap:30px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:13px;
+  gap:16px;
 }
 
 .brand img{
-  width:60px;
-  height:60px;
+  width:70px;
+  height:70px;
+  border-radius:8px;
   object-fit:cover;
-  border-radius:10px;
+}
+
+.brand-info{
+  padding-left:16px;
+  border-left:1px solid rgba(255,255,255,.4);
 }
 
 .brand-name{
+  color:var(--gold);
   font-size:25px;
   font-weight:900;
-  letter-spacing:1.5px;
+  letter-spacing:1px;
 }
 
 .brand-sub{
-  color:var(--gold);
+  margin-top:5px;
+  color:white;
   font-size:12px;
-  margin-top:3px;
+  line-height:1.4;
 }
 
 nav{
   display:flex;
   align-items:center;
-  gap:24px;
+  gap:28px;
 }
 
 nav a{
+  position:relative;
+  padding:14px 0;
   font-size:14px;
-  font-weight:700;
-  padding:12px 0;
-  transition:.3s;
+  font-weight:600;
 }
 
 nav a:hover,
@@ -120,460 +122,527 @@ nav a.active{
   color:var(--gold);
 }
 
+nav a.active::after{
+  content:"";
+  position:absolute;
+  height:2px;
+  background:var(--gold);
+  left:0;
+  right:0;
+  bottom:4px;
+}
+
 .lang{
-  border:1px solid rgba(255,255,255,.35);
+  border:0;
+  background:rgba(0,0,0,.15);
   color:white;
-  background:transparent;
-  padding:9px 15px;
-  border-radius:30px;
+  padding:12px 16px;
+  border-radius:25px;
   cursor:pointer;
   font-weight:bold;
 }
 
-
-/* =========================================
-   IMAGE PRINCIPALE D'ACCUEIL
-========================================= */
+/* =====================================
+   HERO
+===================================== */
 
 .hero{
-  width:100%;
-  background:#061a35;
   position:relative;
+  min-height:570px;
   overflow:hidden;
+  color:white;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2,23,48,.97) 0%,
+      rgba(2,23,48,.90) 35%,
+      rgba(2,23,48,.35) 65%,
+      rgba(2,23,48,.18) 100%
+    ),
+    url("nadbo-accueil.jpeg");
+
+  background-size:cover;
+  background-position:center top;
 }
 
-.hero img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-
-/* =========================================
-   NOS UNIVERS
-========================================= */
-
-.section{
-  max-width:1450px;
+.hero-inner{
+  max-width:1500px;
+  min-height:570px;
   margin:auto;
-  padding:65px 35px;
-}
+  padding:70px 48px;
 
-.section-header{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:35px;
 }
 
-.section-header h2{
-  font-size:40px;
-  color:#061a35;
+.hero-content{
+  position:relative;
+  z-index:3;
+  width:min(650px,100%);
 }
 
-.section-header p{
-  color:#687386;
+.eyebrow{
+  color:white;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:5px;
+  margin-bottom:18px;
 }
 
-.gold-line{
-  width:55px;
-  height:4px;
-  background:var(--gold);
+.hero h1{
+  font-size:clamp(55px,7vw,95px);
+  line-height:.92;
+  letter-spacing:-3px;
+  font-weight:900;
+}
+
+.hero h1 span{
+  color:var(--gold);
+}
+
+.hero h2{
+  font-size:31px;
+  line-height:1.08;
   margin-top:12px;
+  max-width:610px;
 }
 
-.univers{
+.hero-description{
+  margin-top:20px;
+  max-width:570px;
+  color:#eef3f8;
+  font-size:17px;
+  line-height:1.55;
+}
+
+.slogan{
+  margin-top:20px;
+  color:var(--gold);
+  font-family:Georgia,serif;
+  font-size:38px;
+  font-style:italic;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+  margin-top:27px;
+}
+
+.btn{
+  padding:15px 28px;
+  border-radius:35px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.btn-gold{
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.btn-outline{
+  border:2px solid var(--gold);
+  color:white;
+  background:rgba(3,27,56,.55);
+}
+
+/* =====================================
+   BARRE AVANTAGES
+===================================== */
+
+.quick-benefits{
+  background:#041a35;
+  color:white;
+}
+
+.quick-benefits-inner{
+  max-width:1500px;
+  margin:auto;
+
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:18px;
 }
 
-.universe{
-  min-height:280px;
-  padding:25px;
+.quick-benefit{
+  min-height:92px;
+  padding:17px 20px;
 
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+
+  border-right:1px solid rgba(255,255,255,.1);
+}
+
+.quick-benefit:last-child{
+  border-right:0;
+}
+
+.quick-icon{
+  color:var(--gold);
+  font-size:31px;
+}
+
+.quick-benefit p{
+  color:#f0f4f8;
+  font-size:13px;
+  line-height:1.45;
+}
+
+/* =====================================
+   NOS UNIVERS
+===================================== */
+
+.universe-section{
+  background:var(--cream);
+  padding:38px 30px 45px;
+}
+
+.container{
+  max-width:1450px;
+  margin:auto;
+}
+
+.section-title-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+  margin-bottom:28px;
+}
+
+.section-title-left{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.section-title-left h2{
+  color:var(--navy);
+  font-size:39px;
+}
+
+.title-line{
+  width:70px;
+  height:3px;
+  background:var(--gold);
+}
+
+.section-description{
+  color:#425069;
+  font-size:14px;
+}
+
+.see-all{
+  margin-left:auto;
+  color:#d38e00;
+  font-weight:700;
+  font-size:14px;
+}
+
+/* CARTES */
+
+.universe-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:16px;
+}
+
+.universe-card{
   position:relative;
+  min-height:285px;
+  border-radius:8px;
   overflow:hidden;
-
-  border-radius:18px;
+  padding:20px;
 
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
 
   color:white;
+  background-size:cover;
+  background-position:center;
 
-  box-shadow:0 10px 30px rgba(6,26,53,.15);
+  box-shadow:0 7px 20px rgba(0,0,0,.12);
 
   transition:.3s;
 }
 
-.universe:hover{
-  transform:translateY(-7px);
+.universe-card:hover{
+  transform:translateY(-6px);
 }
 
-.universe::before{
+.universe-card::before{
   content:"";
   position:absolute;
   inset:0;
-
   background:
-  linear-gradient(
-    180deg,
-    rgba(0,0,0,.05),
-    rgba(3,17,38,.95)
-  );
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,.05),
+      rgba(2,21,45,.95)
+    );
 }
 
-.universe > *{
+.universe-card > *{
   position:relative;
   z-index:2;
 }
 
-.universe-icon{
-  font-size:55px;
+.card-icon{
+  font-size:43px;
   margin-bottom:auto;
 }
 
-.universe h3{
-  font-size:23px;
-  margin-bottom:8px;
+.universe-card h3{
+  font-size:22px;
+  margin-bottom:7px;
 }
 
-.universe p{
+.universe-card p{
+  min-height:40px;
+  color:#eef3f7;
   font-size:13px;
-  color:#e7edf5;
-  line-height:1.5;
+  line-height:1.45;
 }
 
-.u1{
-  background:linear-gradient(145deg,#76532f,#061a35);
-}
+.card-arrow{
+  position:absolute;
+  right:15px;
+  bottom:15px;
 
-.u2{
-  background:linear-gradient(145deg,#395b79,#061a35);
-}
+  width:30px;
+  height:30px;
 
-.u3{
-  background:linear-gradient(145deg,#1977ad,#061a35);
-}
-
-.u4{
-  background:linear-gradient(145deg,#745d49,#061a35);
-}
-
-.u5{
-  background:linear-gradient(145deg,#405b78,#061a35);
-}
-
-
-/* =========================================
-   SERVICES
-========================================= */
-
-.services{
-  background:white;
-}
-
-.services-inner{
-  max-width:1450px;
-  margin:auto;
-  padding:70px 35px;
-}
-
-.services-title{
-  text-align:center;
-  margin-bottom:45px;
-}
-
-.services-title h2{
-  font-size:40px;
-  color:#061a35;
-}
-
-.services-title p{
-  color:#687386;
-  margin-top:10px;
-}
-
-.service-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:25px;
-}
-
-.service-card{
-  background:#f8f9fb;
-  border:1px solid #e3e8ef;
-  padding:35px 25px;
-  border-radius:20px;
-  text-align:center;
-
-  box-shadow:0 8px 25px rgba(6,26,53,.07);
-
-  transition:.3s;
-}
-
-.service-card:hover{
-  transform:translateY(-7px);
-  box-shadow:0 15px 35px rgba(6,26,53,.14);
-}
-
-.service-icon{
-  width:70px;
-  height:70px;
-  margin:0 auto 20px;
-
+  border:2px solid var(--gold);
   border-radius:50%;
-
-  background:#fff1cf;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:32px;
-}
-
-.service-card h3{
-  color:#061a35;
-  margin-bottom:12px;
-}
-
-.service-card p{
-  color:#687386;
-  line-height:1.6;
-  font-size:14px;
-}
-
-.service-card a{
-  display:inline-block;
-  color:#d99200;
-  font-weight:bold;
-  margin-top:20px;
-}
-
-
-/* =========================================
-   POURQUOI NADBO CITY
-========================================= */
-
-.why{
-  background:#061a35;
-  color:white;
-}
-
-.why-inner{
-  max-width:1450px;
-  margin:auto;
-  padding:65px 35px;
-}
-
-.why-title{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.why-title h2{
-  font-size:38px;
-}
-
-.why-title p{
-  color:#cbd6e5;
-  margin-top:10px;
-}
-
-.benefits{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.benefit{
-  text-align:center;
-  padding:25px 15px;
-}
-
-.benefit-icon{
-  font-size:40px;
-  margin-bottom:15px;
-}
-
-.benefit h3{
   color:var(--gold);
-  margin-bottom:10px;
 }
 
-.benefit p{
-  color:#d5deea;
-  font-size:14px;
-  line-height:1.6;
+/* Couleurs temporaires jusqu'à ajout
+   des images individuelles */
+
+.shop-card{
+  background:
+    linear-gradient(145deg,#88663e,#0b1e38);
 }
 
+.services-card{
+  background:
+    linear-gradient(145deg,#516b81,#061a35);
+}
 
-/* =========================================
-   MISSION / VISION / VALEURS
-========================================= */
+.visa-card{
+  background:
+    linear-gradient(145deg,#2080b6,#061a35);
+}
+
+.news-card{
+  background:
+    linear-gradient(145deg,#7a654f,#061a35);
+}
+
+.opportunity-card{
+  background:
+    linear-gradient(145deg,#587087,#061a35);
+}
+
+/* =====================================
+   GRANDE SECTION VISION
+===================================== */
 
 .vision{
-  background:
-  linear-gradient(
-    120deg,
-    #071d3b,
-    #0a315d
-  );
-
+  background:#031b38;
   color:white;
 }
 
 .vision-inner{
-  max-width:1450px;
+  max-width:1500px;
   margin:auto;
-  padding:75px 35px;
 
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
+  grid-template-columns:1.65fr 1fr;
 }
 
-.vision-left{
-  min-height:380px;
-  border-radius:25px;
-  padding:45px;
+.vision-city{
+  min-height:390px;
+  position:relative;
+  padding:55px;
 
   display:flex;
-  flex-direction:column;
+  align-items:center;
   justify-content:center;
+  text-align:center;
+
+  overflow:hidden;
 
   background:
-  radial-gradient(
-    circle at 20% 20%,
-    rgba(247,169,0,.28),
-    transparent 35%
-  ),
-  #061a35;
+    linear-gradient(
+      90deg,
+      rgba(3,27,56,.15),
+      rgba(3,27,56,.80)
+    ),
+    url("nadbo-accueil.jpeg");
 
-  border:1px solid rgba(255,255,255,.12);
+  background-size:cover;
+  background-position:center 65%;
 }
 
-.vision-left h2{
+.vision-city-content{
+  position:relative;
+  z-index:2;
+}
+
+.vision-city h2{
+  font-size:31px;
+  font-weight:400;
+  line-height:1.3;
+}
+
+.vision-city h2 strong{
+  display:block;
   font-size:42px;
-  line-height:1.2;
 }
 
-.vision-left span{
+.vision-city h3{
   color:var(--gold);
+  font-size:30px;
+  margin-top:27px;
 }
 
-.vision-left p{
-  color:#d6dfeb;
-  line-height:1.7;
-  margin-top:20px;
+.vision-city p{
+  margin-top:8px;
+  letter-spacing:1px;
 }
 
 .values{
-  display:grid;
-  gap:25px;
+  padding:50px 45px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:35px;
 }
 
 .value{
   display:grid;
-  grid-template-columns:65px 1fr;
+  grid-template-columns:60px 1fr;
   gap:18px;
+  align-items:start;
 }
 
 .value-icon{
-  font-size:40px;
   color:var(--gold);
+  font-size:38px;
+  text-align:center;
 }
 
 .value h3{
-  margin-bottom:7px;
-  color:var(--gold);
+  margin-bottom:8px;
+  font-size:18px;
 }
 
 .value p{
-  color:#d3ddea;
-  line-height:1.6;
+  color:#e1e8f0;
+  font-size:14px;
+  line-height:1.55;
 }
 
-
-/* =========================================
+/* =====================================
    NEWSLETTER
-========================================= */
+===================================== */
 
 .newsletter{
-  background:white;
-  padding:35px;
+  background:#faf8f4;
+  padding:27px 35px;
 }
 
 .newsletter-inner{
-  max-width:1350px;
+  max-width:1400px;
   margin:auto;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:35px;
+}
 
-  gap:30px;
+.newsletter-left{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.mail-icon{
+  color:var(--gold);
+  font-size:45px;
 }
 
 .newsletter h3{
-  font-size:25px;
-  color:#061a35;
+  color:var(--navy);
+  font-size:22px;
 }
 
 .newsletter p{
-  color:#687386;
-  margin-top:7px;
+  margin-top:4px;
+  color:#4f5d72;
+  font-size:13px;
 }
 
 .newsletter-form{
-  width:min(520px,100%);
+  width:min(590px,100%);
   display:flex;
 }
 
 .newsletter-form input{
   flex:1;
-  border:1px solid #d4dae3;
+  min-width:0;
+  padding:16px 24px;
+  border:1px solid #d6dbe2;
+  border-right:0;
   border-radius:30px 0 0 30px;
-  padding:15px 22px;
   outline:none;
+  background:white;
 }
 
 .newsletter-form button{
-  border:none;
-  background:var(--gold);
-  color:#061a35;
-
-  padding:0 28px;
-
+  border:0;
+  padding:0 35px;
   border-radius:0 30px 30px 0;
-
-  font-weight:bold;
+  background:var(--gold);
+  color:var(--navy);
+  font-weight:800;
   cursor:pointer;
 }
 
-
-/* =========================================
+/* =====================================
    FOOTER
-========================================= */
+===================================== */
 
 footer{
-  background:#031329;
+  background:#03182f;
   color:white;
 }
 
 .footer-inner{
   max-width:1450px;
   margin:auto;
-
-  padding:60px 35px;
+  padding:45px 45px;
 
   display:grid;
-  grid-template-columns:1.5fr 1fr 1fr 1.3fr;
+  grid-template-columns:1.4fr 1fr 1fr 1.3fr;
   gap:45px;
 }
 
@@ -586,33 +655,34 @@ footer{
 .footer-brand img{
   width:75px;
   height:75px;
-  object-fit:cover;
-  border-radius:12px;
+  border-radius:9px;
 }
 
-.footer-logo{
+.footer-brand-text{
+  padding-left:15px;
+  border-left:1px solid rgba(255,255,255,.3);
+}
+
+.footer-brand-text strong{
   color:var(--gold);
-  font-size:28px;
-  font-weight:900;
+  font-size:22px;
 }
 
-.footer-text{
-  color:#c6d0df;
-  margin-top:18px;
-  line-height:1.7;
+.footer-brand-text p{
+  margin-top:5px;
+  font-size:12px;
 }
 
 .footer-slogan{
+  margin-top:25px;
   color:var(--gold);
   font-family:Georgia,serif;
+  font-size:27px;
   font-style:italic;
-  font-size:24px;
-  margin-top:20px;
 }
 
 footer h4{
-  color:white;
-  margin-bottom:17px;
+  margin-bottom:18px;
 }
 
 footer ul{
@@ -620,8 +690,8 @@ footer ul{
 }
 
 footer li{
-  color:#c6d0df;
   margin:10px 0;
+  color:#d0d9e4;
   font-size:14px;
 }
 
@@ -631,42 +701,42 @@ footer a:hover{
 
 .social{
   display:flex;
-  gap:10px;
+  gap:9px;
   margin-top:20px;
 }
 
 .social a{
-  width:40px;
-  height:40px;
+  width:34px;
+  height:34px;
+  border:1px solid rgba(255,255,255,.4);
   border-radius:50%;
 
-  background:var(--gold);
-  color:#061a35;
-
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 
+  font-size:12px;
   font-weight:bold;
 }
 
-.copyright{
+.footer-bottom{
   max-width:1450px;
   margin:auto;
+  padding:22px 45px;
 
-  padding:23px 35px;
+  border-top:1px solid rgba(255,255,255,.1);
 
-  border-top:
-  1px solid rgba(255,255,255,.1);
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
 
-  color:#8998ac;
-  font-size:13px;
+  color:#a9b5c4;
+  font-size:12px;
 }
 
-
-/* =========================================
+/* =====================================
    TABLETTE
-========================================= */
+===================================== */
 
 @media(max-width:1050px){
 
@@ -681,15 +751,19 @@ footer a:hover{
     flex-wrap:wrap;
   }
 
-  .univers{
+  .hero{
+    min-height:500px;
+  }
+
+  .hero-inner{
+    min-height:500px;
+  }
+
+  .quick-benefits-inner{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .service-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .benefits{
+  .universe-grid{
     grid-template-columns:repeat(2,1fr);
   }
 
@@ -703,20 +777,20 @@ footer a:hover{
 
 }
 
-
-/* =========================================
+/* =====================================
    MOBILE
-========================================= */
+===================================== */
 
 @media(max-width:650px){
 
   .header{
     padding:12px 15px;
+    min-height:auto;
   }
 
   .brand img{
-    width:50px;
-    height:50px;
+    width:58px;
+    height:58px;
   }
 
   .brand-name{
@@ -728,7 +802,7 @@ footer a:hover{
   }
 
   nav{
-    gap:11px;
+    gap:14px;
   }
 
   nav a{
@@ -736,59 +810,101 @@ footer a:hover{
   }
 
   .lang{
-    padding:7px 11px;
     font-size:11px;
+    padding:8px 11px;
   }
 
-  .hero img{
-    width:100%;
-    height:auto;
+  .hero{
+    min-height:620px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(2,23,48,.95),
+        rgba(2,23,48,.65)
+      ),
+      url("nadbo-accueil.jpeg");
+
+    background-size:cover;
+    background-position:center top;
   }
 
-  .section{
-    padding:50px 18px;
+  .hero-inner{
+    min-height:620px;
+    padding:50px 22px;
+    align-items:flex-start;
   }
 
-  .section-header{
+  .eyebrow{
+    font-size:10px;
+    letter-spacing:3px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero h2{
+    font-size:24px;
+  }
+
+  .hero-description{
+    font-size:15px;
+  }
+
+  .slogan{
+    font-size:30px;
+  }
+
+  .hero-buttons{
     flex-direction:column;
     align-items:flex-start;
   }
 
-  .section-header h2{
+  .quick-benefits-inner{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .quick-benefit{
+    padding:15px 10px;
+  }
+
+  .section-title-row{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .section-title-left{
+    flex-wrap:wrap;
+  }
+
+  .section-title-left h2{
     font-size:32px;
   }
 
-  .univers{
+  .universe-grid{
     grid-template-columns:1fr;
   }
 
-  .services-inner{
-    padding:55px 20px;
+  .universe-card{
+    min-height:260px;
   }
 
-  .services-title h2{
+  .vision-city{
+    min-height:330px;
+    padding:30px 20px;
+  }
+
+  .vision-city h2{
+    font-size:25px;
+  }
+
+  .vision-city h2 strong{
     font-size:32px;
   }
 
-  .service-grid{
-    grid-template-columns:1fr;
-  }
-
-  .benefits{
-    grid-template-columns:1fr;
-  }
-
-  .vision-inner{
-    padding:55px 20px;
-  }
-
-  .vision-left{
-    padding:30px;
-    min-height:300px;
-  }
-
-  .vision-left h2{
-    font-size:32px;
+  .values{
+    padding:40px 22px;
   }
 
   .newsletter-inner{
@@ -803,12 +919,20 @@ footer a:hover{
 
   .newsletter-form input,
   .newsletter-form button{
+    width:100%;
+    border:1px solid #d6dbe2;
     border-radius:30px;
     padding:15px 20px;
   }
 
   .footer-inner{
     grid-template-columns:1fr;
+    padding:45px 25px;
+  }
+
+  .footer-bottom{
+    padding:20px 25px;
+    flex-direction:column;
   }
 
 }
@@ -816,25 +940,19 @@ footer a:hover{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================
-     HEADER
-========================================= -->
+<!-- HEADER -->
 
 <header>
 
 <div class="header">
 
-<a class="brand" href="index.html">
+<a href="index.html" class="brand">
 
-<img
-src="Logo nadbo.PNG"
-alt="Logo NADBO CITY">
+<img src="Logo nadbo.PNG" alt="Logo NADBO CITY">
 
-<div>
+<div class="brand-info">
 
 <div class="brand-name">
 NADBO CITY
@@ -851,49 +969,36 @@ Vente et services à moins prix
 
 </a>
 
-
 <nav>
 
-<a
-class="active"
+<a class="active"
 href="index.html"
 data-fr="Accueil"
 data-en="Home">
 Accueil
 </a>
 
-<a
-href="boutique.html"
+<a href="boutique.html"
 data-fr="Boutique"
 data-en="Shop">
 Boutique
 </a>
 
-<a
-href="services.html"
-data-fr="Services"
-data-en="Services">
+<a href="services.html">
 Services
 </a>
 
-<a
-href="actualites.html"
+<a href="actualites.html"
 data-fr="Actualités"
 data-en="News">
 Actualités
 </a>
 
-<a
-href="visa.html"
-data-fr="Visa"
-data-en="Visa">
+<a href="visa.html">
 Visa
 </a>
 
-<a
-href="contact.html"
-data-fr="Contact"
-data-en="Contact">
+<a href="contact.html">
 Contact
 </a>
 
@@ -910,32 +1015,135 @@ onclick="toggleLanguage()">
 
 </header>
 
-
 <main>
 
-
-<!-- =========================================
-     IMAGE D'ACCUEIL
-========================================= -->
+<!-- HERO -->
 
 <section class="hero">
 
-<img
-src="nadbo-accueil.jpeg"
-alt="NADBO CITY - Vente et services à moins prix">
+<div class="hero-inner">
+
+<div class="hero-content">
+
+<div
+class="eyebrow"
+data-fr="QUALITÉ | ACCESSIBILITÉ | CONFIANCE"
+data-en="QUALITY | ACCESSIBILITY | TRUST">
+QUALITÉ | ACCESSIBILITÉ | CONFIANCE
+</div>
+
+<h1>
+NADBO <span>CITY</span>
+</h1>
+
+<h2
+data-fr="Votre destination pour les produits, services et opportunités."
+data-en="Your destination for products, services and opportunities.">
+Votre destination pour les produits,
+services et opportunités.
+</h2>
+
+<p
+class="hero-description"
+data-fr="Une plateforme pensée pour vous offrir des produits, des services et des solutions accessibles, pratiques et fiables."
+data-en="A platform designed to offer accessible, practical and reliable products, services and solutions.">
+Une plateforme pensée pour vous offrir des produits,
+des services et des solutions accessibles,
+pratiques et fiables.
+</p>
+
+<div
+class="slogan"
+data-fr="Ensemble, plus loin !"
+data-en="Together, further!">
+Ensemble, plus loin !
+</div>
+
+<div class="hero-buttons">
+
+<a
+href="boutique.html"
+class="btn btn-gold"
+data-fr="Découvrir la boutique →"
+data-en="Discover the shop →">
+Découvrir la boutique →
+</a>
+
+<a
+href="services.html"
+class="btn btn-outline"
+data-fr="Nos services"
+data-en="Our services">
+Nos services
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- AVANTAGES -->
 
-<!-- =========================================
-     NOS UNIVERS
-========================================= -->
+<section class="quick-benefits">
 
-<section class="section">
+<div class="quick-benefits-inner">
 
-<div class="section-header">
+<div class="quick-benefit">
+<div class="quick-icon">🚚</div>
+<p data-fr="Livraison rapide et fiable"
+data-en="Fast and reliable delivery">
+Livraison rapide<br>et fiable
+</p>
+</div>
 
-<div>
+<div class="quick-benefit">
+<div class="quick-icon">🛡️</div>
+<p data-fr="Paiement sécurisé"
+data-en="Secure payment">
+Paiement sécurisé<br>à 100 %
+</p>
+</div>
+
+<div class="quick-benefit">
+<div class="quick-icon">🎧</div>
+<p data-fr="Un support toujours à l'écoute"
+data-en="Support always ready to help">
+Un support<br>toujours à l'écoute
+</p>
+</div>
+
+<div class="quick-benefit">
+<div class="quick-icon">🏅</div>
+<p data-fr="Des produits de qualité"
+data-en="Quality products">
+Des produits<br>de qualité
+</p>
+</div>
+
+<div class="quick-benefit">
+<div class="quick-icon">👥</div>
+<p data-fr="Une communauté de confiance"
+data-en="A trusted community">
+Une communauté<br>de confiance
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- NOS UNIVERS -->
+
+<section class="universe-section">
+
+<div class="container">
+
+<div class="section-title-row">
+
+<div class="section-title-left">
 
 <h2
 data-fr="Nos univers"
@@ -943,11 +1151,10 @@ data-en="Our world">
 Nos univers
 </h2>
 
-<div class="gold-line"></div>
-
-</div>
+<div class="title-line"></div>
 
 <p
+class="section-description"
 data-fr="Tout ce dont vous avez besoin, au même endroit."
 data-en="Everything you need, all in one place.">
 Tout ce dont vous avez besoin, au même endroit.
@@ -955,17 +1162,21 @@ Tout ce dont vous avez besoin, au même endroit.
 
 </div>
 
+<a href="services.html"
+class="see-all"
+data-fr="Voir tout →"
+data-en="View all →">
+Voir tout →
+</a>
 
-<div class="univers">
-
-
-<a
-href="boutique.html"
-class="universe u1">
-
-<div class="universe-icon">
-🛍️
 </div>
+
+<div class="universe-grid">
+
+<a href="boutique.html"
+class="universe-card shop-card">
+
+<div class="card-icon">🛍️</div>
 
 <h3
 data-fr="Boutique"
@@ -979,58 +1190,48 @@ data-en="Quality products at accessible prices.">
 Des produits de qualité à prix accessibles.
 </p>
 
+<div class="card-arrow">→</div>
+
 </a>
 
+<a href="services.html"
+class="universe-card services-card">
 
-<a
-href="services.html"
-class="universe u2">
+<div class="card-icon">💻</div>
 
-<div class="universe-icon">
-💻
-</div>
-
-<h3>
-Services
-</h3>
+<h3>Services</h3>
 
 <p
-data-fr="Des solutions pratiques et accessibles pour votre quotidien."
-data-en="Practical and accessible solutions for everyday life.">
-Des solutions pratiques et accessibles pour votre quotidien.
+data-fr="Des solutions pratiques pour votre quotidien."
+data-en="Practical solutions for everyday life.">
+Des solutions pratiques pour votre quotidien.
 </p>
+
+<div class="card-arrow">→</div>
 
 </a>
 
+<a href="visa.html"
+class="universe-card visa-card">
 
-<a
-href="visa.html"
-class="universe u3">
+<div class="card-icon">✈️</div>
 
-<div class="universe-icon">
-✈️
-</div>
-
-<h3>
-Visa
-</h3>
+<h3>Visa</h3>
 
 <p
-data-fr="Informations et accompagnement pour vos projets."
-data-en="Information and support for your projects.">
-Informations et accompagnement pour vos projets.
+data-fr="Informations et accompagnement."
+data-en="Information and support.">
+Informations et accompagnement.
 </p>
+
+<div class="card-arrow">→</div>
 
 </a>
 
+<a href="actualites.html"
+class="universe-card news-card">
 
-<a
-href="actualites.html"
-class="universe u4">
-
-<div class="universe-icon">
-📰
-</div>
+<div class="card-icon">📰</div>
 
 <h3
 data-fr="Actualités"
@@ -1039,21 +1240,19 @@ Actualités
 </h3>
 
 <p
-data-fr="Restez informé des dernières nouvelles."
+data-fr="Restez informé sur les dernières nouvelles."
 data-en="Stay informed about the latest news.">
-Restez informé des dernières nouvelles.
+Restez informé sur les dernières nouvelles.
 </p>
+
+<div class="card-arrow">→</div>
 
 </a>
 
+<a href="contact.html"
+class="universe-card opportunity-card">
 
-<a
-href="contact.html"
-class="universe u5">
-
-<div class="universe-icon">
-🤝
-</div>
+<div class="card-icon">🤝</div>
 
 <h3
 data-fr="Opportunités"
@@ -1067,151 +1266,9 @@ data-en="Ideas and resources for a better future.">
 Des idées et ressources pour un meilleur avenir.
 </p>
 
+<div class="card-arrow">→</div>
+
 </a>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     NOS SERVICES
-========================================= -->
-
-<section class="services">
-
-<div class="services-inner">
-
-<div class="services-title">
-
-<h2
-data-fr="Nos services"
-data-en="Our services">
-Nos services
-</h2>
-
-<p
-data-fr="Découvrez les différentes solutions proposées par NADBO CITY."
-data-en="Discover the different solutions offered by NADBO CITY.">
-Découvrez les différentes solutions proposées par NADBO CITY.
-</p>
-
-</div>
-
-
-<div class="service-grid">
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🛒
-</div>
-
-<h3
-data-fr="Vente de produits"
-data-en="Product sales">
-Vente de produits
-</h3>
-
-<p
-data-fr="Découvrez une sélection de produits et accessoires pratiques à prix accessibles."
-data-en="Discover a selection of practical products and accessories at accessible prices.">
-Découvrez une sélection de produits et accessoires pratiques à prix accessibles.
-</p>
-
-<a
-href="boutique.html"
-data-fr="Découvrir →"
-data-en="Discover →">
-Découvrir →
-</a>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🧹
-</div>
-
-<h3
-data-fr="Nettoyage"
-data-en="Cleaning">
-Nettoyage
-</h3>
-
-<p
-data-fr="Services de nettoyage résidentiel et commercial adaptés à vos besoins."
-data-en="Residential and commercial cleaning services adapted to your needs.">
-Services de nettoyage résidentiel et commercial adaptés à vos besoins.
-</p>
-
-<a
-href="services.html"
-data-fr="En savoir plus →"
-data-en="Learn more →">
-En savoir plus →
-</a>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-🌍
-</div>
-
-<h3
-data-fr="Visa & accompagnement"
-data-en="Visa & support">
-Visa & accompagnement
-</h3>
-
-<p
-data-fr="Informations générales et accompagnement pour différents projets de voyage."
-data-en="General information and support for different travel projects.">
-Informations générales et accompagnement pour différents projets de voyage.
-</p>
-
-<a
-href="visa.html"
-data-fr="Découvrir →"
-data-en="Discover →">
-Découvrir →
-</a>
-
-</div>
-
-
-<div class="service-card">
-
-<div class="service-icon">
-📰
-</div>
-
-<h3
-data-fr="Informations & actualités"
-data-en="Information & news">
-Informations & actualités
-</h3>
-
-<p
-data-fr="Retrouvez les informations, nouveautés et opportunités publiées par NADBO CITY."
-data-en="Find information, updates and opportunities published by NADBO CITY.">
-Retrouvez les informations, nouveautés et opportunités publiées par NADBO CITY.
-</p>
-
-<a
-href="actualites.html"
-data-fr="Voir les actualités →"
-data-en="View news →">
-Voir les actualités →
-</a>
-
-</div>
 
 </div>
 
@@ -1219,165 +1276,40 @@ Voir les actualités →
 
 </section>
 
-
-<!-- =========================================
-     POURQUOI NADBO CITY
-========================================= -->
-
-<section class="why">
-
-<div class="why-inner">
-
-<div class="why-title">
-
-<h2
-data-fr="Pourquoi NADBO CITY ?"
-data-en="Why NADBO CITY?">
-Pourquoi NADBO CITY ?
-</h2>
-
-<p
-data-fr="Notre priorité est de vous proposer une expérience simple, accessible et fiable."
-data-en="Our priority is to provide a simple, accessible and reliable experience.">
-Notre priorité est de vous proposer une expérience simple, accessible et fiable.
-</p>
-
-</div>
-
-
-<div class="benefits">
-
-
-<div class="benefit">
-
-<div class="benefit-icon">
-🚚
-</div>
-
-<h3
-data-fr="Livraison"
-data-en="Delivery">
-Livraison
-</h3>
-
-<p
-data-fr="Un service pensé pour rendre vos achats plus simples."
-data-en="A service designed to make your purchases easier.">
-Un service pensé pour rendre vos achats plus simples.
-</p>
-
-</div>
-
-
-<div class="benefit">
-
-<div class="benefit-icon">
-🔒
-</div>
-
-<h3
-data-fr="Sécurité"
-data-en="Security">
-Sécurité
-</h3>
-
-<p
-data-fr="Une expérience conçue avec la sécurité et la confiance au centre."
-data-en="An experience designed with security and trust at its core.">
-Une expérience conçue avec la sécurité et la confiance au centre.
-</p>
-
-</div>
-
-
-<div class="benefit">
-
-<div class="benefit-icon">
-🎧
-</div>
-
-<h3
-data-fr="Service client"
-data-en="Customer service">
-Service client
-</h3>
-
-<p
-data-fr="Une équipe disponible pour répondre à vos questions."
-data-en="A team available to answer your questions.">
-Une équipe disponible pour répondre à vos questions.
-</p>
-
-</div>
-
-
-<div class="benefit">
-
-<div class="benefit-icon">
-⭐
-</div>
-
-<h3
-data-fr="Qualité"
-data-en="Quality">
-Qualité
-</h3>
-
-<p
-data-fr="Nous recherchons des produits et services répondant à vos besoins."
-data-en="We seek products and services that meet your needs.">
-Nous recherchons des produits et services répondant à vos besoins.
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================
-     MISSION / VISION
-========================================= -->
+<!-- VISION -->
 
 <section class="vision">
 
 <div class="vision-inner">
 
+<div class="vision-city">
 
-<div class="vision-left">
+<div class="vision-city-content">
 
 <h2
-data-fr="Plus que des produits, des opportunités."
-data-en="More than products, opportunities.">
-
-Plus que des produits,
-<span>des opportunités.</span>
-
+data-fr="PLUS QUE DES PRODUITS, DES OPPORTUNITÉS."
+data-en="MORE THAN PRODUCTS, OPPORTUNITIES.">
+PLUS QUE DES PRODUITS,
+<strong>DES OPPORTUNITÉS.</strong>
 </h2>
 
+<h3>NADBO CITY</h3>
+
 <p
-data-fr="NADBO CITY rassemble plusieurs solutions au même endroit afin de faciliter votre quotidien et de créer de nouvelles opportunités."
-data-en="NADBO CITY brings together multiple solutions in one place to make everyday life easier and create new opportunities.">
-
-NADBO CITY rassemble plusieurs solutions au même endroit afin de faciliter votre quotidien et de créer de nouvelles opportunités.
-
+data-fr="VOTRE PARTENAIRE AU QUOTIDIEN."
+data-en="YOUR EVERYDAY PARTNER.">
+VOTRE PARTENAIRE AU QUOTIDIEN.
 </p>
 
 </div>
 
+</div>
 
 <div class="values">
 
-
 <div class="value">
 
-<div class="value-icon">
-🎯
-</div>
+<div class="value-icon">🎯</div>
 
 <div>
 
@@ -1388,21 +1320,19 @@ Notre mission
 </h3>
 
 <p
-data-fr="Vous offrir des produits, services et solutions accessibles avec une expérience simple et fiable."
-data-en="To provide accessible products, services and solutions through a simple and reliable experience.">
-Vous offrir des produits, services et solutions accessibles avec une expérience simple et fiable.
+data-fr="Vous offrir le meilleur à moindre coût, avec des solutions accessibles et fiables."
+data-en="To offer you the best at affordable prices, with accessible and reliable solutions.">
+Vous offrir le meilleur à moindre coût,
+avec des solutions accessibles et fiables.
 </p>
 
 </div>
 
 </div>
 
-
 <div class="value">
 
-<div class="value-icon">
-👁️
-</div>
+<div class="value-icon">◉</div>
 
 <div>
 
@@ -1413,21 +1343,19 @@ Notre vision
 </h3>
 
 <p
-data-fr="Développer une plateforme regroupant plusieurs solutions pratiques et accessibles."
-data-en="Develop a platform bringing together multiple practical and accessible solutions.">
-Développer une plateforme regroupant plusieurs solutions pratiques et accessibles.
+data-fr="Devenir une référence en solutions digitales et services accessibles."
+data-en="To become a reference in digital solutions and accessible services.">
+Devenir une référence en solutions digitales
+et services accessibles.
 </p>
 
 </div>
 
 </div>
 
-
 <div class="value">
 
-<div class="value-icon">
-💎
-</div>
+<div class="value-icon">💎</div>
 
 <div>
 
@@ -1440,13 +1368,13 @@ Nos valeurs
 <p
 data-fr="Confiance, qualité, proximité, accessibilité et innovation."
 data-en="Trust, quality, proximity, accessibility and innovation.">
-Confiance, qualité, proximité, accessibilité et innovation.
+Confiance, qualité, proximité,
+accessibilité et innovation.
 </p>
 
 </div>
 
 </div>
-
 
 </div>
 
@@ -1454,31 +1382,34 @@ Confiance, qualité, proximité, accessibilité et innovation.
 
 </section>
 
-
-<!-- =========================================
-     NEWSLETTER
-========================================= -->
+<!-- NEWSLETTER -->
 
 <section class="newsletter">
 
 <div class="newsletter-inner">
 
+<div class="newsletter-left">
+
+<div class="mail-icon">✉</div>
+
 <div>
 
 <h3
-data-fr="✉️ Restez connecté !"
-data-en="✉️ Stay connected!">
-✉️ Restez connecté !
+data-fr="Restez connecté !"
+data-en="Stay connected!">
+Restez connecté !
 </h3>
 
 <p
-data-fr="Inscrivez-vous pour recevoir nos offres, nouveautés et informations."
-data-en="Subscribe to receive our offers, news and updates.">
-Inscrivez-vous pour recevoir nos offres, nouveautés et informations.
+data-fr="Inscrivez-vous pour recevoir nos offres, nouveautés et conseils."
+data-en="Subscribe to receive our offers, news and tips.">
+Inscrivez-vous pour recevoir nos offres,
+nouveautés et conseils.
 </p>
 
 </div>
 
+</div>
 
 <form
 class="newsletter-form"
@@ -1502,18 +1433,13 @@ S'inscrire
 
 </section>
 
-
 </main>
 
-
-<!-- =========================================
-     FOOTER
-========================================= -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="footer-inner">
-
 
 <div>
 
@@ -1521,20 +1447,21 @@ S'inscrire
 
 <img
 src="Logo nadbo.PNG"
-alt="Logo NADBO CITY">
+alt="NADBO CITY">
 
-<div class="footer-logo">
-NADBO CITY
-</div>
+<div class="footer-brand-text">
 
-</div>
+<strong>NADBO CITY</strong>
 
 <p
-class="footer-text"
-data-fr="Vente et services à moins prix. Une plateforme pour vos produits, services, informations et opportunités."
-data-en="Affordable sales and services. One platform for your products, services, information and opportunities.">
-Vente et services à moins prix. Une plateforme pour vos produits, services, informations et opportunités.
+data-fr="Vente et services à moins prix"
+data-en="Affordable sales and services">
+Vente et services à moins prix
 </p>
+
+</div>
+
+</div>
 
 <div
 class="footer-slogan"
@@ -1544,7 +1471,6 @@ Ensemble, plus loin !
 </div>
 
 </div>
-
 
 <div>
 
@@ -1556,58 +1482,31 @@ Liens rapides
 
 <ul>
 
-<li>
-<a href="index.html"
+<li><a href="index.html"
 data-fr="Accueil"
-data-en="Home">
-Accueil
-</a>
-</li>
+data-en="Home">Accueil</a></li>
 
-<li>
-<a href="boutique.html"
+<li><a href="boutique.html"
 data-fr="Boutique"
-data-en="Shop">
-Boutique
-</a>
-</li>
+data-en="Shop">Boutique</a></li>
 
-<li>
-<a href="services.html">
-Services
-</a>
-</li>
+<li><a href="services.html">Services</a></li>
 
-<li>
-<a href="actualites.html"
+<li><a href="actualites.html"
 data-fr="Actualités"
-data-en="News">
-Actualités
-</a>
-</li>
+data-en="News">Actualités</a></li>
 
-<li>
-<a href="visa.html">
-Visa
-</a>
-</li>
+<li><a href="visa.html">Visa</a></li>
 
-<li>
-<a href="contact.html">
-Contact
-</a>
-</li>
+<li><a href="contact.html">Contact</a></li>
 
 </ul>
 
 </div>
 
-
 <div>
 
-<h4
-data-fr="Aide"
-data-en="Help">
+<h4 data-fr="Aide" data-en="Help">
 Aide
 </h4>
 
@@ -1615,26 +1514,27 @@ Aide
 
 <li>FAQ</li>
 
-<li
-data-fr="Livraison"
+<li data-fr="Livraison"
 data-en="Delivery">
 Livraison
 </li>
 
-<li
-data-fr="Paiement sécurisé"
+<li data-fr="Paiement sécurisé"
 data-en="Secure payment">
 Paiement sécurisé
 </li>
 
-<li
-data-fr="Politique de retour"
+<li data-fr="Politique de retour"
 data-en="Return policy">
 Politique de retour
 </li>
 
-<li
-data-fr="Confidentialité"
+<li data-fr="Conditions d'utilisation"
+data-en="Terms of use">
+Conditions d'utilisation
+</li>
+
+<li data-fr="Confidentialité"
 data-en="Privacy">
 Confidentialité
 </li>
@@ -1642,7 +1542,6 @@ Confidentialité
 </ul>
 
 </div>
-
 
 <div>
 
@@ -1654,65 +1553,50 @@ Nous contacter
 
 <ul>
 
-<li>📱 438 336 0224</li>
-
-<li>📧 josueiyemo643@gmail.com</li>
-
+<li>✉ josueiyemo643@gmail.com</li>
+<li>☎ 438 336 0224</li>
 <li>📍 Canada</li>
 
 </ul>
 
-
 <div class="social">
 
-<a href="#" aria-label="Facebook">
-f
-</a>
-
-<a href="#" aria-label="Instagram">
-IG
-</a>
-
-<a href="#" aria-label="TikTok">
-TT
-</a>
-
-<a href="#" aria-label="YouTube">
-▶
-</a>
+<a href="#" aria-label="Facebook">f</a>
+<a href="#" aria-label="Instagram">IG</a>
+<a href="#" aria-label="TikTok">TT</a>
+<a href="#" aria-label="YouTube">▶</a>
 
 </div>
 
 </div>
 
-
 </div>
 
+<div class="footer-bottom">
 
-<div class="copyright">
-
-© 2026 NADBO CITY —
-
+<div>
+© 2026 NADBO CITY.
 <span
 data-fr="Tous droits réservés."
 data-en="All rights reserved.">
 Tous droits réservés.
 </span>
+</div>
+
+<div
+data-fr="Qualité　|　Accessibilité　|　Opportunités"
+data-en="Quality　|　Accessibility　|　Opportunities">
+Qualité　|　Accessibilité　|　Opportunités
+</div>
 
 </div>
 
 </footer>
 
-
-<!-- =========================================
-     FRANÇAIS / ANGLAIS
-========================================= -->
-
 <script>
 
 let currentLanguage =
 localStorage.getItem("nadboLanguage") || "fr";
-
 
 function setLanguage(language){
 
@@ -1720,32 +1604,27 @@ function setLanguage(language){
 
   document
   .querySelectorAll("[data-fr][data-en]")
-  .forEach(element=>{
+  .forEach(element => {
 
     element.textContent =
     element.getAttribute("data-" + language);
 
   });
 
-
   document.documentElement.lang = language;
 
-
-  const btn =
+  const button =
   document.getElementById("languageBtn");
 
-
-  btn.textContent =
+  button.textContent =
   language === "fr"
   ? "🇫🇷 FR"
   : "🇬🇧 EN";
-
 
   document.title =
   language === "fr"
   ? "NADBO CITY | Vente & Services"
   : "NADBO CITY | Sales & Services";
-
 
   localStorage.setItem(
     "nadboLanguage",
@@ -1753,7 +1632,6 @@ function setLanguage(language){
   );
 
 }
-
 
 function toggleLanguage(){
 
@@ -1765,17 +1643,12 @@ function toggleLanguage(){
 
 }
 
-
 document.addEventListener(
 "DOMContentLoaded",
-()=>{
-
-  setLanguage(currentLanguage);
-
-});
+() => setLanguage(currentLanguage)
+);
 
 </script>
-
 
 </body>
 </html>
