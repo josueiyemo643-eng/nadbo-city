@@ -1,1356 +1,1490 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NADBO CITY | Visa & Assistance</title>
 
-  <title>NADBO CITY | Visa & Assistance</title>
+<style>
+:root{
+  --navy:#071a3d;
+  --navy2:#0d2d62;
+  --gold:#f7a900;
+  --bg:#f5f7fb;
+  --text:#17233c;
+  --muted:#5d687d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+a{color:inherit}
+header{
+  background:var(--navy);
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  font-size:20px;
+  white-space:nowrap;
+}
+.logo-area img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  border-radius:8px;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+.nav-links a:hover,
+.nav-links a.active{color:var(--gold)}
+.language{
+  border:1px solid var(--gold);
+  background:var(--gold);
+  color:var(--navy);
+  padding:8px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:bold;
+}
+.hero{
+  background:linear-gradient(135deg,var(--navy),var(--navy2));
+  color:white;
+  padding:80px 20px;
+  text-align:center;
+}
+.hero h1{
+  font-size:46px;
+  margin-bottom:15px;
+}
+.hero h1 span{color:var(--gold)}
+.hero p{
+  max-width:760px;
+  margin:auto;
+  font-size:18px;
+}
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:55px 20px;
+}
+.section-title{
+  text-align:center;
+  margin-bottom:35px;
+}
+.section-title h2{
+  color:var(--navy);
+  font-size:32px;
+  margin-bottom:10px;
+}
+.section-title p{color:var(--muted)}
+.access-box{
+  max-width:650px;
+  margin:-35px auto 50px;
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  position:relative;
+  z-index:5;
+  text-align:center;
+}
+.access-box h2{color:var(--navy);margin-bottom:10px}
+.access-box p{color:#606b7e;margin-bottom:20px}
+.access-form{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.access-form input{
+  flex:1;
+  min-width:200px;
+  padding:13px 15px;
+  border:1px solid #d5dbe5;
+  border-radius:8px;
+  font-size:15px;
+}
+.btn{
+  display:inline-block;
+  border:none;
+  background:var(--gold);
+  color:var(--navy);
+  padding:13px 22px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  transition:.25s;
+}
+.btn:hover{transform:translateY(-2px);opacity:.92}
+.btn-secondary{
+  background:var(--navy);
+  color:white;
+}
+.error{
+  color:#c62828;
+  margin-top:12px;
+  display:none;
+  font-weight:bold;
+}
+#privateContent{display:none}
+.notice{
+  background:#fff7df;
+  border-left:5px solid var(--gold);
+  padding:20px;
+  border-radius:8px;
+  margin-bottom:30px;
+}
+.notice strong{color:var(--navy)}
+.visa-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:22px;
+}
+.visa-card{
+  background:white;
+  border-radius:15px;
+  padding:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  border-top:4px solid var(--gold);
+  transition:.3s;
+}
+.visa-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+.flag{font-size:40px;margin-bottom:10px}
+.visa-card h3{
+  color:var(--navy);
+  margin-bottom:10px;
+  font-size:21px;
+}
+.visa-card p{
+  color:#5f6b80;
+  font-size:14px;
+  margin-bottom:15px;
+}
+.official-link{
+  color:var(--navy);
+  font-weight:bold;
+  text-decoration:none;
+  font-size:14px;
+}
+.official-link:hover{color:#c88700}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.step{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 18px rgba(0,0,0,.07);
+  text-align:center;
+}
+.step-number{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:var(--navy);
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 15px;
+  font-weight:bold;
+}
+.step h3{color:var(--navy);margin-bottom:8px}
+.checklist{
+  background:var(--navy);
+  color:white;
+  padding:35px;
+  border-radius:18px;
+}
+.checklist h2{color:var(--gold);margin-bottom:20px}
+.checklist ul{list-style:none}
+.checklist li{
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.checklist li::before{
+  content:"✓";
+  color:var(--gold);
+  margin-right:10px;
+  font-weight:bold;
+}
+.contact-box{
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+.contact-box h2{color:var(--navy);margin-bottom:15px}
+.contact-box p{margin:8px 0}
+footer{
+  background:var(--navy);
+  color:white;
+  text-align:center;
+  padding:30px 20px;
+  margin-top:50px;
+}
+footer span{color:var(--gold)}
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #17233c;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #071a3d;
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      font-size: 20px;
-      white-space: nowrap;
-    }
-
-    .logo-area img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #f7a900;
-    }
-
-    .language {
-      border: 1px solid #f7a900;
-      background: #f7a900;
-      color: #071a3d;
-      padding: 8px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #071a3d, #0d2d62);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 46px;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-      color: #f7a900;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: auto;
-      font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 55px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-title h2 {
-      color: #071a3d;
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .section-title p {
-      color: #5d687d;
-    }
-
-    .access-box {
-      max-width: 650px;
-      margin: -35px auto 50px;
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      position: relative;
-      z-index: 5;
-      text-align: center;
-    }
-
-    .access-box h2 {
-      color: #071a3d;
-      margin-bottom: 10px;
-    }
-
-    .access-box p {
-      color: #606b7e;
-      margin-bottom: 20px;
-    }
-
-    .access-form {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .access-form input {
-      flex: 1;
-      min-width: 220px;
-      padding: 13px 15px;
-      border: 1px solid #d5dbe5;
-      border-radius: 8px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    .access-form input:focus {
-      border-color: #f7a900;
-    }
-
-    .btn {
-      display: inline-block;
-      border: none;
-      background: #f7a900;
-      color: #071a3d;
-      padding: 13px 22px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .error {
-      color: #c62828;
-      margin-top: 12px;
-      display: none;
-      font-weight: bold;
-    }
-
-    #privateContent {
-      display: none;
-    }
-
-    .notice {
-      background: #fff7df;
-      border-left: 5px solid #f7a900;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 40px;
-    }
-
-    .notice strong {
-      color: #071a3d;
-    }
-
-    .visa-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .visa-card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      border-top: 4px solid #f7a900;
-      transition: 0.3s;
-    }
-
-    .visa-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-
-    .visa-card .flag {
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-
-    .visa-card h3 {
-      color: #071a3d;
-      margin-bottom: 10px;
-      font-size: 21px;
-    }
-
-    .visa-card p {
-      color: #5f6b80;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .official-link {
-      color: #071a3d;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    .official-link:hover {
-      color: #f7a900;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .step {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.07);
-      text-align: center;
-    }
-
-    .step-number {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #071a3d;
-      color: #f7a900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 15px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .step h3 {
-      color: #071a3d;
-      margin-bottom: 8px;
-    }
-
-    .checklist {
-      background: #071a3d;
-      color: white;
-      padding: 35px;
-      border-radius: 18px;
-    }
-
-    .checklist h2 {
-      color: #f7a900;
-      margin-bottom: 20px;
-    }
-
-    .checklist ul {
-      list-style: none;
-    }
-
-    .checklist li {
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .checklist li::before {
-      content: "✓";
-      color: #f7a900;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-
-    .contact-box {
-      background: white;
-      padding: 35px;
-      border-radius: 18px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    }
-
-    .contact-box h2 {
-      color: #071a3d;
-      margin-bottom: 15px;
-    }
-
-    .contact-box p {
-      margin: 8px 0;
-    }
-
-    footer {
-      background: #071a3d;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 50px;
-    }
-
-    footer span {
-      color: #f7a900;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media (max-width: 800px) {
-      .navbar {
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 34px;
-      }
-
-      .hero {
-        padding: 60px 20px;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 13px;
-      }
-
-      .access-box {
-        margin: -25px 15px 40px;
-        padding: 25px 18px;
-      }
-    }
-  </style>
+/* QUESTIONNAIRES */
+.evaluation-intro{
+  background:white;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 5px 22px rgba(0,0,0,.07);
+  margin-bottom:25px;
+}
+.path-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+.path-card{
+  border:2px solid #dbe2ed;
+  background:white;
+  padding:28px;
+  border-radius:15px;
+  cursor:pointer;
+  text-align:left;
+  color:var(--text);
+  font:inherit;
+  transition:.25s;
+}
+.path-card:hover,
+.path-card.selected{
+  border-color:var(--gold);
+  box-shadow:0 8px 25px rgba(0,0,0,.09);
+}
+.path-card .emoji{
+  font-size:38px;
+  display:block;
+  margin-bottom:12px;
+}
+.path-card strong{
+  display:block;
+  color:var(--navy);
+  font-size:21px;
+  margin-bottom:8px;
+}
+.path-card small{
+  color:var(--muted);
+  font-size:14px;
+}
+.questionnaire{
+  background:white;
+  border-radius:18px;
+  padding:35px;
+  box-shadow:0 8px 28px rgba(0,0,0,.08);
+  margin-top:25px;
+}
+.questionnaire h3{
+  color:var(--navy);
+  font-size:25px;
+  margin-bottom:12px;
+}
+.questionnaire .intro{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+.question{
+  padding:20px 0;
+  border-bottom:1px solid #e8ecf2;
+}
+.question label{
+  display:block;
+  font-weight:bold;
+  color:var(--navy);
+  margin-bottom:9px;
+}
+.question select,
+.question input{
+  width:100%;
+  padding:13px 15px;
+  border:1px solid #cfd7e4;
+  border-radius:8px;
+  font:inherit;
+  background:white;
+  color:var(--text);
+}
+.question select:focus,
+.question input:focus{
+  outline:2px solid var(--gold);
+  outline-offset:1px;
+}
+.question small{
+  display:block;
+  color:var(--muted);
+  margin-top:7px;
+}
+.form-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+.result{
+  margin-top:25px;
+  padding:25px;
+  border-radius:12px;
+  background:#f2f6fc;
+  border-left:5px solid var(--navy);
+}
+.result h3{margin-bottom:12px}
+.result p{margin:10px 0}
+.result ul{padding-left:22px;margin:12px 0}
+.result li{margin:8px 0}
+.result.good{border-color:#25845c;background:#eef8f2}
+.result.review{border-color:#d49400;background:#fff8e7}
+.result.alert{border-color:#bb5147;background:#fff1ef}
+.result a{color:#064e9a}
+.info-strip{
+  background:#edf3fb;
+  padding:18px 20px;
+  border-radius:10px;
+  margin-top:20px;
+  color:#304563;
+  font-size:14px;
+}
+[hidden]{display:none!important}
+@media(max-width:800px){
+  .navbar{flex-direction:column}
+  .nav-links{justify-content:center}
+  .hero h1{font-size:34px}
+  .hero{padding:60px 20px}
+  .path-grid{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .nav-links{gap:12px}
+  .nav-links a{font-size:13px}
+  .access-box{margin:-25px 15px 40px;padding:25px 18px}
+  .questionnaire{padding:22px 17px}
+  .section-title h2{font-size:27px}
+}
+</style>
 </head>
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-  <header>
-    <nav class="navbar">
+<header>
+<nav class="navbar">
+  <a href="index.html" class="logo-area">
+    <img src="./Logo nadbo.PNG" alt="Logo NADBO CITY">
+    <span>NADBO CITY</span>
+  </a>
 
-      <a href="index.html" class="logo-area">
-        <img src="Logo nadbo.PNG" alt="Logo NADBO CITY">
-        <span>NADBO CITY</span>
-      </a>
+  <div class="nav-links">
+    <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+    <a href="boutique.html" data-fr="Boutique" data-en="Shop">Boutique</a>
+    <a href="services.html" data-fr="Services" data-en="Services">Services</a>
+    <a href="actualites.html" data-fr="Actualités" data-en="News">Actualités</a>
+    <a href="visa.html" class="active">Visa</a>
+    <a href="a-propos.html" data-fr="À propos" data-en="About">À propos</a>
+    <a href="contact.html">Contact</a>
+    <button class="language" id="languageBtn" onclick="toggleLanguage()">🇫🇷 FR</button>
+  </div>
+</nav>
+</header>
 
-      <div class="nav-links">
+<section class="hero">
+  <h1>
+    <span>Visa</span> &amp;
+    <span data-fr="Accompagnement" data-en="Assistance">Accompagnement</span>
+  </h1>
+  <p
+    data-fr="Découvrez nos ressources et évaluez les critères préliminaires de votre projet d'études ou de résidence permanente au Canada."
+    data-en="Explore our resources and assess preliminary criteria for studying or becoming a permanent resident in Canada.">
+    Découvrez nos ressources et évaluez les critères préliminaires de votre projet d'études ou de résidence permanente au Canada.
+  </p>
+</section>
 
-        <a href="index.html"
-           data-fr="Accueil"
-           data-en="Home">
-          Accueil
-        </a>
+<section class="access-box" id="accessBox">
+  <h2 data-fr="Accès aux informations Visa" data-en="Access Visa Information">
+    Accès aux informations Visa
+  </h2>
+  <p
+    data-fr="Entrez le code d'accès fourni par NADBO CITY pour consulter les informations."
+    data-en="Enter the access code provided by NADBO CITY to view the information.">
+    Entrez le code d'accès fourni par NADBO CITY pour consulter les informations.
+  </p>
+  <div class="access-form">
+    <input type="password" id="accessCode"
+      placeholder="Code d'accès"
+      data-placeholder-fr="Code d'accès"
+      data-placeholder-en="Access code"
+      autocomplete="off">
+    <button class="btn" onclick="checkAccess()"
+      data-fr="Accéder" data-en="Access">Accéder</button>
+  </div>
+  <div class="error" id="accessError"
+    data-fr="Code incorrect. Veuillez vérifier votre code."
+    data-en="Incorrect code. Please check your code.">
+    Code incorrect. Veuillez vérifier votre code.
+  </div>
+</section>
 
-        <a href="boutique.html"
-           data-fr="Boutique"
-           data-en="Shop">
-          Boutique
-        </a>
+<main id="privateContent">
 
-        <a href="services.html"
-           data-fr="Services"
-           data-en="Services">
-          Services
-        </a>
-
-        <a href="actualités.html"
-           data-fr="Actualités"
-           data-en="News">
-          Actualités
-        </a>
-
-        <a href="visa.html"
-           class="active"
-           data-fr="Visa"
-           data-en="Visa">
-          Visa
-        </a>
-
-        <a href="a-propos.html"
-           data-fr="À propos"
-           data-en="About">
-          À propos
-        </a>
-
-        <a href="contact.html"
-           data-fr="Contact"
-           data-en="Contact">
-          Contact
-        </a>
-
-        <button
-          class="language"
-          id="languageBtn"
-          onclick="toggleLanguage()"
-          aria-label="Changer de langue">
-          🇫🇷 FR
-        </button>
-
-      </div>
-    </nav>
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================== -->
-  <section class="hero">
-
-    <h1>
-      <span data-fr="Visa" data-en="Visa">Visa</span>
-      &amp;
-      <span data-fr="Accompagnement" data-en="Assistance">
-        Accompagnement
-      </span>
-    </h1>
-
-    <p
-      data-fr="Découvrez nos informations et ressources pour mieux préparer vos démarches de visa et de voyage international."
-      data-en="Discover our information and resources to help you better prepare your visa and international travel procedures.">
-      Découvrez nos informations et ressources pour mieux préparer vos démarches de visa et de voyage international.
-    </p>
-
-  </section>
-
-
-  <!-- =========================
-       ACCESS CODE
-  ========================== -->
-  <section class="access-box">
-
+<!-- ÉVALUATION -->
+<section class="container" id="evaluation">
+  <div class="section-title">
     <h2
-      data-fr="Accès aux informations Visa"
-      data-en="Access Visa Information">
-      Accès aux informations Visa
+      data-fr="Vérifiez votre admissibilité préliminaire"
+      data-en="Check Your Preliminary Eligibility">
+      Vérifiez votre admissibilité préliminaire
     </h2>
-
     <p
-      data-fr="Entrez le code d'accès fourni par NADBO CITY pour consulter les informations disponibles."
-      data-en="Enter the access code provided by NADBO CITY to view the available information.">
-      Entrez le code d'accès fourni par NADBO CITY pour consulter les informations disponibles.
+      data-fr="Répondez à quelques questions pour mieux comprendre les exigences canadiennes."
+      data-en="Answer a few questions to better understand Canadian requirements.">
+      Répondez à quelques questions pour mieux comprendre les exigences canadiennes.
+    </p>
+  </div>
+
+  <div class="notice">
+    <strong data-fr="À savoir :" data-en="Please note:">À savoir :</strong>
+    <span
+      data-fr="Cet outil éducatif ne remplace pas une évaluation officielle. Il ne prédit pas une approbation ou un refus. Les statistiques générales de refus ne permettent pas de calculer les chances individuelles."
+      data-en="This educational tool is not an official assessment. It does not predict approval or refusal. General refusal statistics cannot determine an individual's chances.">
+      Cet outil éducatif ne remplace pas une évaluation officielle. Il ne prédit pas une approbation ou un refus. Les statistiques générales de refus ne permettent pas de calculer les chances individuelles.
+    </span>
+  </div>
+
+  <div class="evaluation-intro">
+    <h3 data-fr="Quel est votre projet ?" data-en="What is your goal?">
+      Quel est votre projet ?
+    </h3>
+    <p
+      data-fr="Choisissez une option pour ouvrir le questionnaire correspondant."
+      data-en="Choose an option to open the relevant questionnaire.">
+      Choisissez une option pour ouvrir le questionnaire correspondant.
+    </p>
+  </div>
+
+  <div class="path-grid">
+    <button type="button" class="path-card" id="studyChoice"
+      onclick="showPath('study')">
+      <span class="emoji">🎓</span>
+      <strong data-fr="Étudier au Canada" data-en="Study in Canada">
+        Étudier au Canada
+      </strong>
+      <small
+        data-fr="Admission, établissement, financement, permis d'études et documents."
+        data-en="Admission, institution, finances, study permit and documents.">
+        Admission, établissement, financement, permis d'études et documents.
+      </small>
+    </button>
+
+    <button type="button" class="path-card" id="prChoice"
+      onclick="showPath('pr')">
+      <span class="emoji">🇨🇦</span>
+      <strong
+        data-fr="Résidence permanente depuis l'étranger"
+        data-en="Permanent Residence from Abroad">
+        Résidence permanente depuis l'étranger
+      </strong>
+      <small
+        data-fr="Première vérification du Programme des travailleurs qualifiés (fédéral)."
+        data-en="Initial screening for the Federal Skilled Worker Program.">
+        Première vérification du Programme des travailleurs qualifiés (fédéral).
+      </small>
+    </button>
+  </div>
+
+  <!-- ÉTUDES -->
+  <div class="questionnaire" id="studyForm" hidden>
+    <h3 data-fr="Évaluation — Études au Canada"
+        data-en="Assessment — Study in Canada">
+      Évaluation — Études au Canada
+    </h3>
+    <p class="intro"
+      data-fr="Cette vérification concerne principalement une demande de permis d'études présentée depuis l'étranger."
+      data-en="This screening mainly concerns study permit applications submitted from outside Canada.">
+      Cette vérification concerne principalement une demande de permis d'études présentée depuis l'étranger.
     </p>
 
-    <div class="access-form">
+    <form id="studyQuestions">
+      <div class="question">
+        <label for="sAge" data-fr="1. Quel âge avez-vous ?"
+          data-en="1. How old are you?">1. Quel âge avez-vous ?</label>
+        <select id="sAge" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="adult" data-fr="18 ans ou plus" data-en="18 or older">18 ans ou plus</option>
+          <option value="minor" data-fr="Moins de 18 ans" data-en="Under 18">Moins de 18 ans</option>
+        </select>
+      </div>
 
-      <input
-        type="password"
-        id="accessCode"
-        placeholder="Code d'accès"
-        data-placeholder-fr="Code d'accès"
-        data-placeholder-en="Access code"
-        autocomplete="off">
+      <div class="question">
+        <label for="sProvince" data-fr="2. Dans quelle province souhaitez-vous étudier ?"
+          data-en="2. Which province do you plan to study in?">
+          2. Dans quelle province souhaitez-vous étudier ?
+        </label>
+        <select id="sProvince" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="qc" data-fr="Québec" data-en="Quebec">Québec</option>
+          <option value="other" data-fr="Autre province ou territoire" data-en="Other province or territory">Autre province ou territoire</option>
+        </select>
+      </div>
 
-      <button
-        class="btn"
-        onclick="checkAccess()"
-        data-fr="Accéder"
-        data-en="Access">
-        Accéder
-      </button>
+      <div class="question">
+        <label for="sAdmission" data-fr="3. Avez-vous une lettre d'acceptation ?"
+          data-en="3. Do you have a letter of acceptance?">
+          3. Avez-vous une lettre d'acceptation ?
+        </label>
+        <select id="sAdmission" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="pending" data-fr="En attente" data-en="Pending">En attente</option>
+        </select>
+      </div>
 
+      <div class="question">
+        <label for="sDli" data-fr="4. Votre établissement est-il un EED reconnu ?"
+          data-en="4. Is your institution a designated learning institution?">
+          4. Votre établissement est-il un EED reconnu ?
+        </label>
+        <select id="sDli" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne sais pas" data-en="I don't know">Je ne sais pas</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sLevel" data-fr="5. Quel est votre niveau d'études prévu ?"
+          data-en="5. What level of study are you planning?">
+          5. Quel est votre niveau d'études prévu ?
+        </label>
+        <select id="sLevel" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="primary" data-fr="Primaire ou secondaire" data-en="Primary or secondary">Primaire ou secondaire</option>
+          <option value="college" data-fr="Collège ou formation professionnelle" data-en="College or vocational">Collège ou formation professionnelle</option>
+          <option value="bachelor" data-fr="Baccalauréat universitaire" data-en="Bachelor's degree">Baccalauréat universitaire</option>
+          <option value="master" data-fr="Maîtrise" data-en="Master's degree">Maîtrise</option>
+          <option value="phd" data-fr="Doctorat" data-en="Doctorate">Doctorat</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sPal" data-fr="6. Avez-vous une LAP/LAT, ou êtes-vous exempté ?"
+          data-en="6. Do you have a PAL/TAL, or are you exempt?">
+          6. Avez-vous une LAP/LAT, ou êtes-vous exempté ?
+        </label>
+        <select id="sPal" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui, je l'ai" data-en="Yes, I have it">Oui, je l'ai</option>
+          <option value="exempt" data-fr="Je pense être exempté" data-en="I believe I'm exempt">Je pense être exempté</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne sais pas" data-en="I don't know">Je ne sais pas</option>
+        </select>
+        <small data-fr="Les exemptions varient selon le niveau d'études et la situation."
+          data-en="Exemptions depend on study level and circumstances.">
+          Les exemptions varient selon le niveau d'études et la situation.
+        </small>
+      </div>
+
+      <div class="question">
+        <label for="sCaq" data-fr="7. Si vous étudiez au Québec, avez-vous un CAQ pour études ?"
+          data-en="7. If studying in Quebec, do you have a CAQ for studies?">
+          7. Si vous étudiez au Québec, avez-vous un CAQ pour études ?
+        </label>
+        <select id="sCaq" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="pending" data-fr="En attente" data-en="Pending">En attente</option>
+          <option value="exempt" data-fr="Je suis exempté" data-en="I am exempt">Je suis exempté</option>
+          <option value="na" data-fr="Sans objet, hors Québec" data-en="Not applicable, outside Quebec">Sans objet, hors Québec</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sFunds" data-fr="8. Pouvez-vous démontrer les fonds nécessaires ?"
+          data-en="8. Can you demonstrate sufficient funds?">
+          8. Pouvez-vous démontrer les fonds nécessaires ?
+        </label>
+        <select id="sFunds" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui : scolarité, subsistance et transport" data-en="Yes: tuition, living expenses and transportation">Oui : scolarité, subsistance et transport</option>
+          <option value="partial" data-fr="Seulement une partie" data-en="Only part of the amount">Seulement une partie</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne connais pas le montant" data-en="I don't know the required amount">Je ne connais pas le montant</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sPassport" data-fr="9. Avez-vous un passeport ou document de voyage valide ?"
+          data-en="9. Do you have a valid passport or travel document?">
+          9. Avez-vous un passeport ou document de voyage valide ?
+        </label>
+        <select id="sPassport" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sPurpose" data-fr="10. Pouvez-vous expliquer votre projet d'études et démontrer que vous respecterez les conditions de votre séjour ?"
+          data-en="10. Can you explain your study plan and show you will comply with your stay conditions?">
+          10. Pouvez-vous expliquer votre projet d'études et démontrer que vous respecterez les conditions de votre séjour ?
+        </label>
+        <select id="sPurpose" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="partial" data-fr="Je dois mieux préparer mon explication" data-en="I need to prepare a better explanation">Je dois mieux préparer mon explication</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn"
+          data-fr="Analyser mon dossier"
+          data-en="Assess my application">Analyser mon dossier</button>
+        <button type="reset" class="btn btn-secondary"
+          data-fr="Recommencer" data-en="Start over">Recommencer</button>
+      </div>
+    </form>
+    <div id="studyResult" class="result" hidden aria-live="polite"></div>
+  </div>
+
+  <!-- RÉSIDENCE PERMANENTE -->
+  <div class="questionnaire" id="prForm" hidden>
+    <h3
+      data-fr="Évaluation — Résidence permanente"
+      data-en="Assessment — Permanent Residence">
+      Évaluation — Résidence permanente
+    </h3>
+    <p class="intro"
+      data-fr="Ce questionnaire examine certains critères du Programme des travailleurs qualifiés (fédéral), depuis l'étranger. Il ne calcule pas le score CRS ni les 67 points de sélection."
+      data-en="This questionnaire screens selected Federal Skilled Worker Program criteria from abroad. It does not calculate CRS or the 67 selection points.">
+      Ce questionnaire examine certains critères du Programme des travailleurs qualifiés (fédéral), depuis l'étranger. Il ne calcule pas le score CRS ni les 67 points de sélection.
+    </p>
+
+    <form id="prQuestions">
+      <div class="question">
+        <label for="pAge" data-fr="1. Quel âge avez-vous ?"
+          data-en="1. How old are you?">1. Quel âge avez-vous ?</label>
+        <select id="pAge" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="under18" data-fr="Moins de 18 ans" data-en="Under 18">Moins de 18 ans</option>
+          <option value="18to35" data-fr="18 à 35 ans" data-en="18 to 35">18 à 35 ans</option>
+          <option value="36to45" data-fr="36 à 45 ans" data-en="36 to 45">36 à 45 ans</option>
+          <option value="46plus" data-fr="46 ans ou plus" data-en="46 or older">46 ans ou plus</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pDestination" data-fr="2. Où souhaitez-vous vous établir ?"
+          data-en="2. Where do you plan to settle?">
+          2. Où souhaitez-vous vous établir ?
+        </label>
+        <select id="pDestination" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="outside" data-fr="Hors Québec" data-en="Outside Quebec">Hors Québec</option>
+          <option value="quebec" data-fr="Au Québec" data-en="In Quebec">Au Québec</option>
+          <option value="unknown" data-fr="Je ne sais pas encore" data-en="Not sure yet">Je ne sais pas encore</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pWork" data-fr="3. Avez-vous au moins un an d'expérience de travail qualifié, continu et rémunéré ?"
+          data-en="3. Do you have at least one year of continuous, paid skilled work experience?">
+          3. Avez-vous au moins un an d'expérience de travail qualifié, continu et rémunéré ?
+        </label>
+        <select id="pWork" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui, au cours des 10 dernières années" data-en="Yes, within the past 10 years">Oui, au cours des 10 dernières années</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne sais pas si mon expérience est admissible" data-en="Not sure if my experience qualifies">Je ne sais pas si mon expérience est admissible</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pTeer" data-fr="4. Votre emploi correspond-il à une catégorie FEER 0, 1, 2 ou 3 ?"
+          data-en="4. Is your occupation classified as TEER 0, 1, 2 or 3?">
+          4. Votre emploi correspond-il à une catégorie FEER 0, 1, 2 ou 3 ?
+        </label>
+        <select id="pTeer" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne connais pas ma catégorie" data-en="I don't know my category">Je ne connais pas ma catégorie</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pLanguage" data-fr="5. Avez-vous un test linguistique approuvé et valide ?"
+          data-en="5. Do you have an approved and valid language test?">
+          5. Avez-vous un test linguistique approuvé et valide ?
+        </label>
+        <select id="pLanguage" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="clb7" data-fr="Oui, NCLC/CLB 7 ou plus dans les quatre compétences" data-en="Yes, CLB/NCLC 7 or higher in all four abilities">Oui, NCLC/CLB 7 ou plus dans les quatre compétences</option>
+          <option value="below" data-fr="Oui, mais sous le niveau 7 dans au moins une compétence" data-en="Yes, but below level 7 in at least one ability">Oui, mais sous le niveau 7 dans au moins une compétence</option>
+          <option value="none" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne connais pas mon niveau" data-en="I don't know my level">Je ne connais pas mon niveau</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pEducation" data-fr="6. Avez-vous un diplôme d'études secondaires ou postsecondaires ?"
+          data-en="6. Do you have a secondary or post-secondary credential?">
+          6. Avez-vous un diplôme d'études secondaires ou postsecondaires ?
+        </label>
+        <select id="pEducation" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pEca" data-fr="7. Si votre diplôme est étranger, avez-vous une EDE valide ?"
+          data-en="7. If your credential is foreign, do you have a valid ECA?">
+          7. Si votre diplôme est étranger, avez-vous une EDE valide ?
+        </label>
+        <select id="pEca" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="canadian" data-fr="J'ai un diplôme canadien admissible" data-en="I have an eligible Canadian credential">J'ai un diplôme canadien admissible</option>
+          <option value="unknown" data-fr="Je ne sais pas" data-en="I don't know">Je ne sais pas</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pFunds" data-fr="8. Avez-vous les fonds d'établissement requis, ou une exemption applicable ?"
+          data-en="8. Do you have the required settlement funds or an applicable exemption?">
+          8. Avez-vous les fonds d'établissement requis, ou une exemption applicable ?
+        </label>
+        <select id="pFunds" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="yes" data-fr="Oui, selon la taille de ma famille" data-en="Yes, based on my family size">Oui, selon la taille de ma famille</option>
+          <option value="exempt" data-fr="Je pense être exempté" data-en="I believe I'm exempt">Je pense être exempté</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="unknown" data-fr="Je ne connais pas le montant" data-en="I don't know the amount">Je ne connais pas le montant</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="pAdmissibility" data-fr="9. Avez-vous connaissance d'un problème médical, criminel ou de sécurité pouvant affecter votre admissibilité au Canada ?"
+          data-en="9. Are you aware of any medical, criminal or security issue that could affect your admissibility to Canada?">
+          9. Avez-vous connaissance d'un problème médical, criminel ou de sécurité pouvant affecter votre admissibilité au Canada ?
+        </label>
+        <select id="pAdmissibility" required>
+          <option value="" data-fr="Choisir" data-en="Select">Choisir</option>
+          <option value="no" data-fr="Non" data-en="No">Non</option>
+          <option value="yes" data-fr="Oui" data-en="Yes">Oui</option>
+          <option value="unknown" data-fr="Je ne sais pas" data-en="I don't know">Je ne sais pas</option>
+        </select>
+        <small data-fr="Ne saisissez pas de détails médicaux ou judiciaires dans ce questionnaire."
+          data-en="Do not enter medical or legal details in this questionnaire.">
+          Ne saisissez pas de détails médicaux ou judiciaires dans ce questionnaire.
+        </small>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn"
+          data-fr="Analyser mon profil" data-en="Assess my profile">
+          Analyser mon profil
+        </button>
+        <button type="reset" class="btn btn-secondary"
+          data-fr="Recommencer" data-en="Start over">
+          Recommencer
+        </button>
+      </div>
+    </form>
+    <div id="prResult" class="result" hidden aria-live="polite"></div>
+  </div>
+
+  <div class="info-strip"
+    data-fr="Confidentialité : les réponses sont analysées dans votre navigateur. Ce questionnaire ne transmet pas vos réponses à NADBO CITY et ne crée pas de dossier d'immigration."
+    data-en="Privacy: answers are processed in your browser. This questionnaire does not transmit your answers to NADBO CITY or create an immigration application.">
+    Confidentialité : les réponses sont analysées dans votre navigateur. Ce questionnaire ne transmet pas vos réponses à NADBO CITY et ne crée pas de dossier d'immigration.
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="container">
+  <div class="section-title">
+    <h2 data-fr="Destinations disponibles" data-en="Available Destinations">
+      Destinations disponibles
+    </h2>
+    <p data-fr="Consultez les ressources officielles correspondant à votre destination."
+       data-en="Consult official resources for your destination.">
+      Consultez les ressources officielles correspondant à votre destination.
+    </p>
+  </div>
+
+  <div class="visa-grid" id="countryGrid"></div>
+</section>
+
+<!-- PROCESSUS -->
+<section class="container">
+  <div class="section-title">
+    <h2 data-fr="Processus général" data-en="General Process">
+      Processus général
+    </h2>
+    <p data-fr="Les étapes varient selon la destination et le type de demande."
+       data-en="Steps vary depending on the destination and application type.">
+      Les étapes varient selon la destination et le type de demande.
+    </p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">1</div>
+      <h3 data-fr="Définir le projet" data-en="Define your goal">Définir le projet</h3>
+      <p data-fr="Choisir la destination et le type de séjour."
+         data-en="Choose the destination and type of stay.">
+        Choisir la destination et le type de séjour.
+      </p>
     </div>
-
-    <div
-      class="error"
-      id="accessError"
-      data-fr="Code incorrect. Veuillez vérifier votre code d'accès."
-      data-en="Incorrect code. Please check your access code.">
-      Code incorrect. Veuillez vérifier votre code d'accès.
+    <div class="step">
+      <div class="step-number">2</div>
+      <h3 data-fr="Vérifier les exigences" data-en="Check requirements">
+        Vérifier les exigences
+      </h3>
+      <p data-fr="Consulter les conditions et les documents officiels."
+         data-en="Review official conditions and documents.">
+        Consulter les conditions et les documents officiels.
+      </p>
     </div>
-
-  </section>
-
-
-  <!-- =========================
-       PRIVATE CONTENT
-  ========================== -->
-  <main id="privateContent">
-
-    <!-- INTRODUCTION -->
-    <section class="container">
-
-      <div class="section-title">
-
-        <h2
-          data-fr="Informations sur les visas"
-          data-en="Visa Information">
-          Informations sur les visas
-        </h2>
-
-        <p
-          data-fr="Informations générales pour vous aider à préparer votre projet."
-          data-en="General information to help you prepare your project.">
-          Informations générales pour vous aider à préparer votre projet.
-        </p>
-
-      </div>
-
-      <div class="notice">
-
-        <strong
-          data-fr="Important :"
-          data-en="Important:">
-          Important :
-        </strong>
-
-        <span
-          data-fr="Les exigences de visa varient selon le pays, votre nationalité, votre situation personnelle et le type de voyage. Vérifiez toujours les informations auprès du gouvernement ou du consulat concerné."
-          data-en="Visa requirements vary depending on the country, your nationality, your personal situation and the purpose of your trip. Always verify information with the relevant government or consulate.">
-          Les exigences de visa varient selon le pays, votre nationalité, votre situation personnelle et le type de voyage. Vérifiez toujours les informations auprès du gouvernement ou du consulat concerné.
-        </span>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         COUNTRIES
-    ========================== -->
-    <section class="container">
-
-      <div class="section-title">
-
-        <h2
-          data-fr="Destinations disponibles"
-          data-en="Available Destinations">
-          Destinations disponibles
-        </h2>
-
-        <p
-          data-fr="Consultez les ressources officielles correspondant à votre destination."
-          data-en="Consult the official resources for your destination.">
-          Consultez les ressources officielles correspondant à votre destination.
-        </p>
-
-      </div>
-
-
-      <div class="visa-grid">
-
-
-        <!-- FRANCE -->
-        <div class="visa-card">
-
-          <div class="flag">🇫🇷</div>
-
-          <h3
-            data-fr="France"
-            data-en="France">
-            France
-          </h3>
-
-          <p
-            data-fr="Informations sur les visas, courts séjours et démarches administratives."
-            data-en="Information about visas, short stays and administrative procedures.">
-            Informations sur les visas, courts séjours et démarches administratives.
-          </p>
-
-          <a
-            href="https://france-visas.gouv.fr/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- ROYAUME-UNI -->
-        <div class="visa-card">
-
-          <div class="flag">🇬🇧</div>
-
-          <h3
-            data-fr="Royaume-Uni"
-            data-en="United Kingdom">
-            Royaume-Uni
-          </h3>
-
-          <p
-            data-fr="Informations officielles sur les visas et l'entrée au Royaume-Uni."
-            data-en="Official information about visas and entry to the United Kingdom.">
-            Informations officielles sur les visas et l'entrée au Royaume-Uni.
-          </p>
-
-          <a
-            href="https://www.gov.uk/browse/visas-immigration"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- CANADA -->
-        <div class="visa-card">
-
-          <div class="flag">🇨🇦</div>
-
-          <h3
-            data-fr="Canada"
-            data-en="Canada">
-            Canada
-          </h3>
-
-          <p
-            data-fr="Informations officielles sur les visas de visiteur et autres autorisations d'entrée."
-            data-en="Official information about visitor visas and other entry requirements.">
-            Informations officielles sur les visas de visiteur et autres autorisations d'entrée.
-          </p>
-
-          <a
-            href="https://www.canada.ca/fr/immigration-refugies-citoyennete/services/visiter-canada.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- ESPAGNE -->
-        <div class="visa-card">
-
-          <div class="flag">🇪🇸</div>
-
-          <h3
-            data-fr="Espagne"
-            data-en="Spain">
-            Espagne
-          </h3>
-
-          <p
-            data-fr="Informations relatives aux visas et conditions d'entrée en Espagne."
-            data-en="Information about visas and entry requirements for Spain.">
-            Informations relatives aux visas et conditions d'entrée en Espagne.
-          </p>
-
-          <a
-            href="https://www.exteriores.gob.es/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- GRECE -->
-        <div class="visa-card">
-
-          <div class="flag">🇬🇷</div>
-
-          <h3
-            data-fr="Grèce"
-            data-en="Greece">
-            Grèce
-          </h3>
-
-          <p
-            data-fr="Ressources concernant les visas et les conditions d'entrée en Grèce."
-            data-en="Resources regarding visas and entry requirements for Greece.">
-            Ressources concernant les visas et les conditions d'entrée en Grèce.
-          </p>
-
-          <a
-            href="https://www.mfa.gr/en/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- SUISSE -->
-        <div class="visa-card">
-
-          <div class="flag">🇨🇭</div>
-
-          <h3
-            data-fr="Suisse"
-            data-en="Switzerland">
-            Suisse
-          </h3>
-
-          <p
-            data-fr="Informations sur les conditions d'entrée et les demandes de visa."
-            data-en="Information about entry requirements and visa applications.">
-            Informations sur les conditions d'entrée et les demandes de visa.
-          </p>
-
-          <a
-            href="https://www.sem.admin.ch/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- USA -->
-        <div class="visa-card">
-
-          <div class="flag">🇺🇸</div>
-
-          <h3
-            data-fr="États-Unis"
-            data-en="United States">
-            États-Unis
-          </h3>
-
-          <p
-            data-fr="Informations officielles sur les visas et les conditions d'entrée aux États-Unis."
-            data-en="Official information about visas and entry requirements for the United States.">
-            Informations officielles sur les visas et les conditions d'entrée aux États-Unis.
-          </p>
-
-          <a
-            href="https://travel.state.gov/content/travel/en/us-visas.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- AUSTRALIE -->
-        <div class="visa-card">
-
-          <div class="flag">🇦🇺</div>
-
-          <h3
-            data-fr="Australie"
-            data-en="Australia">
-            Australie
-          </h3>
-
-          <p
-            data-fr="Informations officielles sur les visas et les conditions d'entrée en Australie."
-            data-en="Official information about visas and entry requirements for Australia.">
-            Informations officielles sur les visas et les conditions d'entrée en Australie.
-          </p>
-
-          <a
-            href="https://immi.homeaffairs.gov.au/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- ITALIE -->
-        <div class="visa-card">
-
-          <div class="flag">🇮🇹</div>
-
-          <h3
-            data-fr="Italie"
-            data-en="Italy">
-            Italie
-          </h3>
-
-          <p
-            data-fr="Informations générales sur les visas et les procédures consulaires."
-            data-en="General information about visas and consular procedures.">
-            Informations générales sur les visas et les procédures consulaires.
-          </p>
-
-          <a
-            href="https://vistoperitalia.esteri.it/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- ALLEMAGNE -->
-        <div class="visa-card">
-
-          <div class="flag">🇩🇪</div>
-
-          <h3
-            data-fr="Allemagne"
-            data-en="Germany">
-            Allemagne
-          </h3>
-
-          <p
-            data-fr="Informations officielles sur les visas et les conditions d'entrée."
-            data-en="Official information about visas and entry requirements.">
-            Informations officielles sur les visas et les conditions d'entrée.
-          </p>
-
-          <a
-            href="https://www.auswaertiges-amt.de/en/visa-service"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-
-        <!-- PORTUGAL -->
-        <div class="visa-card">
-
-          <div class="flag">🇵🇹</div>
-
-          <h3
-            data-fr="Portugal"
-            data-en="Portugal">
-            Portugal
-          </h3>
-
-          <p
-            data-fr="Informations sur les visas, les séjours et les démarches consulaires."
-            data-en="Information about visas, stays and consular procedures.">
-            Informations sur les visas, les séjours et les démarches consulaires.
-          </p>
-
-          <a
-            href="https://vistos.mne.gov.pt/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="official-link"
-            data-fr="Site officiel →"
-            data-en="Official website →">
-            Site officiel →
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PROCEDURE
-    ========================== -->
-    <section class="container">
-
-      <div class="section-title">
-
-        <h2
-          data-fr="Processus général"
-          data-en="General Process">
-          Processus général
-        </h2>
-
-        <p
-          data-fr="Les étapes peuvent varier selon la destination et le type de visa."
-          data-en="The steps may vary depending on the destination and visa type.">
-          Les étapes peuvent varier selon la destination et le type de visa.
-        </p>
-
-      </div>
-
-
-      <div class="steps">
-
-        <div class="step">
-
-          <div class="step-number">1</div>
-
-          <h3
-            data-fr="Définir le projet"
-            data-en="Define the project">
-            Définir le projet
-          </h3>
-
-          <p
-            data-fr="Déterminer la destination, le motif du voyage et la durée du séjour."
-            data-en="Determine the destination, purpose of travel and length of stay.">
-            Déterminer la destination, le motif du voyage et la durée du séjour.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">2</div>
-
-          <h3
-            data-fr="Vérifier les exigences"
-            data-en="Check requirements">
-            Vérifier les exigences
-          </h3>
-
-          <p
-            data-fr="Identifier les documents et conditions exigés par les autorités compétentes."
-            data-en="Identify the documents and requirements requested by the relevant authorities.">
-            Identifier les documents et conditions exigés par les autorités compétentes.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">3</div>
-
-          <h3
-            data-fr="Préparer le dossier"
-            data-en="Prepare the application">
-            Préparer le dossier
-          </h3>
-
-          <p
-            data-fr="Rassembler les documents nécessaires et compléter les formulaires applicables."
-            data-en="Gather the required documents and complete the applicable forms.">
-            Rassembler les documents nécessaires et compléter les formulaires applicables.
-          </p>
-
-        </div>
-
-
-        <div class="step">
-
-          <div class="step-number">4</div>
-
-          <h3
-            data-fr="Soumettre la demande"
-            data-en="Submit the application">
-            Soumettre la demande
-          </h3>
-
-          <p
-            data-fr="Déposer la demande auprès du canal officiel approprié."
-            data-en="Submit the application through the appropriate official channel.">
-            Déposer la demande auprès du canal officiel approprié.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CHECKLIST
-    ========================== -->
-    <section class="container">
-
-      <div class="checklist">
-
-        <h2
-          data-fr="Liste de vérification générale"
-          data-en="General Checklist">
-          Liste de vérification générale
-        </h2>
-
-        <ul>
-
-          <li
-            data-fr="Passeport valide"
-            data-en="Valid passport">
-            Passeport valide
-          </li>
-
-          <li
-            data-fr="Formulaire de demande de visa, lorsque requis"
-            data-en="Visa application form, when required">
-            Formulaire de demande de visa, lorsque requis
-          </li>
-
-          <li
-            data-fr="Photos conformes aux exigences"
-            data-en="Photos meeting the requirements">
-            Photos conformes aux exigences
-          </li>
-
-          <li
-            data-fr="Preuve de moyens financiers, lorsque requise"
-            data-en="Proof of financial means, when required">
-            Preuve de moyens financiers, lorsque requise
-          </li>
-
-          <li
-            data-fr="Preuve d'hébergement, lorsque requise"
-            data-en="Proof of accommodation, when required">
-            Preuve d'hébergement, lorsque requise
-          </li>
-
-          <li
-            data-fr="Itinéraire ou justificatif du voyage, lorsque requis"
-            data-en="Travel itinerary or supporting travel documents, when required">
-            Itinéraire ou justificatif du voyage, lorsque requis
-          </li>
-
-          <li
-            data-fr="Assurance voyage, lorsque requise"
-            data-en="Travel insurance, when required">
-            Assurance voyage, lorsque requise
-          </li>
-
-          <li
-            data-fr="Documents supplémentaires selon la situation du demandeur"
-            data-en="Additional documents depending on the applicant's situation">
-            Documents supplémentaires selon la situation du demandeur
-          </li>
-
-        </ul>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         NADBO ASSISTANCE
-    ========================== -->
-    <section class="container">
-
-      <div class="contact-box">
-
-        <h2
-          data-fr="Besoin d'accompagnement ?"
-          data-en="Need assistance?">
-          Besoin d'accompagnement ?
-        </h2>
-
-        <p
-          data-fr="NADBO CITY peut vous orienter dans la préparation de vos démarches et vous aider à mieux comprendre les étapes de votre projet."
-          data-en="NADBO CITY can guide you through the preparation of your procedures and help you better understand the steps involved in your project.">
-          NADBO CITY peut vous orienter dans la préparation de vos démarches et vous aider à mieux comprendre les étapes de votre projet.
-        </p>
-
-        <br>
-
-        <a
-          href="contact.html"
-          class="btn"
-          data-fr="Nous contacter"
-          data-en="Contact us">
-          Nous contacter
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         DISCLAIMER
-    ========================== -->
-    <section class="container">
-
-      <div class="notice">
-
-        <strong
-          data-fr="Avis important :"
-          data-en="Important notice:">
-          Avis important :
-        </strong>
-
-        <span
-          data-fr="NADBO CITY fournit des informations et de l'accompagnement administratif. Les décisions relatives aux visas, à l'admission sur un territoire et aux autorisations d'entrée sont prises par les autorités compétentes. Les exigences peuvent changer. Consultez toujours les sites officiels avant de soumettre une demande."
-          data-en="NADBO CITY provides information and administrative assistance. Decisions regarding visas, admission to a territory and entry authorizations are made by the competent authorities. Requirements may change. Always consult official websites before submitting an application.">
-          NADBO CITY fournit des informations et de l'accompagnement administratif. Les décisions relatives aux visas, à l'admission sur un territoire et aux autorisations d'entrée sont prises par les autorités compétentes. Les exigences peuvent changer. Consultez toujours les sites officiels avant de soumettre une demande.
-        </span>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-  <footer>
-
-    <p>
-      © 2026
-      <span>NADBO CITY</span>.
-      <span
-        data-fr="Tous droits réservés."
-        data-en="All rights reserved.">
-        Tous droits réservés.
-      </span>
+    <div class="step">
+      <div class="step-number">3</div>
+      <h3 data-fr="Préparer le dossier" data-en="Prepare the application">
+        Préparer le dossier
+      </h3>
+      <p data-fr="Rassembler les preuves et remplir les formulaires."
+         data-en="Gather evidence and complete the forms.">
+        Rassembler les preuves et remplir les formulaires.
+      </p>
+    </div>
+    <div class="step">
+      <div class="step-number">4</div>
+      <h3 data-fr="Soumettre la demande" data-en="Submit the application">
+        Soumettre la demande
+      </h3>
+      <p data-fr="Utiliser le portail officiel approprié."
+         data-en="Use the appropriate official portal.">
+        Utiliser le portail officiel approprié.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="container">
+  <div class="checklist">
+    <h2 data-fr="Liste de vérification générale"
+        data-en="General Checklist">
+      Liste de vérification générale
+    </h2>
+    <ul>
+      <li data-fr="Passeport valide" data-en="Valid passport">Passeport valide</li>
+      <li data-fr="Formulaires officiels applicables"
+          data-en="Applicable official forms">Formulaires officiels applicables</li>
+      <li data-fr="Photos conformes aux exigences"
+          data-en="Photos meeting requirements">Photos conformes aux exigences</li>
+      <li data-fr="Preuves financières, lorsque requises"
+          data-en="Financial evidence, when required">Preuves financières, lorsque requises</li>
+      <li data-fr="Preuves d'admission ou de qualification, selon le programme"
+          data-en="Admission or qualification evidence, depending on the program">
+          Preuves d'admission ou de qualification, selon le programme
+      </li>
+      <li data-fr="Traductions et documents supplémentaires, si nécessaires"
+          data-en="Translations and additional documents, if needed">
+          Traductions et documents supplémentaires, si nécessaires
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="container">
+  <div class="contact-box">
+    <h2 data-fr="Besoin d'accompagnement ?" data-en="Need assistance?">
+      Besoin d'accompagnement ?
+    </h2>
+    <p
+      data-fr="NADBO CITY vous aide à trouver les ressources publiques pour comprendre les étapes de votre projet."
+      data-en="NADBO CITY helps you find public resources to understand your next steps.">
+      NADBO CITY vous aide à trouver les ressources publiques pour comprendre les étapes de votre projet.
     </p>
+    <br>
+    <a href="contact.html" class="btn"
+       data-fr="Nous contacter" data-en="Contact us">
+      Nous contacter
+    </a>
+  </div>
+</section>
 
-    <p>
-      <span
-        data-fr="Ensemble, plus loin !"
-        data-en="Together, further!">
-        Ensemble, plus loin !
-      </span>
-    </p>
+<section class="container">
+  <div class="notice">
+    <strong data-fr="Avis important :" data-en="Important notice:">
+      Avis important :
+    </strong>
+    <span
+      data-fr="Les décisions sont prises exclusivement par les autorités compétentes. L'outil ne constitue pas un avis juridique ni une consultation en immigration. Si vous souhaitez offrir des conseils personnalisés ou représenter des demandeurs contre rémunération, vérifiez les règles canadiennes relatives aux représentants autorisés."
+      data-en="Decisions are made exclusively by the competent authorities. This tool is not legal advice or an immigration consultation. If you intend to provide paid personalized advice or represent applicants, check Canadian rules governing authorized representatives.">
+      Les décisions sont prises exclusivement par les autorités compétentes. L'outil ne constitue pas un avis juridique ni une consultation en immigration. Si vous souhaitez offrir des conseils personnalisés ou représenter des demandeurs contre rémunération, vérifiez les règles canadiennes relatives aux représentants autorisés.
+    </span>
+  </div>
+</section>
 
-  </footer>
+</main>
 
+<footer>
+  <p>© 2026 <span>NADBO CITY</span>.
+    <span data-fr="Tous droits réservés." data-en="All rights reserved.">
+      Tous droits réservés.
+    </span>
+  </p>
+  <p data-fr="Ensemble, plus loin !" data-en="Together, further!">
+    Ensemble, plus loin !
+  </p>
+</footer>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-  <script>
+<script>
+/* CODE D'ACCÈS
+   Attention : un code dans le HTML/JS public
+   ne constitue pas une sécurité réelle.
+*/
+const ACCESS_CODE = "NADBO2026";
 
-    /* =================================
-       CODE D'ACCÈS VISA
-    ================================= */
+let currentLanguage =
+  localStorage.getItem("nadboLanguage") || "fr";
 
-    const ACCESS_CODE = "NADBO2026";
+function tr(fr,en){
+  return currentLanguage === "fr" ? fr : en;
+}
 
+function checkAccess(){
+  const input = document.getElementById("accessCode");
+  const error = document.getElementById("accessError");
 
-    function checkAccess() {
+  if(input.value.trim() === ACCESS_CODE){
+    sessionStorage.setItem("nadboVisaAccess","true");
+    document.getElementById("privateContent").style.display="block";
+    document.getElementById("accessBox").style.display="none";
+    error.style.display="none";
+    input.value="";
+    document.getElementById("evaluation").scrollIntoView({
+      behavior:"smooth"
+    });
+  }else{
+    error.style.display="block";
+    input.focus();
+  }
+}
 
-      const input = document.getElementById("accessCode");
-      const error = document.getElementById("accessError");
-      const privateContent = document.getElementById("privateContent");
+function restoreAccess(){
+  if(sessionStorage.getItem("nadboVisaAccess")==="true"){
+    document.getElementById("privateContent").style.display="block";
+    document.getElementById("accessBox").style.display="none";
+  }
+}
 
-      const enteredCode = input.value.trim();
+function setLanguage(language){
+  currentLanguage=language;
+  localStorage.setItem("nadboLanguage",language);
+  document.documentElement.lang=language;
 
-      if (enteredCode === ACCESS_CODE) {
-
-        sessionStorage.setItem("nadboVisaAccess", "true");
-
-        privateContent.style.display = "block";
-        error.style.display = "none";
-
-        input.value = "";
-
-        window.scrollTo({
-          top: privateContent.offsetTop - 80,
-          behavior: "smooth"
-        });
-
-      } else {
-
-        error.style.display = "block";
-
-        input.focus();
-
-      }
-    }
-
-
-    /* =================================
-       PERMETTRE LA TOUCHE ENTER
-    ================================= */
-
-    document.getElementById("accessCode").addEventListener("keydown", function(event) {
-
-      if (event.key === "Enter") {
-        checkAccess();
-      }
-
+  document.querySelectorAll("[data-fr][data-en]")
+    .forEach(element=>{
+      element.textContent=element.getAttribute("data-"+language);
     });
 
+  document.querySelectorAll(
+    "[data-placeholder-fr][data-placeholder-en]"
+  ).forEach(element=>{
+    element.placeholder=element.getAttribute(
+      "data-placeholder-"+language
+    );
+  });
 
-    /* =================================
-       VÉRIFIER SI L'ACCÈS EST DÉJÀ VALIDÉ
-    ================================= */
+  document.getElementById("languageBtn").textContent=
+    language==="fr"?"🇫🇷 FR":"🇬🇧 EN";
 
-    function restoreAccess() {
+  renderCountries();
+  document.getElementById("studyResult").hidden=true;
+  document.getElementById("prResult").hidden=true;
+}
 
-      const hasAccess = sessionStorage.getItem("nadboVisaAccess");
+function toggleLanguage(){
+  setLanguage(currentLanguage==="fr"?"en":"fr");
+}
 
-      if (hasAccess === "true") {
+function showPath(path){
+  document.getElementById("studyForm").hidden=path!=="study";
+  document.getElementById("prForm").hidden=path!=="pr";
 
-        document.getElementById("privateContent").style.display = "block";
+  document.getElementById("studyChoice")
+    .classList.toggle("selected",path==="study");
+  document.getElementById("prChoice")
+    .classList.toggle("selected",path==="pr");
 
-      }
+  const target=document.getElementById(
+    path==="study"?"studyForm":"prForm"
+  );
+  target.scrollIntoView({behavior:"smooth",block:"start"});
+}
 
-    }
+function val(id){
+  return document.getElementById(id).value;
+}
 
+function showResult(id,issues,blockers,links){
+  const result=document.getElementById(id);
+  result.hidden=false;
 
-    /* =================================
-       LANGUE FR / EN
-    ================================= */
+  let kind,title,description;
 
-    let currentLanguage =
-      localStorage.getItem("nadboLanguage") || "fr";
+  if(blockers.length){
+    kind="alert";
+    title=tr(
+      "Obstacles importants à vérifier",
+      "Important issues to review"
+    );
+    description=tr(
+      "Certaines réponses indiquent des conditions non satisfaites ou des obstacles potentiels. Une vérification plus approfondie est nécessaire.",
+      "Some answers indicate unmet requirements or potential obstacles. Further review is needed."
+    );
+  }else if(issues.length){
+    kind="review";
+    title=tr(
+      "Dossier à compléter ou à vérifier",
+      "Application needs further preparation or review"
+    );
+    description=tr(
+      "Plusieurs éléments doivent être confirmés avant de pouvoir apprécier votre situation.",
+      "Several items need confirmation before your situation can be assessed."
+    );
+  }else{
+    kind="good";
+    title=tr(
+      "Critères préliminaires satisfaits selon vos réponses",
+      "Preliminary criteria met based on your answers"
+    );
+    description=tr(
+      "Vos réponses ne révèlent pas d'obstacle parmi les critères examinés. Cela ne garantit ni l'admissibilité complète ni l'approbation.",
+      "Your answers reveal no issue among the criteria screened. This does not guarantee full eligibility or approval."
+    );
+  }
 
+  result.className="result "+kind;
+  result.replaceChildren();
 
-    function setLanguage(language) {
+  const h=document.createElement("h3");
+  h.textContent=title;
+  result.appendChild(h);
 
-      currentLanguage = language;
+  const p=document.createElement("p");
+  p.textContent=description;
+  result.appendChild(p);
 
-      localStorage.setItem("nadboLanguage", language);
+  const all=[
+    ...blockers.map(t=>"⚠ "+t),
+    ...issues.map(t=>"• "+t)
+  ];
 
-      document.documentElement.lang = language;
-
-      const elements = document.querySelectorAll("[data-fr][data-en]");
-
-      elements.forEach(function(element) {
-
-        element.textContent =
-          element.getAttribute("data-" + language);
-
-      });
-
-
-      const placeholders =
-        document.querySelectorAll("[data-placeholder-fr][data-placeholder-en]");
-
-      placeholders.forEach(function(element) {
-
-        element.placeholder =
-          element.getAttribute("data-placeholder-" + language);
-
-      });
-
-
-      const languageBtn =
-        document.getElementById("languageBtn");
-
-      if (language === "fr") {
-
-        languageBtn.textContent = "🇫🇷 FR";
-
-      } else {
-
-        languageBtn.textContent = "🇬🇧 EN";
-
-      }
-
-    }
-
-
-    function toggleLanguage() {
-
-      if (currentLanguage === "fr") {
-
-        setLanguage("en");
-
-      } else {
-
-        setLanguage("fr");
-
-      }
-
-    }
-
-
-    /* =================================
-       INITIALISATION
-    ================================= */
-
-    document.addEventListener("DOMContentLoaded", function() {
-
-      restoreAccess();
-
-      setLanguage(currentLanguage);
-
+  if(all.length){
+    const ul=document.createElement("ul");
+    all.forEach(t=>{
+      const li=document.createElement("li");
+      li.textContent=t;
+      ul.appendChild(li);
     });
+    result.appendChild(ul);
+  }
 
-  </script>
+  const note=document.createElement("p");
+  note.textContent=tr(
+    "Ce résultat est une orientation éducative, pas une décision d'IRCC.",
+    "This result is educational guidance, not an IRCC decision."
+  );
+  result.appendChild(note);
+
+  links.forEach(item=>{
+    const p=document.createElement("p");
+    const a=document.createElement("a");
+    a.href=item.url;
+    a.target="_blank";
+    a.rel="noopener noreferrer";
+    a.textContent=tr(item.fr,item.en)+" ↗";
+    p.appendChild(a);
+    result.appendChild(p);
+  });
+
+  result.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+document.getElementById("studyQuestions")
+  .addEventListener("submit",function(event){
+    event.preventDefault();
+
+    const issues=[];
+    const blockers=[];
+
+    if(val("sAge")==="minor"){
+      issues.push(tr(
+        "Pour un mineur, les règles de garde, de tutelle et de documents supplémentaires doivent être vérifiées.",
+        "For a minor, custodianship, guardianship and additional document rules need review."
+      ));
+    }
+
+    if(val("sAdmission")!=="yes"){
+      blockers.push(tr(
+        "Une lettre d'acceptation valide est généralement requise avant la demande.",
+        "A valid letter of acceptance is generally required before applying."
+      ));
+    }
+
+    if(val("sDli")==="no"){
+      blockers.push(tr(
+        "L'établissement doit satisfaire aux exigences applicables aux EED.",
+        "The institution must meet applicable DLI requirements."
+      ));
+    }else if(val("sDli")==="unknown"){
+      issues.push(tr(
+        "Vérifiez votre établissement sur la liste officielle des EED.",
+        "Verify your institution on the official DLI list."
+      ));
+    }
+
+    const level=val("sLevel");
+    const pal=val("sPal");
+
+    if(pal==="no"){
+      if(level==="primary" || level==="master" || level==="phd"){
+        issues.push(tr(
+          "Vous pourriez être exempté de LAP/LAT selon votre situation exacte. Vérifiez les exemptions actuelles.",
+          "You may qualify for a PAL/TAL exemption depending on your exact circumstances. Check current exemptions."
+        ));
+      }else{
+        blockers.push(tr(
+          "Une LAP/LAT pourrait être obligatoire. Vérifiez votre catégorie avant de déposer la demande.",
+          "A PAL/TAL may be mandatory. Verify your category before applying."
+        ));
+      }
+    }else if(pal==="unknown" || pal==="exempt"){
+      issues.push(tr(
+        "Confirmez officiellement si une LAP/LAT est requise ou si une exemption s'applique.",
+        "Officially confirm whether a PAL/TAL is required or an exemption applies."
+      ));
+    }
+
+    if(val("sProvince")==="qc"){
+      if(val("sCaq")==="no" || val("sCaq")==="pending"){
+        issues.push(tr(
+          "Vérifiez les exigences du CAQ pour études au Québec et obtenez-le avant la demande fédérale s'il est requis.",
+          "Review Quebec CAQ requirements and obtain it before the federal application if required."
+        ));
+      }else if(val("sCaq")==="na" || val("sCaq")==="exempt"){
+        issues.push(tr(
+          "Confirmez votre exemption éventuelle de CAQ et les exigences de LAP/LAT applicables au Québec.",
+          "Confirm any CAQ exemption and the PAL/TAL rules applicable in Quebec."
+        ));
+      }
+    }
+
+    if(val("sFunds")==="no" || val("sFunds")==="partial"){
+      blockers.push(tr(
+        "Les preuves financières semblent insuffisantes : vérifiez les frais de scolarité, de subsistance et de transport.",
+        "Financial evidence appears insufficient: check tuition, living expenses and transportation."
+      ));
+    }else if(val("sFunds")==="unknown"){
+      issues.push(tr(
+        "Vérifiez le montant de subsistance officiel selon votre province, la taille de votre famille et la date de dépôt.",
+        "Check the official living expense amount based on province, family size and application date."
+      ));
+    }
+
+    if(val("sPassport")==="no"){
+      blockers.push(tr(
+        "Un passeport ou document de voyage valide est généralement nécessaire.",
+        "A valid passport or travel document is generally necessary."
+      ));
+    }
+
+    if(val("sPurpose")!=="yes"){
+      issues.push(tr(
+        "Préparez une explication cohérente de votre projet d'études et de votre respect des conditions de séjour.",
+        "Prepare a coherent explanation of your study plan and compliance with stay conditions."
+      ));
+    }
+
+    showResult("studyResult",issues,blockers,[
+      {
+        fr:"Permis d'études — IRCC",
+        en:"Study permits — IRCC",
+        url:"https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada/permis-etudes.html"
+      },
+      {
+        fr:"Liste des établissements d'enseignement désignés",
+        en:"Designated learning institutions",
+        url:"https://www.canada.ca/fr/immigration-refugies-citoyennete/services/etudier-canada/permis-etudes/preparer/liste-etablissements-designes.html"
+      },
+      {
+        fr:"Étudier au Québec — Gouvernement du Québec",
+        en:"Study in Quebec — Quebec government",
+        url:"https://www.quebec.ca/education/etudier-quebec"
+      }
+    ]);
+  });
+
+document.getElementById("prQuestions")
+  .addEventListener("submit",function(event){
+    event.preventDefault();
+
+    const issues=[];
+    const blockers=[];
+
+    if(val("pDestination")==="quebec"){
+      blockers.push(tr(
+        "Le Programme fédéral des travailleurs qualifiés exige l'intention de s'établir hors Québec. Pour le Québec, examinez les programmes de sélection québécois.",
+        "The Federal Skilled Worker Program requires an intention to settle outside Quebec. For Quebec, review Quebec selection programs."
+      ));
+    }else if(val("pDestination")==="unknown"){
+      issues.push(tr(
+        "Vous devez préciser votre intention d'établissement pour choisir le programme adapté.",
+        "Clarify your intended destination to identify the appropriate program."
+      ));
+    }
+
+    if(val("pWork")==="no"){
+      blockers.push(tr(
+        "L'expérience qualifiée minimale du programme fédéral ne semble pas satisfaite.",
+        "The minimum skilled work experience requirement for the federal program does not appear to be met."
+      ));
+    }else if(val("pWork")==="unknown"){
+      issues.push(tr(
+        "Vérifiez les tâches, la durée et la continuité de votre expérience professionnelle.",
+        "Verify your job duties, work duration and continuity."
+      ));
+    }
+
+    if(val("pTeer")==="no"){
+      blockers.push(tr(
+        "L'expérience principale doit généralement correspondre à FEER 0, 1, 2 ou 3.",
+        "Primary qualifying work experience generally needs to fall under TEER 0, 1, 2 or 3."
+      ));
+    }else if(val("pTeer")==="unknown"){
+      issues.push(tr(
+        "Identifiez votre code CNP et votre catégorie FEER.",
+        "Identify your NOC code and TEER category."
+      ));
+    }
+
+    if(val("pLanguage")==="below"){
+      blockers.push(tr(
+        "Le minimum linguistique fédéral de NCLC/CLB 7 dans chacune des quatre compétences ne semble pas atteint.",
+        "The federal minimum of CLB/NCLC 7 in each of the four abilities does not appear to be met."
+      ));
+    }else if(val("pLanguage")==="none" ||
+             val("pLanguage")==="unknown"){
+      issues.push(tr(
+        "Un test linguistique approuvé et valide est nécessaire pour établir votre niveau.",
+        "An approved and valid language test is needed to establish your level."
+      ));
+    }
+
+    if(val("pEducation")==="no"){
+      blockers.push(tr(
+        "Le niveau minimal d'études du programme fédéral ne semble pas satisfait.",
+        "The federal program's minimum education requirement does not appear to be met."
+      ));
+    }else if(val("pEca")==="no" ||
+             val("pEca")==="unknown"){
+      issues.push(tr(
+        "Si votre diplôme est étranger, une évaluation des diplômes d'études (EDE) valide est généralement nécessaire.",
+        "If your credential is foreign, a valid educational credential assessment (ECA) is generally necessary."
+      ));
+    }
+
+    if(val("pFunds")==="no"){
+      issues.push(tr(
+        "Vérifiez les fonds d'établissement requis et les exemptions précises applicables.",
+        "Check the required settlement funds and any specific applicable exemptions."
+      ));
+    }else if(val("pFunds")==="unknown" ||
+             val("pFunds")==="exempt"){
+      issues.push(tr(
+        "Confirmez le montant requis ou votre exemption officielle.",
+        "Confirm the required amount or your official exemption."
+      ));
+    }
+
+    if(val("pAdmissibility")==="yes" ||
+       val("pAdmissibility")==="unknown"){
+      issues.push(tr(
+        "Une question d'admissibilité médicale, criminelle ou de sécurité nécessite une vérification individuelle auprès des ressources officielles ou d'un représentant autorisé.",
+        "A medical, criminal or security admissibility issue requires individual review through official resources or an authorized representative."
+      ));
+    }
+
+    issues.push(tr(
+      "Le seuil de 67 points sur 100, les conditions complètes d'Entrée express et le classement CRS n'ont pas été calculés. Il faut les vérifier séparément.",
+      "The 67-out-of-100 selection threshold, full Express Entry requirements and CRS ranking have not been calculated. They must be checked separately."
+    ));
+
+    showResult("prResult",issues,blockers,[
+      {
+        fr:"Travailleurs qualifiés (fédéral) — IRCC",
+        en:"Federal Skilled Worker Program — IRCC",
+        url:"https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express/admissibilite/travailleurs-qualifies-federal.html"
+      },
+      {
+        fr:"Entrée express — IRCC",
+        en:"Express Entry — IRCC",
+        url:"https://www.canada.ca/fr/immigration-refugies-citoyennete/services/immigrer-canada/entree-express.html"
+      },
+      {
+        fr:"Immigrer au Québec",
+        en:"Immigrate to Quebec",
+        url:"https://www.quebec.ca/immigration"
+      }
+    ]);
+  });
+
+["studyQuestions","prQuestions"].forEach(formId=>{
+  document.getElementById(formId)
+    .addEventListener("reset",()=>{
+      document.getElementById(
+        formId==="studyQuestions"?"studyResult":"prResult"
+      ).hidden=true;
+    });
+});
+
+/* DESTINATIONS */
+const countries=[
+  ["🇫🇷","France","France",
+   "Visas et courts séjours.",
+   "Visas and short stays.",
+   "https://france-visas.gouv.fr/"],
+  ["🇬🇧","Royaume-Uni","United Kingdom",
+   "Visas et conditions d'entrée.",
+   "Visas and entry requirements.",
+   "https://www.gov.uk/browse/visas-immigration"],
+  ["🇨🇦","Canada","Canada",
+   "Visas, permis d'études et immigration.",
+   "Visas, study permits and immigration.",
+   "https://www.canada.ca/fr/immigration-refugies-citoyennete.html"],
+  ["🇪🇸","Espagne","Spain",
+   "Visas et procédures consulaires.",
+   "Visas and consular procedures.",
+   "https://www.exteriores.gob.es/"],
+  ["🇬🇷","Grèce","Greece",
+   "Visas et conditions d'entrée.",
+   "Visas and entry requirements.",
+   "https://www.mfa.gr/en/"],
+  ["🇨🇭","Suisse","Switzerland",
+   "Visas et autorisations d'entrée.",
+   "Visas and entry authorizations.",
+   "https://www.sem.admin.ch/"],
+  ["🇺🇸","États-Unis","United States",
+   "Visas et procédures officielles.",
+   "Visas and official procedures.",
+   "https://travel.state.gov/content/travel/en/us-visas.html"],
+  ["🇦🇺","Australie","Australia",
+   "Visas et immigration.",
+   "Visas and immigration.",
+   "https://immi.homeaffairs.gov.au/"],
+  ["🇮🇹","Italie","Italy",
+   "Visas et procédures consulaires.",
+   "Visas and consular procedures.",
+   "https://vistoperitalia.esteri.it/"],
+  ["🇩🇪","Allemagne","Germany",
+   "Visas et conditions d'entrée.",
+   "Visas and entry requirements.",
+   "https://www.auswaertiges-amt.de/en/visa-service"],
+  ["🇵🇹","Portugal","Portugal",
+   "Visas et séjours.",
+   "Visas and stays.",
+   "https://vistos.mne.gov.pt/"]
+];
+
+function renderCountries(){
+  const grid=document.getElementById("countryGrid");
+  grid.replaceChildren();
+
+  countries.forEach(c=>{
+    const card=document.createElement("div");
+    card.className="visa-card";
+
+    const flag=document.createElement("div");
+    flag.className="flag";
+    flag.textContent=c[0];
+
+    const name=document.createElement("h3");
+    name.textContent=tr(c[1],c[2]);
+
+    const description=document.createElement("p");
+    description.textContent=tr(c[3],c[4]);
+
+    const link=document.createElement("a");
+    link.href=c[5];
+    link.target="_blank";
+    link.rel="noopener noreferrer";
+    link.className="official-link";
+    link.textContent=tr("Site officiel →","Official website →");
+
+    card.append(flag,name,description,link);
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("accessCode")
+  .addEventListener("keydown",event=>{
+    if(event.key==="Enter")checkAccess();
+  });
+
+document.addEventListener("DOMContentLoaded",()=>{
+  restoreAccess();
+  setLanguage(currentLanguage);
+});
+</script>
 
 </body>
 </html>
